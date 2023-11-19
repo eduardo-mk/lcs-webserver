@@ -1,0 +1,79 @@
+.payment {
+  &__result {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-top: 10rem;
+    padding: 1rem;
+    color: aliceblue;
+    &--title {
+      text-align: center;
+      margin-bottom: 4rem;
+      font-size: 5rem;
+      opacity: 0;
+    }
+    &--title-error {
+      opacity: 1;
+    }
+    &--icon {
+      position: relative;
+      height: 30rem;
+      // justify-content: center;
+    }
+    .success__svg-checkmark {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 35rem;
+      height: 35rem;
+    }
+    .success__celebration {
+      height: 32rem;
+      width: 32rem;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      font-weight: 100;
+      transform: translate(-50%, -50%);
+    }
+    .fail__svg-sad-face {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 34rem;
+      height: 34rem;
+    }
+
+    &--thank,
+    &--failure-msg {
+      margin-top: 4rem;
+      font-size: 5rem;
+      text-align: center;
+      padding: 0 3rem;
+    }
+
+    &--button {
+      margin-top: 10rem;
+      margin-bottom: 6rem;
+      height: 9rem;
+      width: 35rem;
+      font-size: $big-font-size;
+      font-weight: bolder;
+      color: $color-black;
+      background-color: $color-white;
+      border: none;
+    }
+    &--list-msg {
+      font-size: $medium-font-size;
+    }
+  }
+  &__card-error {
+    text-align: center;
+    margin-top: 4rem;
+    font-size: $medium-font-size;
+    // opacity: 0;
+    color: $color-white;
+  }
+}

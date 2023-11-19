@@ -14,10 +14,15 @@
 
 # production
 /build
+tsconfig.tsbuildinfo
+
+# graphql
+graphql/codegen_auto_generated
 
 # misc
 .DS_Store
 *.pem
+./vscode
 
 # debug
 npm-debug.log*
@@ -32,3 +37,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+#private
+.env*.local

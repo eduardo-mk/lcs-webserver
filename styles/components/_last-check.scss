@@ -1,0 +1,35 @@
+.last-check {
+  display: flex;
+  flex-flow: column nowrap;
+  color: $color-white;
+  span {
+    font-size: 3.5rem;
+    font-weight: 600;
+  }
+
+  & > div {
+    padding: 1.5rem;
+    border: 1px solid $color-grey-dark;
+    border-radius: 1rem;
+  }
+
+  & > div > div {
+    font-size: 3rem;
+    text-transform: capitalize;
+    padding-left: 1.5rem;
+  }
+  &__plan {
+    margin-top: 0;
+  }
+
+  .your-info {
+    margin-top: 4rem;
+    .your-info__email {
+      text-transform: none;
+    }
+  }
+
+  button {
+    align-content: center;
+  }
+}

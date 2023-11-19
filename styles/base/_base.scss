@@ -1,0 +1,43 @@
+*,
+*::after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  height: 100%;
+  // This defined what 1 rem is
+  font-size: 62.5%;
+  // font-size: 34.5%;
+
+  @include respond(phone) {
+    font-size: 55%;
+  }
+  @include respond(small-phone) {
+    font-size: 40%;
+  }
+  @include respond(mini-phone) {
+    font-size: 35%;
+  }
+}
+
+body {
+  height: 100%;
+  box-sizing: border-box;
+  @include respond(tab-port) {
+    padding: 0rem;
+  }
+  background-color: $color-grey-dark-2;
+}
+
+#__next {
+  height: 100%;
+  position: relative;
+}
+
+.navigation + main {
+  margin-top: 8rem;
+  height: 100%;
+}

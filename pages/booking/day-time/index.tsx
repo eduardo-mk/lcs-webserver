@@ -1,0 +1,101 @@
+import { useState, useContext, useEffect } from 'react';
+import Button from '../../../components/button';
+import Calendar from '../../../components/calendar';
+import TimeSessionPicker from '../../../components/time-session-picker';
+import {
+  StateContext,
+  useDispatchContext,
+  useStateContext,
+} from '../../../reducers/booking/context';
+import {
+  useCalendarAvailableDays,
+  useCalendarAvailableHours,
+} from '../../../graphql/hooks';
+import BookingFlow from '../../../compositions/booking';
+import { translate_24_to_12 } from '../../../compositions/booking-last-check';
+import { useRouter } from 'next/router';
+
+const _1_day = 3600 * 1000 * 24;
+const NEXT_PAGE = '/test-booking/review';
+
+function DayAndTime() {
+  const state = useStateContext();
+  const dispatch = useDispatchContext();
+  const router = useRouter();
+
+  const [date, setDate] = useState(new Date(Date.now() + _1_day));
+  const [time, setTime] = useState(null);
+  const [showTimePicker, setShowTimePicker] = useState(false);
+
+  const daysAvailable = useCalendarAvailableDays();
+  const hoursAvailable = useCalendarAvailableHours(date);
+
+  useEffect(() => {
+    dispatch({ type: 'current_step_inside_form/update', payload: 2 });
+  }, [dispatch]);
+
+  function dateHandler(date: Date) {
+    setDate(date);
+    setShowTimePicker(true);
+    if (!daysAvailable.loading) {
+      // return <BookingFlow>
+      //   <div className="loader">Loading...</div>
+      // </BookingFlow>
+    }
+  }
+
+  function timeHandler(time: string) {
+    setTime(time);
+  }
+
+  function handlerForDayAndTimeSelection() {
+    dispatch({
+      type: 'day_and_time/update',
+      payload: {
+        date,
+        time: time ? translate_24_to_12[time] : hoursAvailable.hours[0],
+      },
+    });
+    dispatch({ type: 'day_and_time/validation', payload: true });
+    dispatch({ type: 'current_step_inside_form/update', payload: 3 });
+    router.push(NEXT_PAGE);
+  }
+
+  if (daysAvailable.error) return <h1>Error while trying to load days</h1>;
+  if (daysAvailable.loading) {
+    return (
+      <BookingFlow>
+        <div className="loader">Loading...</div>
+      </BookingFlow>
+    );
+  }
+
+  return (
+    <BookingFlow>
+      <section className="day-time__wrapper">
+        <Calendar
+          timeAvailable={daysAvailable.days}
+          onSelectionHandler={dateHandler}
+        />
+        {showTimePicker && !hoursAvailable.loading ? (
+          <>
+            <TimeSessionPicker
+              title={''}
+              onSelectionHandler={timeHandler}
+              hours={hoursAvailable.hours}
+            />
+            <Button
+              className="btn--classic"
+              type="button"
+              onClick={handlerForDayAndTimeSelection}
+            >
+              Seleccionar
+            </Button>
+          </>
+        ) : null}
+      </section>
+    </BookingFlow>
+  );
+}
+
+export default DayAndTime;

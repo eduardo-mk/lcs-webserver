@@ -1,0 +1,117 @@
+.small-card {
+  // padding: 1rem;
+  overflow: hidden;
+  min-height: 15rem;
+  border-radius: 1rem;
+  color: $color-black;
+  font-size: 2rem;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($orange-base, 1),
+    rgba(#f1d302, 0.8)
+  );
+  // background-color: rgb(52, 107, 7);
+  // display: flex;
+  // flex-flow: column;
+
+  &__heading {
+    // background-image: linear-gradient(to right, #f1d302 15%, #161925 75%);
+    // -webkit-background-clip: text;
+    // color: transparent;
+
+    // margin-left: 2rem;
+    // height: 4rem;
+    // padding: 3rem 3rem;
+    font-size: 2.5rem;
+    // max-width: 45rem;
+    padding: 1rem;
+    min-width: 40rem;
+    &-span {
+      color: $color-black;
+      text-align: left;
+      display: inline-block;
+      line-height: 2.8rem;
+    }
+  }
+  &__price-box {
+    // width: 70%;
+    // display: flex;
+    // flex-flow: row nowrap;
+    // justify-content: space-between;
+    white-space: nowrap;
+    span {
+      // color: $color-black;
+      width: 100%;
+      font-size: 2.5rem;
+    }
+  }
+  &__cta {
+    text-align: end;
+    width: 15rem;
+    font-weight: 600;
+    font-size: 3.3rem;
+    margin-right: 3rem;
+  }
+
+  &__description {
+    margin-left: 1rem;
+    // margin-top: 1.5rem;
+  }
+  &__container {
+    display: -webkit-flexbox;
+    display: flex;
+    flex-flow: row;
+    min-width: 54rem;
+
+    // flex: 1  50%;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -o-justify-content: space-between;
+    -webkit-box-pack: space-between;
+    justify-content: space-between;
+    // gap: 0rem;
+    // flex: 1 1 100%;
+    align-items: center;
+    &--top {
+      height: 8rem;
+    }
+  }
+  &__details {
+    // margin-left: 1rem;
+    margin-bottom: 1rem;
+    // width: 30rem;
+    padding: 1rem;
+    width: 50%;
+    // height: 100%;
+    h4 {
+      margin-top: 1.5rem;
+      color: $color-black;
+    }
+  }
+  &__list {
+    list-style: none;
+    width: 30rem;
+    & li {
+      margin-top: 1rem;
+    }
+  }
+
+  &__btn {
+    padding-right: 1rem;
+    button {
+      border-radius: 2rem;
+      color: $color-white;
+      background-color: $color-black;
+      border: none;
+      font-size: 2rem;
+      padding: 2rem;
+    }
+  }
+
+  &__selected {
+    background-image: none;
+    // background-color: #f1d302;
+    background-color: #bbff7ca6;
+  }
+}

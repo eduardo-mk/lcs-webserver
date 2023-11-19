@@ -1,0 +1,57 @@
+.section-booking {
+  padding: 20rem 1rem 0 1rem;
+  position: relative;
+  background-color: $color-grey-dark-2;
+  height: 100%;
+  min-width: 56rem;
+  transition: opacity 1s ease-out;
+
+  &__main-content {
+    background-color: $color-grey-dark-2;
+    transition: opacity 0.3s ease-out;
+    opacity: 0;
+    height: 0;
+    padding: 1.5rem;
+    section {
+      height: 100%;
+    }
+  }
+  &__displayed {
+    width: 100%;
+    position: absolute;
+    top: 19rem;
+    opacity: 1;
+    height: auto;
+  }
+  &__disappear {
+    transition: opacity 0.3s linear;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .calendar {
+    .react-calendar {
+      border: none;
+    }
+  }
+  .day-time {
+    margin-top: 4rem;
+    &__wrapper {
+      display: flex;
+      flex-flow: column nowrap;
+    }
+    &__time-selection {
+      text-transform: none;
+    }
+  }
+
+  .small-cards {
+  }
+  .small-card:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  .user-data {
+  }
+}

@@ -1,0 +1,21 @@
+.payment {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  &__info {
+    margin-top: 20%;
+    border-radius: 1rem;
+    align-self: center;
+    height: 25rem;
+    width: 40rem;
+    border: 1px solid black;
+    justify-self: center;
+    position: relative;
+  }
+  &__card-data {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    font-size: 2rem;
+  }
+}
