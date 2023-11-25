@@ -1,3 +1,10 @@
+export const mainPage = {
+  'heading-primary-main': 'Veronica',
+  'heading-primary-sub': 'Nutrición y Lactancia',
+  'online-booking-cta': 'Citas en línea',
+  'heading-secondary': 'Planes mas populares',
+};
+
 export const userInfoAssociatedContent = {
   'user-info-not-valiud-form-error-msg':
     'Algun dato es incorrecto ¿Podrías revisar si la información es correcta?',

@@ -34,7 +34,7 @@ function Payment() {
   const { userData, planSelection, dayAndTime } = useStateContext();
 
   const [mutateFunction, mutationState] = useMutation(SCHEDULE_APPOINTMENT);
-
+  // const [userClickedPay, setUserClickedPay] = useState(false)
   const [payButtonDisabled, setPayButtonDisabled] = useState(true);
   const [errorMsg, setErrorMessages] = useState(null);
   const stripe = useStripe();
@@ -57,11 +57,10 @@ function Payment() {
   async function onPayHandler(result: PaymentIntentResult) {
     const data: ScheduleAppointmentArgs = {
       patient_id: userData.userRegistrationId.toString(),
-      _id: planSelection.id,
+      service_id: planSelection.id,
       time_of_appt: dayAndTime.time,
       day_of_appt: formatDate(dayAndTime.date),
-      // duration_in_min: planSelection.metadata.duration_in_min,
-      duration_in_min: undefined,
+      duration_in_min: planSelection.metadata.duration_in_min,
       location: 'Online appointment',
       payment_intent_id: result.paymentIntent.id,
     };
@@ -84,14 +83,16 @@ function Payment() {
 
   function changeHandler(event: StripePaymentElementChangeEvent) {
     if (event.complete) {
-      setPayButtonDisabled(true);
+      setPayButtonDisabled(false);
       setErrorMessages(null);
+    } else {
+      setPayButtonDisabled(true);
     }
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setPayButtonDisabled(false);
+    setPayButtonDisabled(true);
 
     let result: PaymentIntentResult;
     try {
@@ -116,7 +117,6 @@ function Payment() {
             id: result.paymentIntent.id,
           },
         });
-        // setPayButtonDisabled(false);
       } else {
         await router.push({
           pathname: `/payment/fail`,
@@ -147,17 +147,9 @@ function Payment() {
         default:
           break;
       }
-      setPayButtonDisabled(true);
+      setPayButtonDisabled(false);
     }
   };
-
-  if (!elementsReady || mutationState.loading) {
-    return (
-      <BookingFlow>
-        <div className="loader">Loading...</div>
-      </BookingFlow>
-    );
-  }
 
   if (mutationState.error) {
     console.error('~~~~~ Error with mutation state ~~~~~~~~');
@@ -165,23 +157,22 @@ function Payment() {
   }
 
   return (
-    <BookingFlow>
-      <section className="payment">
-        <section className="payment_card">
-          <PaymentElement onChange={changeHandler} />
-          {/* <PaymentElement /> */}
-        </section>
+    <section className="payment">
+      <section className="payment_card">
+        <PaymentElement onChange={changeHandler} />
+      </section>
+      {elementsReady ? (
         <Button
-          className={!payButtonDisabled ? 'disabled' : ''}
+          className={payButtonDisabled ? 'disabled' : ''}
           onClick={handleSubmit}
         >
           Pagar
         </Button>
-        <section className="payment__card-error">
-          <span className="payment__message">{errorMsg}</span>
-        </section>
+      ) : null}
+      <section className="payment__card-error">
+        <span className="payment__message">{errorMsg}</span>
       </section>
-    </BookingFlow>
+    </section>
   );
 }
 
@@ -207,21 +198,36 @@ function PaymentWithStripe() {
       });
   }, [planSelection]);
 
-  if (clientSecret === null) {
-    return null;
-  }
-
   return (
-    <Elements
-      stripe={stripePromise as any}
-      options={{
-        clientSecret: clientSecret,
-        loader: 'always',
-        locale: 'es',
-      }}
-    >
-      <Payment />
-    </Elements>
+    <BookingFlow>
+      {clientSecret === null ? (
+        <div className="loader">Loading...</div>
+      ) : (
+        <Elements
+          stripe={stripePromise as any}
+          options={{
+            clientSecret: clientSecret,
+            loader: 'always',
+            locale: 'es',
+            appearance: {
+              theme: 'flat',
+              // variables: {
+              //   colorPrimary: '#0570de',
+              //   colorBackground: '#ffffff',
+              //   colorText: '#30313d',
+              //   colorDanger: '#df1b41',
+              //   fontFamily: 'Ideal Sans, system-ui, sans-serif',
+              //   spacingUnit: '2px',
+              //   borderRadius: '4px',
+              //   // See all possible variables below
+              // },
+            },
+          }}
+        >
+          <Payment />
+        </Elements>
+      )}
+    </BookingFlow>
   );
 }
 export default PaymentWithStripe;

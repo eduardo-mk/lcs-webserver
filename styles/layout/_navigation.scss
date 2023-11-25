@@ -173,14 +173,14 @@
   &__button:hover &__icon::after {
     top: 1rem;
   }
-  &__checkbox:checked + &__button &__icon {
+  &__checked + &__button &__icon {
     background-color: transparent;
   }
-  &__checkbox:checked + &__button &__icon:before {
+  &__checked + &__button &__icon:before {
     transform: rotate(135deg);
     top: 0.2rem;
   }
-  &__checkbox:checked + &__button &__icon:after {
+  &__checked + &__button &__icon:after {
     top: 0.2rem;
     transform: rotate(-135deg);
   }

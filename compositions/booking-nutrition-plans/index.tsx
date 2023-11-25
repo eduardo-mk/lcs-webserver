@@ -1,35 +1,72 @@
+import BookingFlow from '../../compositions/booking';
+import { useRouter } from 'next/router';
 import Plan from '../../components/plan-card';
-import { useState } from 'react';
+import { MouseEvent, useEffect } from 'react';
 import { usePlans } from '../../graphql/hooks';
+import {
+  useDispatchContext,
+  useStateContext,
+} from '../../reducers/booking/context';
 
-function Plans({ clickHandler }) {
-  const [selection, setSelection] = useState(undefined);
+const NEXT_PAGE = '/booking/user-info';
+
+function Plans() {
+  const state = useStateContext();
+  const dispatch = useDispatchContext();
+
+  const router = useRouter();
   const { plans, error, loading } = usePlans(3, 0);
 
-  function selectionHandler(event) {
-    const planID = event.target.dataset.id;
-    setSelection(planID);
-    clickHandler(event, plans);
+  useEffect(() => {
+    dispatch({ type: 'current_step_inside_form/update', payload: 0 });
+  }, [dispatch]);
+
+  function selectionHandler(event: MouseEvent) {
+    const planIdFormClickedElement = (event.target as HTMLElement).dataset.id;
+    const planSelected = plans.find(({ id }) => {
+      return id === planIdFormClickedElement;
+    });
+    dispatch({ type: 'plan_selection/update', payload: planSelected });
+    dispatch({ type: 'plan_selection/validation', payload: true });
+    dispatch({ type: 'current_step_inside_form/update', payload: 1 });
+    router.push(NEXT_PAGE);
   }
 
-  if (error) return <h1>Error while trying to load plans</h1>;
-  if (loading)
-    return <h1 style={{ marginTop: '50px', zIndex: '10000' }}>Loading...</h1>;
+  if (error) {
+    return (
+      <div
+        style={{
+          marginTop: '50px',
+          zIndex: '10000',
+          height: '400px',
+          backgroundColor: 'black',
+        }}
+      >
+        {JSON.stringify(error)}
+      </div>
+    );
+  }
+
+  if (loading) {
+    return <div className="loader">Loading...</div>;
+  }
 
   if (Array.isArray(plans)) {
     return (
-      <section className="small-cards">
-        {plans.map((info) => {
-          return (
-            <Plan
-              key={info.id}
-              info={info}
-              selectedPlan={selection}
-              clickHandler={selectionHandler}
-            />
-          );
-        })}
-      </section>
+      <BookingFlow>
+        <section className="small-cards">
+          {plans.map((info) => {
+            return (
+              <Plan
+                key={info.id}
+                info={info}
+                selectedPlan={state.planSelection?.id}
+                clickHandler={selectionHandler}
+              />
+            );
+          })}
+        </section>
+      </BookingFlow>
     );
   }
 }

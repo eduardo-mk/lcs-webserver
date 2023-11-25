@@ -102,7 +102,7 @@ export type Reservation = {
 };
 
 export type ScheduleAppointmentArgs = {
-  _id: Scalars['String'];
+  service_id: Scalars['String'];
   day_of_appt: Scalars['String'];
   duration_in_min: Scalars['String'];
   location?: InputMaybe<Scalars['String']>;

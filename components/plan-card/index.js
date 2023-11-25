@@ -1,7 +1,7 @@
-function detailGenerator(metadata) {
+export function detailGenerator(metadata) {
   if (!metadata.more_details) return null;
   return metadata.more_details.split(',').map((detail, i) => {
-    return <li key={i}>- {detail}</li>;
+    return <li key={i}>{detail}</li>;
   });
 }
 

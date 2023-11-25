@@ -17,7 +17,7 @@ import {
 import { UserData } from '../../../interfaces/payment';
 import Image from 'next/image';
 
-const NEXT_PAGE = '/test-booking/day-time';
+const NEXT_PAGE = '/booking/day-time';
 
 type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
 

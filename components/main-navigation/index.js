@@ -4,9 +4,18 @@ import { useState } from 'react';
 function Navigation() {
   const [dropDownOpen, setDropDown] = useState(false);
 
+  function handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      setDropDown(!dropDownOpen);
+    }
+  }
+
   function clickNavBar(e) {
+    e.preventDefault();
     setDropDown(!dropDownOpen);
   }
+
   return (
     <>
       <div className="navigation" onClick={clickNavBar}>
@@ -19,7 +28,13 @@ function Navigation() {
         ></input>
 
         <label htmlFor="navi-toggle" className="navigation__button">
-          <span className="navigation__icon">&nbsp;</span>
+          <span
+            tabIndex={0}
+            onKeyDown={handleKeyPress}
+            className="navigation__icon"
+          >
+            &nbsp;
+          </span>
         </label>
 
         <div
@@ -46,27 +61,27 @@ function Navigation() {
           <ul className="navigation__list">
             <li className="navigation__item">
               <Link href="/" className="navigation__link">
-                Home
+                Inicio
               </Link>
             </li>
             <li className="navigation__item">
-              <Link href="/booking" className="navigation__link">
-                Book now
+              <Link href="/booking/plans" className="navigation__link">
+                Citas en Línea
               </Link>
             </li>
             <li className="navigation__item">
               <Link href="#" className="navigation__link">
-                Plans
+                Planes
               </Link>
             </li>
             <li className="navigation__item">
               <Link href="/stories" className="navigation__link">
-                Stories
+                Historias
               </Link>
             </li>
             <li className="navigation__item">
               <Link href="/about" className="navigation__link">
-                About me
+                Acerca de mi
               </Link>
             </li>
           </ul>

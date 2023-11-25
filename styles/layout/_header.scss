@@ -1,5 +1,6 @@
 .header {
-  height: 95vh;
+  margin-top: 8rem;
+  height: 105rem;
   background-image: linear-gradient(
       to left bottom,
       rgba($color-primary-light, 0.8),
@@ -7,32 +8,53 @@
     ),
     url(../../public/images/mom-1.jpg);
   background-size: cover;
-  background-position: top;
-  position: relative;
-
-  &__logo-box {
+  // background-position: top;
+  // position: relative;
+  // border: 1px dotted red;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  &__image {
+    padding-top: 2rem;
     width: 100%;
-    height: 100%;
-    position: relative;
-    transform: translate(-50%, -50%);
-    top: 38%;
-    left: 50%;
+    height: 55rem;
+  }
+  &__logo-box {
+    display: flex;
+    height: 350px;
+    // width: 100%;
+    flex-flow: column;
+    padding-top: 12rem;
+    // height: 100%;
+    // margin-top: 8rem;
+    // border: 1px dotted red;
+    // height: 100rem;
+
+    // width: 50rem;
+    // height: 50rem;
+    // position: relative;
+    // transform: translate(-50%, -50%);
+    // top: 45rem;
+    // left: 45rem;
     img {
-      min-width: 80% !important;
-      min-height: 80% !important;
+      width: 100%;
+      height: 50rem;
+
+      // min-width: 80% !important;
+      // min-height: 80% !important;
     }
-    @include respond(tab-port) {
-      // height: 70%;
-    }
-    @include respond(small-phone) {
-      top: 40%;
-      width: 90%;
-    }
-    @include respond(mini-phone) {
-      top: 36%;
-      width: 90%;
-      // height: 60rem;
-    }
+    // @include respond(tab-port) {
+    //   // height: 70%;
+    // }
+    // @include respond(small-phone) {
+    //   top: 40%;
+    //   width: 90%;
+    // }
+    // @include respond(mini-phone) {
+    //   top: 36%;
+    //   width: 90%;
+    //   // height: 60rem;
+    // }
   }
 
   &__logo {
@@ -40,19 +62,24 @@
   }
 
   &__text-box {
-    position: absolute;
-    top: 83%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    @include respond(small-phone) {
-      top: 82%;
-      // height: 65%;
-    }
-    @include respond(mini-phone) {
-      top: 75%;
-      // height: 65%;
-    }
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    // position: absolute;
+    // top: 78%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    // text-align: center;
+    // @include respond(small-phone) {
+    //   // top: 490px;
+    //   top: 87rem;
+    //   // height: 65%;
+    // }
+    // @include respond(mini-phone) {
+    //   top: 75%;
+    //   // height: 65%;
+    // }
   }
 
   @include respond(tab-port) {

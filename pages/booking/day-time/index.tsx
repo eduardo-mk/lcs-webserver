@@ -16,7 +16,7 @@ import { translate_24_to_12 } from '../../../compositions/booking-last-check';
 import { useRouter } from 'next/router';
 
 const _1_day = 3600 * 1000 * 24;
-const NEXT_PAGE = '/test-booking/review';
+const NEXT_PAGE = '/booking/review';
 
 function DayAndTime() {
   const state = useStateContext();

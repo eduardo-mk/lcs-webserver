@@ -25,6 +25,7 @@ html {
 
 body {
   height: 100%;
+  width: 100%;
   box-sizing: border-box;
   @include respond(tab-port) {
     padding: 0rem;

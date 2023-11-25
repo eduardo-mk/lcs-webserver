@@ -2,13 +2,13 @@ import BookingFlow from '../../../compositions/booking';
 import { useRouter } from 'next/router';
 import Plan from '../../../components/plan-card';
 import { MouseEvent, useEffect } from 'react';
-import { usePlans, useScheduleAppointment } from '../../../graphql/hooks';
+import { usePlans } from '../../../graphql/hooks';
 import {
   useDispatchContext,
   useStateContext,
 } from '../../../reducers/booking/context';
 
-const NEXT_PAGE = '/test-booking/user-info';
+const NEXT_PAGE = '/booking/user-info';
 
 function Plans() {
   const state = useStateContext();

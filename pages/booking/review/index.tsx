@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import BookingFlow from '../../../compositions/booking';
 import { useRouter } from 'next/router';
 import { reviewApplicationContent, translate_24_to_12 } from '../../../content';
-const NEXT_PAGE = '/test-booking/payment';
+const NEXT_PAGE = '/booking/payment';
 
 function LastCheck() {
   const state = useStateContext();
