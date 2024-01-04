@@ -1,14 +1,14 @@
 export const mainPage = {
   'heading-primary-main': 'Veronica',
   'heading-primary-sub': 'Nutrición y Lactancia',
-  'online-booking-cta': 'Citas en línea',
+  'online-booking-cta': 'Programa tu cita',
   'heading-secondary': 'Planes mas populares',
 };
 
 export const userInfoAssociatedContent = {
   'user-info-not-valiud-form-error-msg':
     'Algun dato es incorrecto ¿Podrías revisar si la información es correcta?',
-  'user-info-can-not-be-registered': `Por el momento no podemos continuar con el proceso,\nel usuario no puede ser registrado,\nel servicio estará dispoinble pronto`,
+  'user-info-can-not-be-registered': `Lo sentimos, por el momento no podemos continuar con el proceso de registro, el servicio estará dispoinble pronto`,
   'user-info-footer-disclaimer': `La informacion sera utilizada para mandarle un cuestionario de salud.\nLe recomendamos contestar dicho cuestionario antes de la consulta para\naprovechar mejor el tiempo.`,
 };
 

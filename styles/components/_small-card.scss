@@ -3,16 +3,26 @@
   overflow: hidden;
   min-height: 15rem;
   border-radius: 1rem;
-  color: $color-black;
+  color: $color-primary-dark;
   font-size: 2rem;
-  background-image: linear-gradient(
-    to right bottom,
-    rgba($orange-base, 1),
-    rgba(#f1d302, 0.8)
-  );
+  background-color: $color-beishezito;
+  padding: 2rem;
+  padding-bottom: 6rem;
+  width: 100%;
+  // background-image: linear-gradient(to right bottom, rgba($orange-base, 1), rgba(#f1d302, 0.8));
   // background-color: rgb(52, 107, 7);
   // display: flex;
   // flex-flow: column;
+
+  &__service-logo {
+    // height: 100rem;
+    margin-top: 1rem;
+    width: 12rem;
+    // border: 1px dotted blue;
+    img {
+      opacity: 0.4;
+    }
+  }
 
   &__heading {
     // background-image: linear-gradient(to right, #f1d302 15%, #161925 75%);
@@ -25,7 +35,7 @@
     font-size: 2.5rem;
     // max-width: 45rem;
     padding: 1rem;
-    min-width: 40rem;
+    min-width: 38rem;
     &-span {
       color: $color-black;
       text-align: left;
@@ -34,7 +44,7 @@
     }
   }
   &__price-box {
-    // width: 70%;
+    padding-left: 1rem;
     // display: flex;
     // flex-flow: row nowrap;
     // justify-content: space-between;
@@ -54,6 +64,7 @@
   }
 
   &__description {
+    // margin-top: 3rem;
     margin-left: 1rem;
     // margin-top: 1.5rem;
   }
@@ -74,7 +85,7 @@
     // flex: 1 1 100%;
     align-items: center;
     &--top {
-      height: 8rem;
+      // height: 8rem;
     }
   }
   &__details {
@@ -82,7 +93,7 @@
     margin-bottom: 1rem;
     // width: 30rem;
     padding: 1rem;
-    width: 50%;
+    width: 100%;
     // height: 100%;
     h4 {
       margin-top: 1.5rem;
@@ -91,7 +102,7 @@
   }
   &__list {
     list-style: none;
-    width: 30rem;
+    width: 100%;
     & li {
       margin-top: 1rem;
     }
@@ -111,7 +122,11 @@
 
   &__selected {
     background-image: none;
+    // border: 1rem double $color-tertiary-light;
     // background-color: #f1d302;
-    background-color: #bbff7ca6;
+    background-color: $color-secondary-dark;
+    -webkit-box-shadow: 0px 0px 7px 1px rgba(56, 59, 55, 1);
+    -moz-box-shadow: 0px 0px 7px 1px rgba(56, 59, 55, 1);
+    box-shadow: 0px 0px 7px 1px rgba(56, 59, 55, 1);
   }
 }

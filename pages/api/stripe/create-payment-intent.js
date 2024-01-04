@@ -16,17 +16,19 @@ export default async function handler(req, res) {
     );
 
     if (backendResponse.status >= 100 && backendResponse.status < 300) {
-      const data = await backendResponse.json();
-      res.status(200).json(data);
+      console.log('NextJS_API : Stripe call successfull');
+      // const data = await backendResponse.json();
+      // res.status(200).json(data);
     } else {
-      console.error(
-        'Payment intent failed, status code:',
-        backendResponse.status
-      );
-      res.status(backendResponse.status).json({
-        error: 'Payment intent failed',
-      });
+      console.log('NextJS_API : Stripe call failed');
+      console.error(backendResponse.status);
+      // res.status(backendResponse.status).json({
+      //   error: 'Payment intent failed',
+      // });
     }
+
+    const data = await backendResponse.json();
+    res.status(backendResponse.status).json(data);
   } catch (e) {
     console.error('Payment intent failed');
     console.error(e);

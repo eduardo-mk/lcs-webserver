@@ -1,11 +1,88 @@
 .payment {
+  &__plan {
+    &-summary {
+      // max-width: 60rem;
+      margin: 0 auto;
+      color: $color-primary-dark;
+      // margin-bottom: 3rem;
+      // border: 2px $color-grey-light-3 solid;
+      padding: 0rem 2.5rem 2.5rem 2.5rem;
+      // border-radius: 1rem;
+    }
+    &-description {
+      margin-top: 1.5rem;
+      // color: $color-primary-light;
+    }
+    &-patient {
+      margin-top: 1.5rem;
+    }
+    &-price {
+      margin-top: 3rem;
+    }
+    &-options {
+      font-size: 2.5rem;
+      margin-top: 4rem;
+      display: flex;
+      align-items: center;
+      h2 {
+        font-size: 2rem;
+      }
+    }
+    &-stripe-logo {
+    }
+  }
+
+  &__review {
+    margin-top: 2rem;
+    font-size: 2.5rem;
+    &-order {
+      font-size: 3rem;
+      color: $color-primary-dark;
+    }
+    // border-spacing: 0px;
+    border-collapse: collapse;
+    color: $color-primary-dark;
+    width: 100%;
+    text-align: left;
+
+    &-title {
+    }
+    & thead tr th {
+      font-weight: 600;
+      border-bottom: 3px rgb(206, 206, 206) solid;
+    }
+    & tbody tr:first-child td {
+      padding: 1.5rem 0.5rem;
+    }
+
+    & tfoot tr td {
+      font-weight: 600;
+      border-bottom: 3px rgb(206, 206, 206) solid;
+    }
+
+    & td,
+    th {
+      border-bottom: 1px rgb(206, 206, 206) solid;
+      padding: 0.5rem;
+    }
+  }
+
+  &__card {
+    max-width: 60rem;
+    padding: 0rem 2.5rem 2.5rem 2.5rem;
+    margin: 0 auto;
+    height: 60rem;
+    &-title {
+      color: $color-primary-dark;
+    }
+  }
   &__result {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     margin-top: 10rem;
     padding: 1rem;
-    color: aliceblue;
+    color: $color-primary-dark;
     &--title {
       text-align: center;
       margin-bottom: 4rem;
@@ -76,4 +153,8 @@
     // opacity: 0;
     color: $color-white;
   }
+}
+
+.StripeElement {
+  color: $color-primary-dark !important;
 }

@@ -3,7 +3,6 @@ import Button from '../../../components/button';
 import Calendar from '../../../components/calendar';
 import TimeSessionPicker from '../../../components/time-session-picker';
 import {
-  StateContext,
   useDispatchContext,
   useStateContext,
 } from '../../../reducers/booking/context';
@@ -12,13 +11,13 @@ import {
   useCalendarAvailableHours,
 } from '../../../graphql/hooks';
 import BookingFlow from '../../../compositions/booking';
-import { translate_24_to_12 } from '../../../compositions/booking-last-check';
 import { useRouter } from 'next/router';
 
 const _1_day = 3600 * 1000 * 24;
 const NEXT_PAGE = '/booking/review';
 
 function DayAndTime() {
+  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
   const state = useStateContext();
   const dispatch = useDispatchContext();
   const router = useRouter();
@@ -28,7 +27,7 @@ function DayAndTime() {
   const [showTimePicker, setShowTimePicker] = useState(false);
 
   const daysAvailable = useCalendarAvailableDays();
-  const hoursAvailable = useCalendarAvailableHours(date);
+  const hoursAvailable = useCalendarAvailableHours(date, timeZone);
 
   useEffect(() => {
     dispatch({ type: 'current_step_inside_form/update', payload: 2 });
@@ -53,7 +52,8 @@ function DayAndTime() {
       type: 'day_and_time/update',
       payload: {
         date,
-        time: time ? translate_24_to_12[time] : hoursAvailable.hours[0],
+        time: time ?? hoursAvailable.hours[0],
+        timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       },
     });
     dispatch({ type: 'day_and_time/validation', payload: true });
@@ -73,6 +73,7 @@ function DayAndTime() {
   return (
     <BookingFlow>
       <section className="day-time__wrapper">
+        <h1 className='section-booking__header'>Elige el día y después la hora</h1>
         <Calendar
           timeAvailable={daysAvailable.days}
           onSelectionHandler={dateHandler}
@@ -88,7 +89,7 @@ function DayAndTime() {
               className="btn--classic"
               type="button"
               onClick={handlerForDayAndTimeSelection}
-            >
+              >
               Seleccionar
             </Button>
           </>

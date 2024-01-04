@@ -8,6 +8,7 @@ import Head from 'next/head';
 import { apolloClient } from '../graphql/apollo_client';
 import ErrorBoundary from '../components/error-boundary';
 import { BookingContextWrapper } from '../reducers/booking/wrapper';
+import { Footer } from '../components/footer/index';
 
 function MyApp({ Component, pageProps }) {
   const [clickAmount, setClickAmount] = useState(0);
@@ -27,13 +28,12 @@ function MyApp({ Component, pageProps }) {
             ></meta>
           </Head>
           <NavBar></NavBar>
-          {/* <LayouNavFooter dropDownStateRef={dropDownStateRef}> */}
-          <Component
-            {...pageProps}
-            clickAmount={clickAmount}
-            increment={increment}
-          />
-          {/* </LayouNavFooter> */}
+            <Component
+              {...pageProps}
+              clickAmount={clickAmount}
+              increment={increment}
+            />
+          <Footer />
         </ApolloProvider>
       </ErrorBoundary>
     </BookingContextWrapper>

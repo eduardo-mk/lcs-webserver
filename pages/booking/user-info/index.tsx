@@ -16,7 +16,8 @@ import {
 } from '../../../reducers/booking/context';
 import { UserData } from '../../../interfaces/payment';
 import Image from 'next/image';
-
+import dogPensative from '../../../public/images/dog-pensative.png';
+import Link from 'next/link';
 const NEXT_PAGE = '/booking/day-time';
 
 type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
@@ -119,15 +120,26 @@ function UserInfo() {
   if (userRegistrationServiceApiOk === false) {
     return (
       <section className="user-data">
-        <div className="user-data__registration-error-container">
-          <Image
-            src="/images/dog-pensative.png"
-            alt="Person on a tour"
-            height={200}
-            width={300}
-            className="story__img"
-          />
+        <div className="user-data__error">
+          <div className="user-data__error-image--wrapper">
+            <Image
+              src={dogPensative}
+              alt="Person on a tour"
+              style={{
+                width: '100%',
+                height: 'auto',
+              }}
+              sizes="100vw"
+              // height={200}
+              // width={300}
+              className="story__img"
+            />
+          </div>
           <p>{userInfoAssociatedContent['user-info-can-not-be-registered']}</p>
+          <Link href="/" className="btn btn--white btn--animated">
+          {' '}
+          {'Volver a inicio'}
+        </Link>
         </div>
       </section>
     );
@@ -136,6 +148,7 @@ function UserInfo() {
   return (
     <BookingFlow>
       <section className="user-data">
+        <h1 className='section-booking__header'>Información de Contacto</h1>
         <div className="user-data__contact-basic">
           <form>
             <Input

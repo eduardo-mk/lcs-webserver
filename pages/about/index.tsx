@@ -1,113 +1,106 @@
 import Image from 'next/image';
+import aboutMe from '../../public/about-me.jpg';
+import aboutMeContent from '../../content/about-me';
+import vero from '../../public/images/vero.svg';
+import hola from '../../public/images/hola.svg';
+import unisonLogo from '../../public/logo/unison.jpg';
+import uesLogo from '../../public/logo/ues.png';
+import iblceLogo from '../../public/logo/IBCLC_Logo.png';
+import { useScrollToTheTopOfThePage } from '../../misc/useScrollTop';
 
-function AboutMe({ clickAmount, increment }) {
+function AboutMe() {
+  useScrollToTheTopOfThePage();
   return (
-    <div>
-      <section className="section-features">
-        <div className="row">
-          <div className="col-1-of-4">
-            <div className="feature-box">
-              <i className="feature-box__icon icon-basic-world"></i>
-              <h3 className="heading-tertiary u-margin-bottom-small">IBCLC</h3>
-              <p className="feature-box__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
-            </div>
-          </div>
-          <div className="col-1-of-4">
-            <div className="feature-box">
-              <i className="feature-box__icon icon-basic-tablet"></i>
-              <h3 className="heading-tertiary u-margin-bottom-small">
-                Online consultation
-              </h3>
-              <p className="feature-box__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
-            </div>
-          </div>
-          <div className="col-1-of-4">
-            <div className="feature-box">
-              <i className="feature-box__icon icon-basic-target"></i>
-              <h3 className="heading-tertiary u-margin-bottom-small">
-                Personalized
-              </h3>
-              <p className="feature-box__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
-            </div>
-          </div>
-          <div className="col-1-of-4">
-            <div className="feature-box">
-              <i className="feature-box__icon icon-basic-lock"></i>
-              <h3 className="heading-tertiary u-margin-bottom-small">
-                Privacy
-              </h3>
-              <p className="feature-box__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
-            </div>
-          </div>
+    <div className="about-me">
+      <section className="about-me__image-wrapper">
+        <Image
+          src={aboutMe}
+          alt={'Veronica holding her baby, both smiling'}
+          style={{
+            width: '100%',
+            height: 'auto',
+          }}
+          sizes="100vw"
+        />
+      </section>
+      <section className="about-me__info">
+        <div className="about-me__greeting">
+          <Image
+            src={hola}
+            alt="saludo hola"
+            style={{
+              width: 'auto',
+              height: '15rem',
+            }}
+            sizes="100vw"
+          />
+        </div>
+        <p className="about-me__text-intro">{aboutMeContent['intro-text']}</p>
+        <div className="about-me__name">
+          <Image
+            src={vero}
+            alt="veronica"
+            style={{
+              width: '40%',
+              height: 'auto',
+            }}
+            sizes="100vw"
+          />
         </div>
       </section>
-      <section className="section-about">
-        <div className="u-center-text u-margin-bottom-8 u-margin-top-8">
-          <h2 className="heading-secondary">
-            Specialized in breast feeding + more than 5 years in consultation.
-          </h2>
-        </div>
-
-        <div className="row">
-          <div className="col-1-of-2">
-            <h3 className="heading-tertiary u-margin-bottom-small">
-              Learn how to breast feed your baby
-            </h3>
-            <p className="paragraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua{' '}
-            </p>
-            <h3 className="heading-tertiary u-margin-bottom-small">
-              Improve latch and reduce nipple pain
-            </h3>
-            <p className="paragraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua
-            </p>
-            <span>Number of clicks in global state {clickAmount}</span>
-            <a onClick={increment} href="#" className="btn-text">
-              Learn more &rarr;
-            </a>
-          </div>
-          <div className="col-1-of-2">
-            {/*BEM naming convention: Block Element Modifier */}
-            <div className="composition">
+      <section className="about_me__credential">
+        {/* <h1 className="about-me__credential-header">Mis credenciales</h1> */}
+        <ul className="about-me__credential-list">
+          <li>
+            <div className="about-me__credential-logo">
               <Image
-                src="/nat-1-large.jpg"
-                alt="Photo 1"
-                className="composition__photo composition__photo--p1"
-                width={200}
-                height={100}
-              />
-              <Image
-                src="/nat-2-large.jpg"
-                alt="Photo 2"
-                className="composition__photo composition__photo--p2"
-                width={200}
-                height={100}
-              />
-              <Image
-                src="/nat-3-large.jpg"
-                alt="Photo 3"
-                className="composition__photo composition__photo--p3"
-                width={200}
-                height={100}
+                src={iblceLogo}
+                alt="IBLCE logo"
+                style={{
+                  width: '40%',
+                  height: 'auto',
+                }}
+                sizes="100vw"
               />
             </div>
-          </div>
-        </div>
+            <span className="about-me__credential-title">
+              CONSULTORA INTERNACIONAL CERTIFICADA EN LACTANCIA MATERNA
+            </span>
+          </li>
+
+          <li>
+            <div className="about-me__credential-logo">
+              <Image
+                src={unisonLogo}
+                alt="UNISON logo"
+                style={{
+                  width: '35%',
+                  height: 'auto',
+                }}
+                sizes="100vw"
+              />
+            </div>
+            <span className="about-me__credential-title">
+              MAESTRA EN CIENCIAS DE LA SALUD
+            </span>
+          </li>
+          <li>
+            <div className="about-me__credential-logo">
+              <Image
+                src={uesLogo}
+                alt="UES logo"
+                style={{
+                  width: '40%',
+                  height: 'auto',
+                }}
+                sizes="100vw"
+              />
+            </div>
+            <span className="about-me__credential-title">
+              LICENCIADA EN NUTRICIÓN HUMANA
+            </span>
+          </li>
+        </ul>
       </section>
     </div>
   );

@@ -1,4 +1,4 @@
-import { Service } from '../graphql/codegen_auto_generated';
+import * as GraphQL from '../graphql/codegen_auto_generated';
 
 export interface PlanSelection {
   id: string;
@@ -27,7 +27,7 @@ export interface DayAndTime {
 export interface BookingState {
   clientSecret: string | null;
   currentStep: number;
-  planSelection: Service;
+  planSelection: GraphQL.Service;
   planSelectionIsValid: boolean;
   userData: UserData;
   userDataIsValid: boolean;

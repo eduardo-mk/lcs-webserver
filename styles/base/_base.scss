@@ -8,8 +8,12 @@
 
 html {
   height: 100%;
+  min-width: 320px;
   // This defined what 1 rem is
   font-size: 62.5%;
+  color: $color-primary-dark;
+  background-color: $color-primary-dark;
+  // background-image: linear-gradient(to top, #383b37, #54645b, #6d9088, #84bfbf, #9feeff);
   // font-size: 34.5%;
 
   @include respond(phone) {
@@ -26,19 +30,27 @@ html {
 body {
   height: 100%;
   width: 100%;
+  padding: env(safe-area-inset);
   box-sizing: border-box;
+
   @include respond(tab-port) {
     padding: 0rem;
   }
-  background-color: $color-grey-dark-2;
+
+  // background-image: linear-gradient(to left bottom, rgba($color-secondary-light, 1), rgba($color-primary, 1));
+  background-repeat: no-repeat;
 }
 
+.canvas {
+  background-color: $color-fondo-pardo;
+  // height: 100%;
+}
 #__next {
   height: 100%;
   position: relative;
 }
 
 .navigation + main {
-  margin-top: 8rem;
+  // margin-top: 6rem;
   height: 100%;
 }

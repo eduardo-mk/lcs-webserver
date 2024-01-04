@@ -1,35 +1,42 @@
-@import 'abstracts/functions';
-@import 'abstracts/mixins';
-@import 'abstracts/variables';
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
 
-@import 'base/animations';
-@import 'base/base';
-@import 'base/typography';
-@import 'base/utilities';
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
 
-@import 'icons/icon-font';
-@import 'icons/_icon-ecommerce';
+@import "icons/icon-font";
+@import "icons/_icon-ecommerce";
 
-@import 'components/button';
-@import 'components/bg-video';
-@import 'components/composition';
-@import 'components/feature-box';
-@import 'components/card';
-@import 'components/story';
-@import 'components/calendar';
-@import 'components/time-zone-picker';
-@import 'components/time-picker';
-@import 'components/progress-step-bar';
-@import 'components/user-info';
-@import 'components/small-card';
-@import 'components/spinner';
-@import 'components/last-check';
-@import 'components/credit-card';
+@import "fonts/wisper-regular";
+@import "fonts/open-sans";
+@import "fonts/agrandir";
 
-@import 'layout/header';
-@import 'layout/grid';
-@import 'layout/navigation';
+@import "components/button";
+@import "components/bg-video";
+@import "components/composition";
+@import "components/feature-box";
+@import "components/card";
+@import "components/story";
+@import "components/calendar";
+@import "components/time-zone-picker";
+@import "components/time-picker";
+@import "components/progress-step-bar";
+@import "components/user-info";
+@import "components/small-card";
+@import "components/spinner";
+@import "components/last-check";
+@import "components/credit-card";
+@import "components/info-table";
+@import "components/footer";
 
-@import 'specific_pages/homepage';
-@import 'specific_pages/booking';
-@import 'specific_pages/payment';
+@import "layout/header";
+@import "layout/grid";
+@import "layout/navigation";
+
+@import "specific_pages/homepage";
+@import "specific_pages/booking";
+@import "specific_pages/payment";
+@import "specific_pages/about-me";

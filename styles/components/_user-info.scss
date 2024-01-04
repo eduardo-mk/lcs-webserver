@@ -5,6 +5,7 @@
   width: 100%;
   display: flex;
   flex-flow: column nowrap;
+  color: $color-primary-dark;
   &__msg {
     text-align: center;
     font-size: 6rem;
@@ -22,19 +23,27 @@
   }
   .input-classic {
     color: #ffffff;
+    color: $color-primary-dark;
     // color: $color-secondary-dark;
 
     // label {
     //   // font-size: $big-font-size-2;
     // }
   }
-  &__registration {
-    &-error-container {
-      margin-top: 5rem;
-      p {
-        color: $color-grey-light-1;
-        font-size: 3rem;
-      }
+  &__error {
+    margin-top: 5rem;
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    &-image--wrapper {
+      // height:;
+    }
+    p {
+      color: $color-primary-dark;
+      text-align: center;
+      font-size: 3rem;
+      margin: 4rem;
     }
   }
 }

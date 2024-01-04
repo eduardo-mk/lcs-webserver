@@ -10,15 +10,20 @@
     font-size: 6rem;
     margin-bottom: 0.5rem;
     display: inline-block;
-    background-image: linear-gradient(
-      to right,
-      $color-secondary-light,
-      $color-secondary-dark
-    );
+    background-image: linear-gradient(to right, $color-secondary-light, $color-secondary-dark);
     -webkit-background-clip: text;
     color: transparent;
   }
 
+  // @include respond(phone) {
+  //   font-size: 55%;
+  // }
+  // @include respond(small-phone) {
+  //   font-size: 40%;
+  // }
+  // @include respond(mini-phone) {
+  //   font-size: 35%;
+  // }
   &:hover {
     transform: translateY(-1.5rem) scale(1.03);
   }

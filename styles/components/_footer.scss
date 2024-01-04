@@ -1,0 +1,13 @@
+.footer {
+    background-color: $color-primary-dark;
+    height: 15rem;
+    text-align: center;
+    p {
+        font-size: 1.8rem;
+        margin: 0 auto;
+        line-height: 10rem;
+        span {
+            font-weight: 800;
+        }
+    }
+}

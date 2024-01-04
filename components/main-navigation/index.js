@@ -21,9 +21,8 @@ function Navigation() {
       <div className="navigation" onClick={clickNavBar}>
         <input
           type="checkbox"
-          className={`navigation__checkbox ${
-            dropDownOpen ? 'navigation__checked' : ''
-          }`}
+          className={`navigation__checkbox ${dropDownOpen ? 'navigation__checked' : ''
+            }`}
           id="navi-toggle"
         ></input>
 
@@ -38,25 +37,22 @@ function Navigation() {
         </label>
 
         <div
-          className={`navigation__background ${
-            dropDownOpen ? 'navigation__checked' : ''
-          }`}
+          className={`navigation__background ${dropDownOpen ? 'navigation__checked' : ''
+            }`}
         >
           &nbsp;
         </div>
 
-        <div
-          className={`navigation__shopping-cart ${
-            dropDownOpen ? 'navigation__checked' : ''
-          }`}
+        {/* <div
+          className={`navigation__shopping-cart ${dropDownOpen ? 'navigation__checked' : ''
+            }`}
         >
           <i className="navigation__shopping-cart--icon feature-box__icon icon-ecommerce-cart-content"></i>
-        </div>
+        </div> */}
 
         <nav
-          className={`navigation__nav ${
-            dropDownOpen ? 'navigation__checked' : ''
-          }`}
+          className={`navigation__nav ${dropDownOpen ? 'navigation__checked' : ''
+            }`}
         >
           <ul className="navigation__list">
             <li className="navigation__item">
@@ -70,15 +66,15 @@ function Navigation() {
               </Link>
             </li>
             <li className="navigation__item">
-              <Link href="#" className="navigation__link">
+              <Link href="/plans" className="navigation__link">
                 Planes
               </Link>
             </li>
-            <li className="navigation__item">
+            {/* <li className="navigation__item">
               <Link href="/stories" className="navigation__link">
                 Historias
               </Link>
-            </li>
+            </li> */}
             <li className="navigation__item">
               <Link href="/about" className="navigation__link">
                 Acerca de mi

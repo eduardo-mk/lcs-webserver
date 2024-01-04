@@ -7,15 +7,17 @@ import {
   useDispatchContext,
   useStateContext,
 } from '../../../reducers/booking/context';
+import { useScrollToTheTopOfThePage } from '../../../misc/useScrollTop';
 
 const NEXT_PAGE = '/booking/user-info';
 
 function Plans() {
+useScrollToTheTopOfThePage()
   const state = useStateContext();
   const dispatch = useDispatchContext();
 
   const router = useRouter();
-  const { plans, error, loading } = usePlans(3, 0);
+  const { plans, error, loading } = usePlans(4, 0);
 
   useEffect(() => {
     dispatch({ type: 'current_step_inside_form/update', payload: 0 });
@@ -48,13 +50,14 @@ function Plans() {
   }
 
   if (loading) {
-    return <div className="loader">Loading...</div>;
+    return <div className='loader__wrapper'><div className="loader">Loading...</div></div>
   }
 
   if (Array.isArray(plans)) {
     return (
       <BookingFlow>
         <section className="small-cards">
+          <h1 className='section-booking__header'>Selecciona un Plan</h1>
           {plans.map((info) => {
             return (
               <Plan

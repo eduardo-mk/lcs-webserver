@@ -15,7 +15,7 @@ function Plans() {
   const dispatch = useDispatchContext();
 
   const router = useRouter();
-  const { plans, error, loading } = usePlans(3, 0);
+  const { plans, error, loading } = usePlans(4, 0);
 
   useEffect(() => {
     dispatch({ type: 'current_step_inside_form/update', payload: 0 });

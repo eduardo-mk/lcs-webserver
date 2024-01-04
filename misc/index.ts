@@ -41,3 +41,46 @@ export const validateEntireForm = (
   dispatch({ type: 'user_data/validation', payload: userDataIsValid });
   return userDataIsValid;
 };
+
+export const formatCurrency = (
+  value: string | number,
+  minimumFractionDigits: number = 2,
+  maximumFractionDigits: number = 2
+): string => {
+  console.log(value);
+  // Check if the input is a string or number
+  if (typeof value === 'string') {
+    // Remove non-numeric characters from the string
+    const numericString: string = value.replace(/[^0-9.]/g, '');
+
+    // Convert the cleaned string to a number
+    const numberValue: number = parseFloat(numericString);
+
+    // Check if the conversion is successful
+    if (isNaN(numberValue)) {
+      console.error('Invalid input. Please provide a valid numeric string.');
+      return value;
+    }
+
+    // Assign the number value for further processing
+    value = numberValue;
+  } else if (typeof value !== 'number') {
+    console.error(
+      'Invalid input. Please provide a string or number representing a valid amount.'
+    );
+    return value;
+  }
+
+  // Round the number to two decimal places
+  const roundedNumber: number = Number(value.toFixed(2));
+
+  // Format the number as currency with "$" symbol
+  const formattedCurrency: string = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits,
+    maximumFractionDigits,
+  }).format(roundedNumber);
+
+  return formattedCurrency;
+};

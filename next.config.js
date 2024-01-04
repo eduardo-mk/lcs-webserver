@@ -14,4 +14,7 @@ module.exports = {
     GRAPHQL_API_URL: `http://${ipv4Addresses[1]}:4000/graphql`,
   },
   exclude: ['package-lock.json'],
+  // images: {
+  //   deviceSizes: [380, 430, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+  // },
 };

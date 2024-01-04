@@ -63,6 +63,7 @@ interface UserData {
 interface DayAndTime {
   day: string;
   time: string;
+  timeZone: string;
 }
 
 interface BookingState {
@@ -102,6 +103,7 @@ export const initialBookingState: BookingState = {
   dayAndTime: {
     day: '',
     time: '',
+    timeZone: ''
   },
   userRegistrationServiceApiOk: undefined,
   dayAndTimeIsValid: false,

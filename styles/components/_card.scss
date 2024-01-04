@@ -5,16 +5,17 @@
 }
 
 .card {
-  position: relative;
+  // max-width: 60rem;
+  min-width: 25rem;
+  padding: 2rem;
+  // position: relative;
   // height: 70rem;
   // background-color: $color-white;
   // background-color: gold;
-  background-image: linear-gradient(
-    to right bottom,
-    rgba($color-primary-light, 0.85),
-    rgba($color-primary-dark, 0.85)
-  );
+
+  // background-image: linear-gradient(to right bottom, rgba($color-primary, 0.85), rgba($color-tertiary-light, 0.85));
   color: white;
+  background-color: $color-primary-light;
   font-size: 2rem;
   transition: all 0.8s ease;
   // position: absolute;
@@ -25,43 +26,49 @@
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
   backface-visibility: hidden;
-
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  align-items: center;
   &:not(:last-child) {
     margin-bottom: 3rem;
   }
 
-  &__picture {
-    background-size: cover;
-    height: 45rem;
-    background-blend-mode: color;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    &--1 {
-      background-image: url(../../public/images/delicious-prep.jpg);
+  &__product-head {
+    display: flex;
+  }
+  &__logo {
+    // width: 100px;
+    // flex-shrink: 0;
+    // height: 100%;
+    img {
+      width: 12rem;
+      display: block;
+      margin: 0 auto;
     }
-    &--2 {
-      background-image: url(../../public/images/mom-1.jpg);
-    }
-    &--3 {
-      background-image: url(../../public/images/pregnant-woman.jpg);
-    }
+    // flex-grow: 1;
   }
 
   &__heading {
     font-size: 3.2rem;
     font-weight: 300;
     text-transform: uppercase;
-    text-align: right;
-    color: $color-white;
+    // width: 70%;
+    // flex-flow: 3;
+    text-align: left;
+    align-self: center;
+    // color: $color-white;
     color: $color-black;
-    position: absolute;
-    top: 43rem;
+
+    // position: absolute;
+    // top: 45rem;
     right: 0rem;
   }
 
+  &__title {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
   &__heading-span {
     padding: 1rem 1.5rem;
     -webkit-box-decoration-break: clone;
@@ -88,19 +95,24 @@
     //     );
     // }
   }
+  &__description {
+    color: $color-black;
+    text-align: justify;
+  }
   &__details {
     margin-top: 4rem;
-    color: $color-white;
+    width: 100%;
+    // color: $color-white;
     color: $color-black;
     padding: 3rem;
-    font-weight: 300;
+    // font-weight: 300;
     ul {
       list-style: none;
-      width: 80%;
+      width: 100%;
       margin: 0 auto;
       li {
-        text-align: center;
-        font-size: 2.5rem;
+        text-align: left;
+        // font-size: 2.5rem;
         padding: 1rem;
 
         &:not(:last-child) {
@@ -111,167 +123,142 @@
   }
 
   &__cta {
-    text-align: center;
+    // text-align: left;
+    width: 100%;
+    // height: 5rem;
   }
   &__price-box {
-    text-align: center;
-    color: $color-white;
+    // text-align: center;
+    // color: $color-white;
     color: $color-black;
-    margin-bottom: 8rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
   }
   &__price-only {
     font-size: 1.4rem;
     text-transform: uppercase;
   }
+  &__price-currency {
+    // font-size: 3.4rem;
+    text-transform: uppercase;
+  }
   &__price-value {
-    font-size: 6rem;
+    // font-size: 6rem;
+    // width: 100%;
     font-weight: 200;
+    text-align: center;
+  }
+  &__cta-btn {
+    width: 100%;
+    margin: 8rem 0;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
   }
 }
-// .card {
-//     // Functionality
-//     perspective: 150rem;
-//     -moz-perspective: 150rem;
-//     position: relative;
-//     height: 51rem;
-//     width: 95%;
 
-//     &__side {
-//         background-color: #fff;
-//         height: 51rem;
-//         color: white;
-//         font-size: 2rem;
-//         transition: all 0.8s ease;
-//         position: absolute;
-//         top: 0;
-//         bottom: 0;
-//         width: 100%;
-//         border-radius: 3px;
-//         box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
-//         backface-visibility: hidden;
-//         &--front {
-//             z-index: 1;
-//             background-color: $color-white;
-//         }
+.homepage__card {
+  width: 100%;
+  color: $color-primary-dark;
 
-//         &--back {
-//             transform: rotateY(180deg);
+  &-container {
+    margin: 0 auto;
+    max-width: 200rem;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: normal;
+    align-content: space-around;
+    @include respond(tab-port) {
+      flex-flow: column nowrap;
+      align-items: center;
+    }
+  }
+  & .herocard {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin: 2rem;
+    // border-radius: 6rem;
+    width: 50rem;
+    flex-grow: 2;
+    @include respond(tab-port) {
+      width: 100%;
+    }
+    // height: 180rem;
+    // max-width: 100%;
+    // margin-top: 3rem;
+    // background-color: $color-secondary-light;
+    // color: $color-secondary-light;
+    // background-color: $color-secondary-light;
+    background-color: $color-beishezito;
+    color: $color-primary-dark;
+    // background-image: linear-gradient(to right bottom, rgba($color-primary, 0.85), rgba($color-tertiary-light, 0.85));
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    // align-content: space-between;
+    // background-color: $color-primary-light;
+    // width: 98%;
+    padding: 0 1rem;
+    // height: 160rem;
+    // border: 1px dotted $color-tertiary-light;
+    // border-radius: 2rem;
+    // border-bottom: 0.5rem solid $color-white;
+    // border: 3rem solid $color-white;
 
-//             &-1 {
-//                 background-image: linear-gradient(to right, $color-secondary-light, $color-secondary-dark);
-//             }
-//         }
-//     }
+    &__picture {
+      width: 100%;
+      margin-top: 5rem;
+      // height: 90rem;
+      // background-color: black;
+      & img {
+        // border: 0.5rem dotted rgba(26, 142, 171, 0.1);
+        border-radius: 1rem;
+        // border: 0.2rem solid $color-white;
+        // background-blend-mode: color;
+        // -webkit-clip-path: inset(5% 5% 4% 4% round 5%);
+        // clip-path: inset(2% 2% 2% 2% round 2%);
+        box-shadow: 1px 1px 85px -57px rgba(0, 0, 0, 0.97);
+        -webkit-box-shadow: 1px 1px 85px -57px rgba(0, 0, 0, 0.97);
+        -moz-box-shadow: 1px 1px 85px -57px rgba(0, 0, 0, 0.97);
+      }
+    }
+    &__heading {
+      // margin-top: 3rem;
+      width: 100%;
+      text-align: left;
+      font-size: 4rem;
+      padding: 0 2rem;
+      // margin: 10rem 0rem 2rem 0rem;
+      line-height: 4.5rem;
 
-//     &:hover &__side--front {
-//         transform: rotateY(-180deg);
-//     }
+      // padding-bottom: 2rem;
 
-//     &:hover &__side--back {
-//         transform: rotateY(0deg);
-//     }
+      // margin: 2rem 0rem 0rem 1rem;
+      margin-top: 5rem;
+      & span {
+        font-weight: 600;
+        font-size: 5rem;
+      }
+    }
 
-//     // Front side styling
-//     &__picture {
-//         background-size: cover;
-//         height: 23rem;
-//         background-blend-mode: color;
-//         -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-//         clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    &__details {
+      margin: 1.5rem 2rem 2rem 2rem;
+      font-size: 2.8rem;
+      text-align: left;
+      // text-indent: 2rem;
+      line-height: 3.5rem;
+      white-space: pre-line;
+    }
+    &__cta {
+      margin-top: 3rem;
+      margin-bottom: 10rem;
+    }
+  }
 
-//         border-top-left-radius: 3px;
-//         border-top-right-radius: 3px;
-//         &--1 {
-//             background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
-//                 url(../../public/nat-5.jpg);
-//         }
-//         &--2 {
-//             background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark),
-//                 url(../../public/nat-6.jpg);
-//         }
-//         &--3 {
-//             background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark),
-//                 url(../../public/nat-7.jpg);
-//         }
-//     }
-
-//     &__heading {
-//         font-size: 2.8rem;
-//         font-weight: 300;
-//         text-transform: uppercase;
-//         text-align: right;
-//         color: $color-white;
-//         position: absolute;
-//         top: 12rem;
-//         right: 2rem;
-//     }
-
-//     &__heading-span {
-//         padding: 1rem 1.5rem;
-//         -webkit-box-decoration-break: clone;
-//         box-decoration-break: clone;
-//         &--1 {
-//             background-image: linear-gradient(
-//                 to right bottom,
-//                 rgba($color-primary-light, 0.85),
-//                 rgba($color-primary-dark, 0.85)
-//             );
-//         }
-//         &--2 {
-//             background-image: linear-gradient(
-//                 to right bottom,
-//                 rgba($color-tertiary-light, 0.85),
-//                 rgba($color-tertiary-dark, 0.85)
-//             );
-//         }
-//         &--3 {
-//             background-image: linear-gradient(
-//                 to right bottom,
-//                 rgba($color-secondary-light, 0.85),
-//                 rgba($color-secondary-dark, 0.85)
-//             );
-//         }
-//     }
-
-//     &__details {
-//         color: $color-black;
-//         padding: 3rem;
-//         ul {
-//             list-style: none;
-//             width: 80%;
-//             margin: 0 auto;
-//             li {
-//                 text-align: center;
-//                 font-size: 1.5rem;
-//                 padding: 1rem;
-
-//                 &:not(:last-child) {
-//                     border-bottom: 1px solid $color-grey-light-2;
-//                 }
-//             }
-//         }
-//     }
-
-//     // FRONT SIDE STYLING
-//     &__cta {
-//         position: absolute;
-//         top: 50%;
-//         left: 50%;
-//         transform: translate(-50%, -50%);
-//         width: 90%;
-//         text-align: center;
-//     }
-//     &__price-box {
-//         text-align: center;
-//         color: $color-white;
-//         margin-bottom: 8rem;
-//     }
-//     &__price-only {
-//         font-size: 1.4rem;
-//         text-transform: uppercase;
-//     }
-//     &__price-value {
-//         font-size: 6rem;
-//         font-weight: 100;
-//     }
-// }
+  // & .herocard:nth-child(even) {
+  //   // background-color: $color-secondary-light;
+  //   background-color: $color-tertiary-light;
+  //   color: $color-primary-dark;
+  // }
+}

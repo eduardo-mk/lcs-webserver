@@ -5,7 +5,7 @@ import { usePlans } from '../../graphql/hooks';
 // import { GetServerSideProps } from "next";
 
 const PopularPlansSection: React.FC = () => {
-  const { plans, error, loading } = usePlans(3, 0);
+  const { plans, error, loading } = usePlans(4, 0);
 
   if (error) {
     console.error(error);
@@ -19,12 +19,12 @@ const PopularPlansSection: React.FC = () => {
         <h2 className="heading-secondary">{mainPage['heading-secondary']}</h2>
       </div>
       <ServiceHeroCards list={plans} />
-      <div className="u-center-text u-margin-top-8">
+      {/* <div className="u-center-text u-margin-top-8">
         <Link href="/booking/plans" className="btn btn--white btn--animated">
           {' '}
           {mainPage['online-booking-cta']}
         </Link>
-      </div>
+      </div> */}
     </section>
   );
 };

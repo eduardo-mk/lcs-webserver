@@ -4,7 +4,11 @@
   border-radius: 50%;
 }
 .loader {
-  color: $color-primary-dark;
+  &__wrapper {
+    height: 100vh;
+    padding: 1rem;
+  }
+  color: $color-tertiary-dark;
   font-size: 11px;
   text-indent: -99999em;
   margin: 50% auto;
@@ -18,7 +22,7 @@
   &:before {
     width: 5.2em;
     height: 10.2em;
-    background: $color-grey-dark;
+    background: $color-fondo-pardo;
     border-radius: 10.2em 0 0 10.2em;
     top: -0.1em;
     left: -0.1em;
@@ -30,7 +34,7 @@
   &:after {
     width: 5.2em;
     height: 10.2em;
-    background: $color-grey-dark;
+    background: $color-fondo-pardo;
     border-radius: 0 10.2em 10.2em 0;
     top: -0.1em;
     left: 4.9em;
@@ -43,7 +47,7 @@
 .loader:before,
 .loader:after {
   position: absolute;
-  content: '';
+  content: "";
 }
 @-webkit-keyframes load2 {
   0% {

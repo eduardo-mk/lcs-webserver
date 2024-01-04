@@ -1,19 +1,16 @@
 import { gql } from '@apollo/client';
 
 export const getAvailablePlans = gql`
-  query GetAvailablePlans {
-    plans {
+  query ($limit: Int!, $offset: Int!) {
+    plans(limit: $limit, offset: $offset) {
       items {
         id
         name
-        metadata {
-          duration_in_min
-          more_details
-        }
+        duration_in_min
+        details
         description
-        default_price
+        price
         currency
-        active
       }
     }
   }
@@ -28,8 +25,8 @@ export const getCalendarDaysForAppt = gql`
 `;
 
 export const getCalendarAvailableHours = gql`
-  query ($daySelected: String!) {
-    availableAppointmentsHours(daySelected: $daySelected) {
+  query ($daySelected: String!, $timeZone: String!) {
+    availableAppointmentsHours(daySelected: $daySelected, timeZone:$timeZone) {
       hours
     }
   }
