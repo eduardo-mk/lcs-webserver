@@ -1,9 +1,6 @@
 {
   "name": "lactation-consultant-site",
   "private": true,
-  "engines": {
-    "node": "^20.3.0"
-  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,8 +9,7 @@
     "check-format": "prettier --check .",
     "check-lint": "next lint",
     "format": "prettier --write .",
-    "test-all": "npm run format && npm run check-lint && npm run check-types && npm run build",
-    "prepare": "husky install"
+    "test-all": "npm run format && npm run check-lint && npm run check-types && npm run build"
   },
   "dependencies": {
     "@apollo/client": "^3.7.14",
