@@ -17,7 +17,7 @@ const _1_day = 3600 * 1000 * 24;
 const NEXT_PAGE = '/booking/review';
 
 function DayAndTime() {
-  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
+  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   const state = useStateContext();
   const dispatch = useDispatchContext();
   const router = useRouter();
@@ -73,7 +73,9 @@ function DayAndTime() {
   return (
     <BookingFlow>
       <section className="day-time__wrapper">
-        <h1 className='section-booking__header'>Elige el día y después la hora</h1>
+        <h1 className="section-booking__header">
+          Elige el día y después la hora
+        </h1>
         <Calendar
           timeAvailable={daysAvailable.days}
           onSelectionHandler={dateHandler}
@@ -89,7 +91,7 @@ function DayAndTime() {
               className="btn--classic"
               type="button"
               onClick={handlerForDayAndTimeSelection}
-              >
+            >
               Seleccionar
             </Button>
           </>

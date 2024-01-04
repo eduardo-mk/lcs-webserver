@@ -28,11 +28,11 @@ function MyApp({ Component, pageProps }) {
             ></meta>
           </Head>
           <NavBar></NavBar>
-            <Component
-              {...pageProps}
-              clickAmount={clickAmount}
-              increment={increment}
-            />
+          <Component
+            {...pageProps}
+            clickAmount={clickAmount}
+            increment={increment}
+          />
           <Footer />
         </ApolloProvider>
       </ErrorBoundary>

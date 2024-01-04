@@ -6,7 +6,10 @@ interface UsePageIdleTimeoutProps {
   onTimeout: () => void;
 }
 
-const usePageIdleTimeout = ({ timeout, onTimeout }: UsePageIdleTimeoutProps) => {
+const usePageIdleTimeout = ({
+  timeout,
+  onTimeout,
+}: UsePageIdleTimeoutProps) => {
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const router = useRouter();
 

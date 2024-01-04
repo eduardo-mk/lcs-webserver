@@ -47,7 +47,7 @@ function LastCheck() {
   return (
     <BookingFlow>
       <section className="last-check">
-        <h1 className='section-booking__header'>Revisa tu información</h1>
+        <h1 className="section-booking__header">Revisa tu información</h1>
         <SimpleTable
           data={[
             { title: 'Servicio', value: planSelection.name },

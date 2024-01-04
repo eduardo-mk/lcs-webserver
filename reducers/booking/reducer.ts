@@ -103,7 +103,7 @@ export const initialBookingState: BookingState = {
   dayAndTime: {
     day: '',
     time: '',
-    timeZone: ''
+    timeZone: '',
   },
   userRegistrationServiceApiOk: undefined,
   dayAndTimeIsValid: false,

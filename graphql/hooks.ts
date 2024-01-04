@@ -5,7 +5,7 @@ import {
   getCalendarDaysForAppt,
   SCHEDULE_APPOINTMENT,
 } from './queries';
-import * as GraphQL  from './codegen_auto_generated'
+import * as GraphQL from './codegen_auto_generated';
 // import { ScheduleAppointmentArgs, Service } from './codegen_auto_generated';
 
 interface UsePlanResult {
@@ -20,8 +20,8 @@ interface UseCalendarAvailableDays_Result {
   error: boolean;
 }
 
-export function usePlans(limit : number, offset: number): UsePlanResult {
-  console.log('USE PLANS\n\n\n', limit, offset)
+export function usePlans(limit: number, offset: number): UsePlanResult {
+  console.log('USE PLANS\n\n\n', limit, offset);
   const result = useQuery(getAvailablePlans, {
     fetchPolicy: 'network-only',
     variables: {
@@ -46,13 +46,16 @@ export function useCalendarAvailableDays(): UseCalendarAvailableDays_Result {
   };
 }
 
-export function useCalendarAvailableHours(daySelected: Date | string, timeZone: string) {
-  console.log('Calculating the available hours graphql', daySelected, timeZone)
+export function useCalendarAvailableHours(
+  daySelected: Date | string,
+  timeZone: string
+) {
+  console.log('Calculating the available hours graphql', daySelected, timeZone);
   const { data, loading, error } = useQuery(getCalendarAvailableHours, {
     fetchPolicy: 'network-only',
     variables: {
       daySelected,
-      timeZone
+      timeZone,
     },
   });
   const hours = data?.availableAppointmentsHours?.hours;

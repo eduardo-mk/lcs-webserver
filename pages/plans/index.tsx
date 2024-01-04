@@ -1,7 +1,7 @@
-import PopularPlansSection from "../../compositions/popular-plans";
+import PopularPlansSection from '../../compositions/popular-plans';
 
 function Plans({}) {
-  return <PopularPlansSection />
+  return <PopularPlansSection />;
 }
 
 export default Plans;

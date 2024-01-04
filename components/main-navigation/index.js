@@ -21,8 +21,9 @@ function Navigation() {
       <div className="navigation" onClick={clickNavBar}>
         <input
           type="checkbox"
-          className={`navigation__checkbox ${dropDownOpen ? 'navigation__checked' : ''
-            }`}
+          className={`navigation__checkbox ${
+            dropDownOpen ? 'navigation__checked' : ''
+          }`}
           id="navi-toggle"
         ></input>
 
@@ -37,8 +38,9 @@ function Navigation() {
         </label>
 
         <div
-          className={`navigation__background ${dropDownOpen ? 'navigation__checked' : ''
-            }`}
+          className={`navigation__background ${
+            dropDownOpen ? 'navigation__checked' : ''
+          }`}
         >
           &nbsp;
         </div>
@@ -51,8 +53,9 @@ function Navigation() {
         </div> */}
 
         <nav
-          className={`navigation__nav ${dropDownOpen ? 'navigation__checked' : ''
-            }`}
+          className={`navigation__nav ${
+            dropDownOpen ? 'navigation__checked' : ''
+          }`}
         >
           <ul className="navigation__list">
             <li className="navigation__item">

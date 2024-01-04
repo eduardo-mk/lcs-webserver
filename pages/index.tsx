@@ -36,7 +36,7 @@ export default function Home({ clickAmount, increment }) {
           />
         </div>
         {/* <div className="header__text-box"> */}
-          {/* <h1 className="heading-primary">
+        {/* <h1 className="heading-primary">
             <span className="heading-primary--main">
               {mainPage['heading-primary-main']}
             </span>
@@ -45,7 +45,7 @@ export default function Home({ clickAmount, increment }) {
             </span>
           </h1> */}
         {/* </div> */}
-        <div className='header__cta-button'>
+        <div className="header__cta-button">
           <Link href="/booking/plans" className="btn btn--white btn--animated">
             {' '}
             {mainPage['online-booking-cta']}

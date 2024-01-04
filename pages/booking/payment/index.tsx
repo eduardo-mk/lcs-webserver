@@ -229,7 +229,7 @@ function PaymentWithStripe() {
   return (
     <BookingFlow>
       <section className="payment__plan-summary">
-        <h1 className='section-booking__header'>ORDEN POR PAGAR</h1>
+        <h1 className="section-booking__header">ORDEN POR PAGAR</h1>
         <SimpleTable
           data={[
             { title: 'Servicio', value: planSelection.name },

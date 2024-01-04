@@ -137,9 +137,9 @@ function UserInfo() {
           </div>
           <p>{userInfoAssociatedContent['user-info-can-not-be-registered']}</p>
           <Link href="/" className="btn btn--white btn--animated">
-          {' '}
-          {'Volver a inicio'}
-        </Link>
+            {' '}
+            {'Volver a inicio'}
+          </Link>
         </div>
       </section>
     );
@@ -148,7 +148,7 @@ function UserInfo() {
   return (
     <BookingFlow>
       <section className="user-data">
-        <h1 className='section-booking__header'>Información de Contacto</h1>
+        <h1 className="section-booking__header">Información de Contacto</h1>
         <div className="user-data__contact-basic">
           <form>
             <Input

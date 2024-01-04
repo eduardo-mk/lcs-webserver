@@ -1,56 +1,56 @@
 .about-me {
-    background-color: $color-white;
-    // width: 100vw;
-    padding: 10rem 2rem;
-    &__image-wrapper {
-        width: 100%;
-        img {
-            border-radius: 2rem;
-        }
+  background-color: $color-white;
+  // width: 100vw;
+  padding: 10rem 2rem;
+  &__image-wrapper {
+    width: 100%;
+    img {
+      border-radius: 2rem;
     }
-    &__greeting {
-        // padding-left: 4rem;
-        // font-size: 6rem;
-        // font-family: "wisper-regular";
-        img {
-            height: 20rem;
-        }
+  }
+  &__greeting {
+    // padding-left: 4rem;
+    // font-size: 6rem;
+    // font-family: "wisper-regular";
+    img {
+      height: 20rem;
     }
-    &__text-intro {
-        font-size: 2.5rem;
-        padding: 1rem;
-        text-indent: 3rem;
-        text-align: justify;
-        white-space: pre-line;
+  }
+  &__text-intro {
+    font-size: 2.5rem;
+    padding: 1rem;
+    text-indent: 3rem;
+    text-align: justify;
+    white-space: pre-line;
+  }
+  &__credential {
+    &-header {
+      text-align: center;
     }
-    &__credential {
-        &-header {
-            text-align: center;
-        }
-        &-list {
-            margin: 0 auto;
-            max-width: 30rem;
-            li {
-                margin-top: 6rem;
-                max-width: 100%;
-                display: flex;
-                flex-flow: column;
-                align-items: center;
-                align-content: center;
-            }
-        }
+    &-list {
+      margin: 0 auto;
+      max-width: 30rem;
+      li {
+        margin-top: 6rem;
+        max-width: 100%;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        align-content: center;
+      }
+    }
 
-        &-logo {
-            width: 90%;
-            & img {
-                height: 30rem;
-                display: block;
-                margin: 0 auto;
-            }
-        }
-        &-title {
-            font-size: 2rem;
-            text-align: center;
-        }
+    &-logo {
+      width: 90%;
+      & img {
+        height: 30rem;
+        display: block;
+        margin: 0 auto;
+      }
     }
+    &-title {
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
 }

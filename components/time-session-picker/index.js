@@ -1,5 +1,5 @@
 function TimeSessionPicker({ title, onSelectionHandler, hours }) {
-  console.log(hours)
+  console.log(hours);
   function onChangeHandler(e) {
     onSelectionHandler(e.target.value);
   }

@@ -37,7 +37,7 @@ export const ServiceHeroCard: React.FC<GraphQL.Service & { index: number }> = ({
         </h4>
       </section>
       <div className="card__description">
-         <p className="card__title">¿Qué puedes esperar?</p>
+        <p className="card__title">¿Qué puedes esperar?</p>
         <p>{description}</p>
       </div>
       <div className="card__details">
@@ -49,7 +49,7 @@ export const ServiceHeroCard: React.FC<GraphQL.Service & { index: number }> = ({
           <p className="card__title">Precio</p>
           <p className="card__price-value">
             {formatCurrency(price, 1, 1)}{' '}
-           <span className="card__price-currency">{currency}</span>
+            <span className="card__price-currency">{currency}</span>
           </p>
         </div>
 

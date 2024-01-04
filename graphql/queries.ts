@@ -26,7 +26,7 @@ export const getCalendarDaysForAppt = gql`
 
 export const getCalendarAvailableHours = gql`
   query ($daySelected: String!, $timeZone: String!) {
-    availableAppointmentsHours(daySelected: $daySelected, timeZone:$timeZone) {
+    availableAppointmentsHours(daySelected: $daySelected, timeZone: $timeZone) {
       hours
     }
   }

@@ -8,4 +8,4 @@ Mi misión es acompañarte durante tu embarazo, impulsando cambios desde el resp
 Cada aprendizaje se transforma en empatía y compromiso, mismos que aplico en cada consulta. Juntas, haremos de tu embarazo y lactancia una experiencia saludable y satisfactoria.`,
 };
 
-export default aboutMe
+export default aboutMe;
