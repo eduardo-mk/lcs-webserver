@@ -2,7 +2,7 @@
   "name": "lactation-consultant-site",
   "private": true,
   "engines": {
-    "node": "20.x"
+    "node": ">=16.x"
   },
   "scripts": {
     "dev": "next dev",
