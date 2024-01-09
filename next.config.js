@@ -5,7 +5,7 @@ require('dotenv').config({ path: path.resolve(__dirname, '.env.local') });
 
 const isProdEnv = process.env.NODE_ENV === 'production'
 const HOST_URL = isProdEnv ? process.env.PROD_HOST_URL : process.env.DEV_HOST_URL
-const GRAPHQL_API_URL = isProdEnv ? `${process.env.PROD_HOST_URL}/graphql` : `${ipv4Addresses[1]}:4000/graphql`
+const GRAPHQL_API_URL = isProdEnv ? `${process.env.BACKEND_URL}/graphql` : `${ipv4Addresses[1]}:4000/graphql`
 const BACKEND_URL = isProdEnv ? process.env.BACKEND_URL : 'localhost'
 
 module.exports = {
