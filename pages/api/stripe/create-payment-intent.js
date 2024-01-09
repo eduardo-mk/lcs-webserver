@@ -6,7 +6,7 @@ if (process.NODE_ENV === 'production') {
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 let paymentUrl = `http://localhost:${process.env.BACKEND_LOCAL_PORT}/api/v1/payments/intent`
 if (process.env.NODE_ENV === 'production') {
-  paymentUrl = `/api/v1/payments/intent`
+  paymentUrl = `${process.env.BACKEND_URL}/api/v1/payments/intent`
 }
 
 export default async function handler(req, res) {
