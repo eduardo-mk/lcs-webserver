@@ -31,7 +31,11 @@ export function usePlans(limit: number, offset: number): UsePlanResult {
   });
 
   const { data, loading, error } = result;
-  return { plans: data?.plans?.items, loading, error: Boolean(error) };
+  return { 
+    plans: data?.plans?.items, 
+    loading, 
+    error: Boolean(error) 
+  };
 }
 
 export function useCalendarAvailableDays(): UseCalendarAvailableDays_Result {

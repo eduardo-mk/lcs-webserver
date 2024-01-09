@@ -1,14 +1,14 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { NextResponse } from 'next/server';
+import { NextApiRequest, NextApiResponse } from 'next'
+import { NextResponse } from 'next/server'
 
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-let hostname = 'localhost';
+let registerUserUrl = `http://localhost:${process.env.BACKEND_LOCAL_PORT}/api/v1/patient/registration`
 if (process.env.NODE_ENV === 'production') {
-  hostname = 'backend_payments';
+  registerUserUrl = `${process.env.BACKEND_URL}/api/v1/patient/registration`
 }
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  fetch(`http://${hostname}:4000/api/v1/patient/registration`, {
+  fetch(registerUserUrl, {
     method: 'POST', // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, *cors, same-origin
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -23,11 +23,11 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   })
     .then((rawResponse) => rawResponse.json())
     .then((data) => {
-      res.send(data);
+      res.send(data)
     })
     .catch((e) => {
-      console.error('Register users failed');
-      console.error(e);
-      res.status(500).send({ error: true });
+      console.error('Register users failed')
+      console.error(e)
+      res.status(500).send({ error: true })
     });
 }
