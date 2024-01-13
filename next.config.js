@@ -13,7 +13,7 @@ const BACKEND_URL = isProdEnv ? process.env.BACKEND_URL : 'localhost';
 // const extraOptions = isProdEnv ? { output: 'standalone' } : {};
 module.exports = {
   reactStrictMode: true,
-  outputFileTracing: false,
+  // outputFileTracing: false,
   sassOptions: {
     includedPaths: [path.join(__dirname, 'styles')],
   },
