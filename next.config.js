@@ -26,8 +26,9 @@ module.exports = {
     PORT: '3000',
     BACKEND_LOCAL_PORT: '4000',
   },
+  images: {
+    loader: 'sharp',
+    deviceSizes: [380, 430, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+  },
   ...extraOptions,
-  // images: {
-  //   deviceSizes: [380, 430, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-  // },
 };
