@@ -3,9 +3,18 @@ import Image from 'next/image';
 import Head from 'next/head';
 import { mainPage } from '../content';
 import { HomepageHeroCards } from '../components/hero-card';
-import homepageDataList from '../content/homepage';
-
+import { homepageDataList, credentialsData } from '../content/homepage';
+import { Credentials } from '../components/credentials';
+import { useEffect } from 'react';
+import { useDispatchContext } from '../reducers/booking/context';
 export default function Home({ clickAmount, increment }) {
+  const dispatch = useDispatchContext();
+  useEffect(() => {
+    dispatch({
+      type: 'reset',
+    });
+  }, [dispatch]);
+
   return (
     <div className="homepage">
       <Head>
@@ -26,6 +35,7 @@ export default function Home({ clickAmount, increment }) {
             alt="logo"
             width={200}
             height={100}
+            priority={true}
           />
           <Image
             className="header__image header__iso-text"
@@ -33,18 +43,9 @@ export default function Home({ clickAmount, increment }) {
             alt="logo"
             width={200}
             height={100}
+            priority={true}
           />
         </div>
-        {/* <div className="header__text-box"> */}
-        {/* <h1 className="heading-primary">
-            <span className="heading-primary--main">
-              {mainPage['heading-primary-main']}
-            </span>
-            <span className="heading-primary--sub">
-              {mainPage['heading-primary-sub']}
-            </span>
-          </h1> */}
-        {/* </div> */}
         <div className="header__cta-button">
           <Link href="/booking/plans" className="btn btn--white btn--animated">
             {' '}
@@ -52,7 +53,16 @@ export default function Home({ clickAmount, increment }) {
           </Link>
         </div>
       </header>
-      <HomepageHeroCards list={homepageDataList} />
+      <section className="homepage__services">
+        <section className="homepage__services-wrapper">
+          <h1 className="homepage__services-title">Consultas especializadas</h1>
+          <HomepageHeroCards list={homepageDataList} />
+        </section>
+        <section className="homepage__credencials">
+          <h1 className="homepage__services-title">¡Bienvenida mamá!</h1>
+          <Credentials {...credentialsData} />
+        </section>
+      </section>
     </div>
   );
 }

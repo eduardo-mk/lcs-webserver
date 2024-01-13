@@ -47,7 +47,6 @@ export const formatCurrency = (
   minimumFractionDigits: number = 2,
   maximumFractionDigits: number = 2
 ): string => {
-  console.log(value);
   // Check if the input is a string or number
   if (typeof value === 'string') {
     // Remove non-numeric characters from the string

@@ -3,8 +3,47 @@ interface ActionGeneric {
   type: string;
 }
 
+export const initialBookingState: BookingState = {
+  clientSecret: null,
+  currentStep: 0,
+  planSelection: {
+    id: '',
+    name: '',
+    price: 999,
+    details: [],
+    description: '',
+    currency: '',
+    duration_hours: '',
+    duration_minutes: '',
+  },
+  planSelectionIsValid: false,
+  userData: {
+    firstName: '',
+    lastName: '',
+    email: '',
+    userRegistrationId: '',
+  },
+  userDataIsValid: undefined,
+  dayAndTime: {
+    day: '',
+    time: '',
+    timeZone: '',
+  },
+  userRegistrationServiceApiOk: undefined,
+  dayAndTimeIsValid: false,
+  confirmData: false,
+  inBookingFlow: false,
+};
+
 export const bookingReducer = (state: BookingState, action: ActionGeneric) => {
   switch (action.type) {
+    case 'reset': {
+      return { ...state, ...initialBookingState };
+    }
+    case 'page_flow/booking': {
+      console.log('Page flow in booking?', Boolean(action.payload));
+      return { ...state, inBookingFlow: Boolean(action.payload) };
+    }
     case 'stripe/metadata':
       return { ...state, clientSecret: action.payload };
 
@@ -77,35 +116,5 @@ interface BookingState {
   dayAndTime: DayAndTime;
   dayAndTimeIsValid: boolean;
   confirmData: boolean;
+  inBookingFlow: boolean;
 }
-
-export const initialBookingState: BookingState = {
-  clientSecret: null,
-  currentStep: 0,
-  planSelection: {
-    id: '',
-    name: '',
-    price: 999,
-    details: [],
-    description: '',
-    currency: '',
-    duration_hours: '',
-    duration_minutes: '',
-  },
-  planSelectionIsValid: false,
-  userData: {
-    firstName: '',
-    lastName: '',
-    email: '',
-    userRegistrationId: '',
-  },
-  userDataIsValid: undefined,
-  dayAndTime: {
-    day: '',
-    time: '',
-    timeZone: '',
-  },
-  userRegistrationServiceApiOk: undefined,
-  dayAndTimeIsValid: false,
-  confirmData: false,
-};

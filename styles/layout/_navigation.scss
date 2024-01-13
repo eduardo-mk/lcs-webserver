@@ -91,9 +91,9 @@
     @include respond(small-phone) {
       top: 40%;
     }
-    @include respond(phone-landscape) {
-      top: 100%;
-    }
+    // @include respond(phone-landscape) {
+    //   top: 100%;
+    // }
     // @include respond(mini-phone) {
     //     top: 45%;
     // }

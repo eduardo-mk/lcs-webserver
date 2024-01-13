@@ -4,21 +4,18 @@ if (process.NODE_ENV === 'production') {
   hostname = 'backend_payments';
 }
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-let paymentUrl = `http://localhost:${process.env.BACKEND_LOCAL_PORT}/api/v1/payments/intent`
+let paymentUrl = `http://localhost:${process.env.BACKEND_LOCAL_PORT}/api/v1/payments/intent`;
 if (process.env.NODE_ENV === 'production') {
-  paymentUrl = `${process.env.BACKEND_URL}/api/v1/payments/intent`
+  paymentUrl = `${process.env.BACKEND_URL}/api/v1/payments/intent`;
 }
 
 export default async function handler(req, res) {
   try {
-    const backendResponse = await fetch(
-      paymentUrl,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(req.body),
-      }
-    );
+    const backendResponse = await fetch(paymentUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(req.body),
+    });
 
     if (backendResponse.status >= 100 && backendResponse.status < 300) {
       console.log('NextJS_API : Stripe call successfull');

@@ -82,7 +82,11 @@ export const ServiceHeroCards: React.FC<{ list: GraphQL.Service[] }> = ({
 export const HomepageHeroCard: React.FC<HerocardArgs & { index: number }> = ({
   index,
   introPhrase,
-  description,
+  inspirationalDescription,
+  descriptionList,
+  targetIntro,
+  target,
+  descriptionBriefIntro,
   href,
   picturePath,
   pictureAlt,
@@ -94,29 +98,38 @@ export const HomepageHeroCard: React.FC<HerocardArgs & { index: number }> = ({
         <Image
           src={picturePath}
           alt={pictureAlt}
-          // width={300}
-          // height={600}
           style={{
             width: '100%',
             height: 'auto',
           }}
-          // sizes="(max-width: 380px) 50vw, (max-width: 768px) 70vw, (max-width: 1200px) 20vw, 10vw"
-          // fill={true}
-          sizes="100vw"
         />
+        <h4 className="herocard__heading">
+          <span className={`herocard__heading-span herocard__intro-phrase`}>
+            {introPhrase}
+          </span>
+        </h4>
+        <div className="herocard__inspirational-text">
+          <span>{inspirationalDescription}</span>
+        </div>
       </div>
-      <h4 className="herocard__heading">
-        <span className={`herocard__heading-span herocard__intro-phrase`}>
-          {introPhrase}
-        </span>
-      </h4>
       <div className="herocard__details">
-        <p className="herocard__service-description">{description} </p>
-      </div>
-      <div className="herocard__cta">
-        <Link href={href} className="btn btn--white">
-          {ctaMessage}
-        </Link>
+        <section className="herocard__target-information">
+          <div className="herocard__content">
+            <span>{descriptionBriefIntro}</span>
+            <ul className="herocard__content-list">
+              {descriptionList.map((element, index) => (
+                <li key={index}>{element}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+        <section className="herocard__cta-wrapper">
+          <div className="herocard__cta-button">
+            <Link href={href} className="btn btn--blue">
+              {ctaMessage}
+            </Link>
+          </div>
+        </section>
       </div>
     </div>
   );
@@ -128,11 +141,9 @@ export const HomepageHeroCards: React.FC<{ list: HerocardArgs[] }> = ({
   return (
     <div className="homepage__card homepage__card-container">
       {list?.map((element, index) => (
-        <HomepageHeroCard
-          key={element.introPhrase}
-          {...element}
-          index={index}
-        />
+        <li key={`${element.pictureAlt}${index}`}>
+          <HomepageHeroCard {...element} index={index} />
+        </li>
       ))}
     </div>
   );
@@ -140,7 +151,11 @@ export const HomepageHeroCards: React.FC<{ list: HerocardArgs[] }> = ({
 
 interface HerocardArgs {
   introPhrase: string;
-  description: string;
+  inspirationalDescription: string;
+  targetIntro: string;
+  target: string;
+  descriptionBriefIntro: string;
+  descriptionList: string[];
   picturePath: StaticImageData;
   pictureAlt: string;
   href: string;

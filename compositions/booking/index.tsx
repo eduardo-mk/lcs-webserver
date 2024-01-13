@@ -1,5 +1,4 @@
 import ProgressBar from '../../components/progress-bar';
-
 function BookingFlow({ children }) {
   return (
     <>

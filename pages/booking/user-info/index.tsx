@@ -52,7 +52,7 @@ function registerUser(userData: UserData, dispatch: Dispatch<any>) {
     });
 }
 
-function UserInfo() {
+function UserInfo({ userIsBooking }) {
   const { userData, userDataIsValid, userRegistrationServiceApiOk } =
     useStateContext();
   const [firstNameIsValid, setFirstNameIsValid] = useState(true);
@@ -109,7 +109,7 @@ function UserInfo() {
 
   function onCompletionHandler() {
     if (validateEntireForm(userData, dispatch)) {
-      console.table(userData);
+      // console.table(userData);
       registerUser(userData, dispatch);
     }
   }

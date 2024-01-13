@@ -3,6 +3,32 @@
   // flex-flow: column nowrap;
   // align-items: center;
   position: relative;
+  &__services {
+    max-width: 180rem;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    &-title {
+      color: $color-black;
+      width: 100%;
+      line-height: 5rem;
+      text-align: center;
+      font-size: 6rem;
+    }
+    &-wrapper {
+      // border: 1px dotted black;
+      width: 126.5rem;
+      @include respond(tab-land) {
+        // border: 1px dotted red;
+        width: 70%;
+      }
+      @include respond(tab-port) {
+        // border: 1px dotted green;
+        width: 100%;
+      }
+    }
+  }
 }
 
 .section-about {
@@ -28,4 +54,31 @@
   position: relative;
   padding: 15rem 0;
   // background-color: $color-grey-light-1;
+}
+
+.homepage__card {
+  width: 100%;
+  color: $color-primary-dark;
+
+  &-container {
+    // margin: 0 auto;
+    li {
+      list-style-type: none;
+    }
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: normal;
+    align-content: space-around;
+    @include respond(tab-port) {
+      flex-flow: column nowrap;
+      align-items: center;
+    }
+  }
+
+  // & .herocard:nth-child(even) {
+  //   // background-color: $color-secondary-light;
+  //   background-color: $color-tertiary-light;
+  //   color: $color-primary-dark;
+  // }
 }

@@ -64,9 +64,9 @@ function DayAndTime() {
   if (daysAvailable.error) return <h1>Error while trying to load days</h1>;
   if (daysAvailable.loading) {
     return (
-      <BookingFlow>
-        <div className="loader">Loading...</div>
-      </BookingFlow>
+      // <BookingFlow>
+      <div className="loader">Loading...</div>
+      // </BookingFlow>
     );
   }
 

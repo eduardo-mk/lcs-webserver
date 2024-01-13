@@ -1,0 +1,140 @@
+.herocard {
+  margin: 0rem 1rem 5rem 1rem;
+  min-width: 30rem;
+  max-width: 40rem;
+
+  flex-grow: 2;
+  border-radius: 1rem;
+  background-color: $color-beishezito;
+  color: $color-primary-dark;
+  // background-image: linear-gradient(to right, rgba($color-beishezito, 0.2), rgba($color-tertiary-light, 1));
+
+  @include respond(tab-land) {
+    // border: 1px dotted red;
+    max-width: 120rem;
+  }
+  @include respond(tab-port) {
+    max-width: 60rem;
+  }
+  @include respond(phone) {
+    max-width: 100%;
+  }
+
+  &__picture {
+    position: relative;
+    & img {
+      border-radius: 1rem 1rem 0rem 0rem;
+    }
+  }
+  &__heading {
+    position: absolute;
+    border-radius: 1rem 1rem 0rem 0rem;
+    background-image: linear-gradient(
+      to right,
+      rgba($color-beishezito, 0.5),
+      rgba($color-beishezito, 0.8),
+      rgba($color-beishezito, 1)
+    );
+    top: 0rem;
+    // margin-top: 3rem;
+    width: 100%;
+    text-align: left;
+
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    line-height: 4rem;
+    & span {
+      width: 100%;
+      display: inline-block;
+      text-align: center;
+      font-weight: 400;
+      font-size: 3.8rem;
+    }
+  }
+
+  &__inspirational-text {
+    position: absolute;
+    bottom: 0rem;
+    height: 11rem;
+    line-height: 3.2rem;
+    text-align: left;
+    width: 100%;
+    contain: layout;
+    // background-color: $color-beishezito;
+    background-image: linear-gradient(
+      to left,
+      rgba($color-beishezito, 0.5),
+      rgba($color-beishezito, 0.9),
+      rgba($color-beishezito, 1)
+    );
+    display: flex;
+    align-items: center;
+    & span {
+      padding: 0 2rem;
+      width: 100%;
+      font-size: 1.8rem;
+      @include respond(tab-land) {
+        font-size: 2.8rem;
+      }
+      @include respond(tab-port) {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  &__details {
+    width: 100%;
+    font-size: 2.5rem;
+    text-align: left;
+    height: 42rem;
+    line-height: 3.5rem;
+
+    white-space: pre-line;
+    position: relative;
+    @include respond(tab-land) {
+      height: 35rem;
+    }
+    @include respond(tab-port) {
+      height: 40rem;
+    }
+  }
+
+  &__target-information {
+    padding: 2rem;
+    font-size: 2rem;
+    @include respond(tab-land) {
+      font-size: 2.5rem;
+    }
+    // @include respond(tab-port) {
+    //     font-size: 3rem;
+    // }
+    line-height: 3rem;
+    color: $color-grey-dark;
+    & .target-intro,
+    .target-text {
+      color: $color-grey-dark-2;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    & .herocard__content {
+      li {
+        list-style-type: none;
+      }
+      &-list {
+        margin-top: 1rem;
+        margin-left: 2rem;
+      }
+    }
+  }
+  &__cta {
+    &-wrapper {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      display: flex;
+      flex-flow: row-reverse;
+      align-items: flex-end;
+    }
+  }
+}

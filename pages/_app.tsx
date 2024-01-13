@@ -16,7 +16,6 @@ function MyApp({ Component, pageProps }) {
     setClickAmount((amount) => {
       return amount + 1;
     });
-
   return (
     <BookingContextWrapper>
       <ErrorBoundary>

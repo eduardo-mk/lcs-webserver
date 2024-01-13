@@ -21,7 +21,6 @@ interface UseCalendarAvailableDays_Result {
 }
 
 export function usePlans(limit: number, offset: number): UsePlanResult {
-  console.log('USE PLANS\n\n\n', limit, offset);
   const result = useQuery(getAvailablePlans, {
     fetchPolicy: 'network-only',
     variables: {
@@ -31,10 +30,10 @@ export function usePlans(limit: number, offset: number): UsePlanResult {
   });
 
   const { data, loading, error } = result;
-  return { 
-    plans: data?.plans?.items, 
-    loading, 
-    error: Boolean(error) 
+  return {
+    plans: data?.plans?.items,
+    loading,
+    error: Boolean(error),
   };
 }
 
@@ -54,7 +53,6 @@ export function useCalendarAvailableHours(
   daySelected: Date | string,
   timeZone: string
 ) {
-  console.log('Calculating the available hours graphql', daySelected, timeZone);
   const { data, loading, error } = useQuery(getCalendarAvailableHours, {
     fetchPolicy: 'network-only',
     variables: {
