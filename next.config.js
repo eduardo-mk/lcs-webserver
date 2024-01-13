@@ -10,7 +10,7 @@ const GRAPHQL_API_URL = isProdEnv
   ? `${process.env.BACKEND_URL}/graphql`
   : `http://${ipv4Addresses[0]}:4000/graphql`;
 const BACKEND_URL = isProdEnv ? process.env.BACKEND_URL : 'localhost';
-const extraOptions = isProdEnv ? { output: 'standalone' } : {};
+// const extraOptions = isProdEnv ? { output: 'standalone' } : {};
 module.exports = {
   reactStrictMode: true,
   outputFileTracing: false,
@@ -30,5 +30,5 @@ module.exports = {
     // loader: 'sharp',
     deviceSizes: [380, 430, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
   },
-  ...extraOptions,
+  // ...extraOptions,
 };
