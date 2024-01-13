@@ -102,6 +102,7 @@ export const HomepageHeroCard: React.FC<HerocardArgs & { index: number }> = ({
             width: '100%',
             height: 'auto',
           }}
+          priority={true}
         />
         <h4 className="herocard__heading">
           <span className={`herocard__heading-span herocard__intro-phrase`}>
