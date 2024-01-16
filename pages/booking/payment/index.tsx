@@ -5,7 +5,7 @@ import {
   useElements,
   useStripe,
 } from '@stripe/react-stripe-js';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, MouseEvent } from 'react';
 import {
   PaymentIntentResult,
   StripeConstructorOptions,
@@ -91,8 +91,9 @@ function Payment() {
     }
   }
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: MouseEvent) => {
     event.preventDefault();
+    if(payButtonDisabled === true) return
     setPayButtonDisabled(true);
 
     let result: PaymentIntentResult;
@@ -148,12 +149,10 @@ function Payment() {
         default:
           break;
       }
-      setPayButtonDisabled(false);
     }
   };
 
   if (mutationState.error) {
-    console.error('~~~~~ Error with mutation state ~~~~~~~~');
     console.error(mutationState.error);
   }
 
@@ -228,6 +227,7 @@ function PaymentWithStripe() {
 
   return (
     <BookingFlow>
+    <div className='payment'>
       <section className="payment__plan-summary">
         <h1 className="section-booking__header">ORDEN POR PAGAR</h1>
         <SimpleTable
@@ -290,6 +290,8 @@ function PaymentWithStripe() {
           </Elements>
         )}
       </section>
+
+    </div>
     </BookingFlow>
   );
 }

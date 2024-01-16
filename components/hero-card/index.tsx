@@ -98,11 +98,14 @@ export const HomepageHeroCard: React.FC<HerocardArgs & { index: number }> = ({
         <Image
           src={picturePath}
           alt={pictureAlt}
+          // width={400}
+          // height={600}
+          // fill={true}
           style={{
             width: '100%',
             height: 'auto',
           }}
-          priority={true}
+          // priority={true}
         />
         <h4 className="herocard__heading">
           <span className={`herocard__heading-span herocard__intro-phrase`}>

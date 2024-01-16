@@ -28,7 +28,7 @@ module.exports = {
   },
   images: {
     // loader: 'sharp',
-    deviceSizes: [380, 430, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    deviceSizes: [380, 430, 640, 750, 828, 1080, 1200],
   },
   // ...extraOptions,
 };
