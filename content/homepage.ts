@@ -5,6 +5,11 @@
 import homepageEmbarazo from '../public/images/embarazo-h-gs.jpg';
 import homepagePostparto from '../public/images/postparto-1.jpg';
 import homepageLactancia from '../public/images/lactancia-h-gs.jpg';
+
+import embarazoCardLogo from '../public/images/service-logo-embarazada.svg';
+import postpartoCardLogo from '../public/images/service-logo-postparto.svg';
+import lactanciaCardLogo from '../public/images/service-logo-lactancia.svg';
+import alimentacionComplementariaCardLogo from '../public/images/service-logo-alimentacion.svg';
 import homepageAboutMe from '../public/about-me.jpg';
 
 import unisonLogo from '../public/logo/unison.jpg';
@@ -12,6 +17,7 @@ import uesLogo from '../public/logo/ues.png';
 import iblceLogo from '../public/logo/IBCLC_Logo.png';
 export const homepageDataList = [
   {
+    id: 'nutricion-embarazo',
     introPhrase: 'Nutrición en embarazo',
     // description: 'Esta consulta es ideal si estás embarazada y buscas asesoría sobre cuánto comer,
     //  qué alimentos evitar, cómo suplementarte o qué hacer con las náuseas.
@@ -35,13 +41,14 @@ export const homepageDataList = [
 
     // Aquí es donde yo puedo apoyarte en este trayecto.`,
     href: '#',
-    picturePath: homepageEmbarazo,
+    picturePath: embarazoCardLogo,
     pictureAlt: 'Mujer embarazada',
     ctaMessage: 'Mas información',
   },
 
   {
-    introPhrase: `Nutrición en postparto.`,
+    id: 'nutricion-postparto',
+    introPhrase: `Nutrición en postparto`,
     targetIntro: 'Para:',
     target: 'Mujeres en etapa de postparto',
     inspirationalDescription: `El posparto es un capítulo nuevo, escríbelo con compasión y autocuidado. `,
@@ -60,11 +67,12 @@ export const homepageDataList = [
 
     // Por lo tanto, dedicar tiempo a ser consciente de tu propia nutrición no es un lujo, sino una necesidad.`,
     href: '#',
-    picturePath: homepagePostparto,
+    picturePath: postpartoCardLogo,
     pictureAlt: 'Mujer con bebé en postparto',
     ctaMessage: 'Mas información',
   },
   {
+    id: 'lactancia-materna',
     introPhrase: 'Lactancia materna',
     targetIntro: 'Para:',
     target: 'Cualquier etapa de lactancia',
@@ -79,8 +87,28 @@ export const homepageDataList = [
     ],
 
     href: '#',
-    picturePath: homepageLactancia,
+    picturePath: lactanciaCardLogo,
     pictureAlt: 'Mujer con bebé lactando en rancho',
+    ctaMessage: 'Mas información',
+  },
+  {
+    id: 'alimentacion-complementaria',
+    introPhrase: 'Alimentación para bebés',
+    targetIntro: 'Para:',
+    target: 'Cualquier etapa de lactancia',
+    inspirationalDescription: `Nutre el vínculo más profundo con tu bebé a través de la lactancia materna`,
+    descriptionBriefIntro: '¿Qué se busca en esta consulta?',
+    descriptionList: [
+      'Mejorar técnicas de agarre',
+      'Despejar dudas sobre lactancia materna',
+      'Saber cuánto y qué comer',
+      'Valoración de caso',
+      'Suplementación',
+    ],
+
+    href: '#',
+    picturePath: alimentacionComplementariaCardLogo,
+    pictureAlt: 'Bebe comiendo',
     ctaMessage: 'Mas información',
   },
 ];

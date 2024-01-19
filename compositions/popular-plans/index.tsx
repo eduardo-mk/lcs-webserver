@@ -1,24 +1,15 @@
-import Link from 'next/link';
-import { ServiceHeroCards } from '../../components/hero-card';
 import { mainPage } from '../../content';
-import { usePlans } from '../../graphql/hooks';
+import { ServiceCards } from '../../components/cards/plan-card';
+import { homepageDataList } from '../../content/homepage';
 // import { GetServerSideProps } from "next";
 
 const PopularPlansSection: React.FC = () => {
-  const { plans, error, loading } = usePlans(4, 0);
-
-  if (error) {
-    console.error(error);
-  }
-
-  if (loading) return <div className="loader">Loading...</div>;
-
   return (
     <section className="section-popular-plans">
-      <div className="u-center-text u-margin-bottom-8 u-margin-top-8">
+      {/* <div className="u-center-text u-margin-bottom-8 u-margin-top-8">
         <h2 className="heading-secondary">{mainPage['heading-secondary']}</h2>
-      </div>
-      <ServiceHeroCards list={plans} />
+      </div> */}
+      <ServiceCards list={homepageDataList} />
       {/* <div className="u-center-text u-margin-top-8">
         <Link href="/booking/plans" className="btn btn--white btn--animated">
           {' '}

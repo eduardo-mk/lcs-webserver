@@ -1,6 +1,20 @@
 .about-me {
   background-color: $color-white;
   // width: 100vw;
+  width: 120rem;
+  @include respond(tab-land) {
+    width: 80rem;
+  }
+  @include respond(tab-port) {
+    width: 58rem;
+  }
+  // @include respond(small-phone) {
+  //   font-size: 40%;
+  // }
+  // @include respond(mini-phone) {
+  //   font-size: 35%;
+  // }
+  margin: 0 auto;
   padding: 10rem 2rem;
   &__image-wrapper {
     width: 100%;
@@ -22,6 +36,9 @@
     text-indent: 3rem;
     text-align: justify;
     white-space: pre-line;
+  }
+  &__name {
+    width: 55rem;
   }
   &__credential {
     &-header {

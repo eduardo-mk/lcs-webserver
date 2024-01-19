@@ -93,7 +93,7 @@ function Payment() {
 
   const handleSubmit = async (event: MouseEvent) => {
     event.preventDefault();
-    if(payButtonDisabled === true) return
+    if (payButtonDisabled === true) return;
     setPayButtonDisabled(true);
 
     let result: PaymentIntentResult;
@@ -227,71 +227,70 @@ function PaymentWithStripe() {
 
   return (
     <BookingFlow>
-    <div className='payment'>
-      <section className="payment__plan-summary">
-        <h1 className="section-booking__header">ORDEN POR PAGAR</h1>
-        <SimpleTable
-          data={[
-            { title: 'Servicio', value: planSelection.name },
-            // { title: 'Descripción', value: planSelection.description },
-            // { title: 'Paciente', value: `${userData.firstName} ${userData.lastName}` },
-            // { title: 'Correo', value: userData.email },
-            { title: 'Cantidad', value: '1' },
-            // { title: 'Día', value: dayFormated },
-            // { title: 'Hora', value: dayAndTime.time },
-            // { title: 'Zona Horaria', value: timeZone },
-            { title: 'Total', value: `${planSelection.price}.00 mxn` },
-          ]}
-        />
-        <div className="payment__plan-options">
-          <p>Pagos con tarjeta via</p>
-          <Image
-            src="/logo/Stripe-wordmark-blurple-small.png"
-            alt="Stripe Logo"
-            className="payment__plan-stripe-logo"
-            width={100}
-            height={45}
+      <div className="payment">
+        <section className="payment__plan-summary">
+          <h1 className="section-booking__header">ORDEN POR PAGAR</h1>
+          <SimpleTable
+            data={[
+              { title: 'Servicio', value: planSelection.name },
+              // { title: 'Descripción', value: planSelection.description },
+              // { title: 'Paciente', value: `${userData.firstName} ${userData.lastName}` },
+              // { title: 'Correo', value: userData.email },
+              { title: 'Cantidad', value: '1' },
+              // { title: 'Día', value: dayFormated },
+              // { title: 'Hora', value: dayAndTime.time },
+              // { title: 'Zona Horaria', value: timeZone },
+              { title: 'Total', value: `${planSelection.price}.00 mxn` },
+            ]}
           />
-        </div>
-      </section>
+          <div className="payment__plan-options">
+            <p>Pagos con tarjeta via</p>
+            <Image
+              src="/logo/Stripe-wordmark-blurple-small.png"
+              alt="Stripe Logo"
+              className="payment__plan-stripe-logo"
+              width={100}
+              height={45}
+            />
+          </div>
+        </section>
 
-      <section className="payment__card">
-        {/* <h2 className="payment__card-title">Datos de tarjeta</h2> */}
-        {clientSecret === null || clientSecret === undefined ? (
-          <div className="loader">Loading...</div>
-        ) : (
-          <Elements
-            stripe={stripePromise as any}
-            options={{
-              clientSecret: clientSecret,
-              loader: 'always',
-              locale: 'es',
-              appearance: {
-                theme: 'stripe',
-                variables: {
-                  // colorPrimary: '#4cfc7b',
-                  // colorBackground: '#ffffff',
-                  // colorBackgroundText: '#000',
-                  // colorText: '#044e7d',
-                  // colorText: '#545454',
-                  // colorPrimaryText: '#4cfc7b',
-                  // colorTextSecondary: '#4cfc7b'
-                  // colorDanger: '#df1b41',
-                  // fontFamily: 'Ideal Sans, system-ui, sans-serif',
-                  // fontSizeBase: '15px'
-                  // spacingUnit: '2px',
-                  // borderRadius: '4px',
-                  // See all possible variables below
+        <section className="payment__card">
+          {/* <h2 className="payment__card-title">Datos de tarjeta</h2> */}
+          {clientSecret === null || clientSecret === undefined ? (
+            <div className="loader">Loading...</div>
+          ) : (
+            <Elements
+              stripe={stripePromise as any}
+              options={{
+                clientSecret: clientSecret,
+                loader: 'always',
+                locale: 'es',
+                appearance: {
+                  theme: 'stripe',
+                  variables: {
+                    // colorPrimary: '#4cfc7b',
+                    // colorBackground: '#ffffff',
+                    // colorBackgroundText: '#000',
+                    // colorText: '#044e7d',
+                    // colorText: '#545454',
+                    // colorPrimaryText: '#4cfc7b',
+                    // colorTextSecondary: '#4cfc7b'
+                    // colorDanger: '#df1b41',
+                    // fontFamily: 'Ideal Sans, system-ui, sans-serif',
+                    // fontSizeBase: '15px'
+                    // spacingUnit: '2px',
+                    // borderRadius: '4px',
+                    // See all possible variables below
+                  },
                 },
-              },
-            }}
-          >
-            <Payment />
-          </Elements>
-        )}
-      </section>
-
-    </div>
+              }}
+            >
+              <Payment />
+            </Elements>
+          )}
+        </section>
+      </div>
     </BookingFlow>
   );
 }

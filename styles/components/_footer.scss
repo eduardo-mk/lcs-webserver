@@ -1,13 +1,17 @@
 .footer {
   background-color: $color-primary-dark;
-  height: 15rem;
+  height: 10rem;
   text-align: center;
   p {
+    height: 4rem;
     font-size: 1.8rem;
     margin: 0 auto;
     line-height: 10rem;
     span {
       font-weight: 800;
     }
+  }
+  .authors {
+    font-size: 1.5rem;
   }
 }

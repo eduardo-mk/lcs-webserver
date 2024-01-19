@@ -12,21 +12,24 @@
     &-title {
       color: $color-black;
       width: 100%;
-      line-height: 5rem;
+      line-height: 7rem;
       text-align: center;
       font-size: 6rem;
+      margin-top: 5rem;
+      margin-bottom: 3rem;
     }
     &-wrapper {
+      background-color: $color-secondary-light;
       // border: 1px dotted black;
-      width: 126.5rem;
-      @include respond(tab-land) {
-        // border: 1px dotted red;
-        width: 70%;
-      }
-      @include respond(tab-port) {
-        // border: 1px dotted green;
-        width: 100%;
-      }
+      width: 100%;
+      // @include respond(tab-land) {
+      //   // border: 1px dotted red;
+      //   width: 70%;
+      // }
+      // @include respond(tab-port) {
+      //   // border: 1px dotted green;
+      //   width: 100%;
+      // }
     }
   }
 }
@@ -40,7 +43,8 @@
 //
 
 .section-popular-plans {
-  padding-top: 1rem;
+  padding-top: 7rem;
+  width: 100%;
   // height: 100vh;
   // background-color: $color-primary;
   // position: absolute;

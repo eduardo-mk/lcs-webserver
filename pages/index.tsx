@@ -7,6 +7,8 @@ import { homepageDataList, credentialsData } from '../content/homepage';
 import { Credentials } from '../components/credentials';
 import { useEffect } from 'react';
 import { useDispatchContext } from '../reducers/booking/context';
+import PopularPlansSection from '../compositions/popular-plans';
+import { ServiceCards } from '../components/cards/plan-card';
 export default function Home({ clickAmount, increment }) {
   const dispatch = useDispatchContext();
   useEffect(() => {
@@ -55,8 +57,9 @@ export default function Home({ clickAmount, increment }) {
       </header>
       <section className="homepage__services">
         <section className="homepage__services-wrapper">
-          <h1 className="homepage__services-title">Consultas especializadas</h1>
-          <HomepageHeroCards list={homepageDataList} />
+          <h1 className="homepage__services-title">¿En qué puedo ayudarte?</h1>
+          <ServiceCards list={homepageDataList} />
+          {/* <HomepageHeroCards list={homepageDataList} /> */}
         </section>
         <section className="homepage__credencials">
           <h1 className="homepage__services-title">¡Bienvenida mamá!</h1>

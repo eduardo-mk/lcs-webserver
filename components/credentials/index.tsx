@@ -25,7 +25,7 @@ export const Credentials: React.FC<CredentialsArgs> = ({
             alt={logo_1_alt}
             style={{
               width: 'auto',
-              height: '15rem',
+              height: '10rem',
             }}
             sizes="100vw"
           />
@@ -34,7 +34,7 @@ export const Credentials: React.FC<CredentialsArgs> = ({
             alt={logo_2_alt}
             style={{
               width: 'auto',
-              height: '15rem',
+              height: '10rem',
             }}
             sizes="100vw"
           />
@@ -43,14 +43,14 @@ export const Credentials: React.FC<CredentialsArgs> = ({
             alt={logo_3_alt}
             style={{
               width: 'auto',
-              height: '15rem',
+              height: '10rem',
             }}
             sizes="100vw"
           />
         </section>
         <section className="credential__cta-wrapper">
           <div className="credential__cta-button">
-            <Link href={href} className="btn btn--blue">
+            <Link href={href} className="btn btn--white">
               {ctaMessage}
             </Link>
           </div>
