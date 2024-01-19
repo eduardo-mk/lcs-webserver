@@ -19,7 +19,7 @@ export const Credentials: React.FC<CredentialsArgs> = ({
         <div className="credential__inspirational-text">
           <span>{inspirationalDescription}</span>
         </div>
-        <section className="credential__badges">
+        {/* <section className="credential__badges">
           <Image
             src={logo_1}
             alt={logo_1_alt}
@@ -47,10 +47,10 @@ export const Credentials: React.FC<CredentialsArgs> = ({
             }}
             sizes="100vw"
           />
-        </section>
+        </section> */}
         <section className="credential__cta-wrapper">
           <div className="credential__cta-button">
-            <Link href={href} className="btn btn--white">
+            <Link href={href} className="btn btn--blue">
               {ctaMessage}
             </Link>
           </div>
