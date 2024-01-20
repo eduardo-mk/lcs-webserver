@@ -72,7 +72,7 @@ function DayAndTime() {
 
   return (
     <BookingFlow>
-      <section className="day-time__wrapper">
+      <section className="day-time__page">
         <h1 className="section-booking__header">
           Elige el día y después la hora
         </h1>

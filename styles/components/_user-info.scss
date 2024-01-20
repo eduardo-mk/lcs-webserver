@@ -1,4 +1,7 @@
 .user-data {
+  &__page {
+    height: $default-screen-section-height;
+  }
   height: 100%;
   font-size: 5rem;
   border-radius: 2rem;

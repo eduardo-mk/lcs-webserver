@@ -46,22 +46,24 @@ function LastCheck() {
 
   return (
     <BookingFlow>
-      <section className="last-check">
-        <h1 className="section-booking__header">Revisa tu información</h1>
-        <SimpleTable
-          data={[
-            { title: 'Servicio', value: planSelection.name },
-            { title: 'Descripción', value: planSelection.description },
-            { title: 'Paciente', value: `${firstName} ${lastName}` },
-            { title: 'Correo', value: userData.email },
-            { title: 'Día', value: dayFormated },
-            { title: 'Hora', value: time },
-            { title: 'Zona Horaria', value: timeZone },
-            { title: 'Precio', value: `${planSelection.price}.00 mxn` },
-          ]}
-        />
-        <Button onClick={confirmationHandler}>Confirmar</Button>
-      </section>
+      <div className="last-check__page">
+        <section className="last-check">
+          <h1 className="section-booking__header">Revisa tu información</h1>
+          <SimpleTable
+            data={[
+              { title: 'Servicio', value: planSelection.name },
+              { title: 'Descripción', value: planSelection.description },
+              { title: 'Paciente', value: `${firstName} ${lastName}` },
+              { title: 'Correo', value: userData.email },
+              { title: 'Día', value: dayFormated },
+              { title: 'Hora', value: time },
+              { title: 'Zona Horaria', value: timeZone },
+              { title: 'Precio', value: `${planSelection.price}.00 mxn` },
+            ]}
+          />
+          <Button onClick={confirmationHandler}>Confirmar</Button>
+        </section>
+      </div>
     </BookingFlow>
   );
 }

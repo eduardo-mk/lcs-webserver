@@ -119,87 +119,93 @@ function UserInfo({ userIsBooking }) {
 
   if (userRegistrationServiceApiOk === false) {
     return (
-      <section className="user-data">
-        <div className="user-data__error">
-          <div className="user-data__error-image--wrapper">
-            <Image
-              src={dogPensative}
-              alt="Person on a tour"
-              style={{
-                width: '100%',
-                height: 'auto',
-              }}
-              sizes="100vw"
-              // height={200}
-              // width={300}
-              className="story__img"
-            />
+      <div className="user-data__page">
+        <section className="user-data">
+          <div className="user-data__error">
+            <div className="user-data__error-image--wrapper">
+              <Image
+                src={dogPensative}
+                alt="Person on a tour"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                }}
+                sizes="100vw"
+                // height={200}
+                // width={300}
+                className="story__img"
+              />
+            </div>
+            <p>
+              {userInfoAssociatedContent['user-info-can-not-be-registered']}
+            </p>
+            <Link href="/" className="btn btn--white btn--animated">
+              {' '}
+              {'Volver a inicio'}
+            </Link>
           </div>
-          <p>{userInfoAssociatedContent['user-info-can-not-be-registered']}</p>
-          <Link href="/" className="btn btn--white btn--animated">
-            {' '}
-            {'Volver a inicio'}
-          </Link>
-        </div>
-      </section>
+        </section>
+      </div>
     );
   }
 
   return (
     <BookingFlow>
-      <section className="user-data">
-        <h1 className="section-booking__header">Información de Contacto</h1>
-        <div className="user-data__contact-basic">
-          <form>
-            <Input
-              onChange={firstNameHandler}
-              onBlur={onBlurNameHandlerChecks}
-              isValid={firstNameIsValid}
-              value={userData.firstName}
-              type="text"
-              label="Nombre"
-              name="first-name"
-              id="first-name"
-            />
-            <Input
-              onChange={lastNameHandler}
-              onBlur={onBlurLastnameChecks}
-              isValid={lastNameIsValid}
-              value={userData.lastName}
-              type="text"
-              label="Apellido"
-              name="Last-name"
-              id="Last-name"
-            />
+      <div className="user-data__page">
+        <section className="user-data">
+          <h1 className="section-booking__header">Información de Contacto</h1>
+          <div className="user-data__contact-basic">
+            <form>
+              <Input
+                onChange={firstNameHandler}
+                onBlur={onBlurNameHandlerChecks}
+                isValid={firstNameIsValid}
+                value={userData.firstName}
+                type="text"
+                label="Nombre"
+                name="first-name"
+                id="first-name"
+              />
+              <Input
+                onChange={lastNameHandler}
+                onBlur={onBlurLastnameChecks}
+                isValid={lastNameIsValid}
+                value={userData.lastName}
+                type="text"
+                label="Apellido"
+                name="Last-name"
+                id="Last-name"
+              />
 
-            <Input
-              onChange={emailHandler}
-              onBlur={onBlurEmailChecks}
-              isValid={emailIsValid}
-              value={userData.email}
-              type="email"
-              label="e-mail"
-              name="email"
-              id="email"
-            />
-          </form>
-        </div>
-        <Button
-          className="btn--classic"
-          type="button"
-          onClick={onCompletionHandler}
-        >
-          Registrar
-        </Button>
-        {displayErrorBanner ? (
-          <label className="user-data__btn-invalid-msg">
-            {userInfoAssociatedContent['user-info-not-valiud-form-error-msg']}
-          </label>
-        ) : null}
-        <p className="disclaimer">
-          {userInfoAssociatedContent['user-info-footer-disclaimer']}
-        </p>
-      </section>
+              <Input
+                onChange={emailHandler}
+                onBlur={onBlurEmailChecks}
+                isValid={emailIsValid}
+                value={userData.email}
+                type="email"
+                label="e-mail"
+                name="email"
+                id="email"
+              />
+            </form>
+          </div>
+          <Button
+            className="btn--classic"
+            type="button"
+            onClick={onCompletionHandler}
+          >
+            Registrar
+          </Button>
+          {displayErrorBanner ? (
+            <label className="user-data__btn-invalid-msg">
+              {userInfoAssociatedContent['user-info-not-valiud-form-error-msg']}
+            </label>
+          ) : null}
+          <p className="disclaimer">
+            {userInfoAssociatedContent['user-info-footer-disclaimer']}
+          </p>
+        </section>
+      </div>
     </BookingFlow>
   );
 }

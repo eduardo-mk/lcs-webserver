@@ -1,4 +1,7 @@
 .last-check {
+  &__page {
+    height: $default-screen-section-height;
+  }
   display: flex;
   flex-flow: column nowrap;
   color: $color-primary-dark;

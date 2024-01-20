@@ -45,8 +45,8 @@
   }
   .day-time {
     margin-top: 4rem;
-    &__wrapper {
-      height: 100vh;
+    &__page {
+      height: $default-screen-section-height;
       display: flex;
       flex-flow: column nowrap;
     }

@@ -27,12 +27,12 @@ function Navigation() {
     }
   }
 
-  // const debounceFn = debounce(checkViewportSize, 30)
+  const debounceFn = debounce(checkViewportSize, 30);
 
   useEffect(() => {
-    window.addEventListener('resize', checkViewportSize);
+    window.addEventListener('resize', debounceFn);
     return () => {
-      window.removeEventListener('resize', checkViewportSize);
+      window.removeEventListener('resize', debounceFn);
     };
   }, []);
 
