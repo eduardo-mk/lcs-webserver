@@ -1,6 +1,15 @@
 .navigation {
-  &__checkbox {
-    display: none;
+  &__small.hide-navigation-small {
+    .navigation {
+      &__button,
+      &__background {
+        display: none;
+      }
+    }
+  }
+  &__small {
+    position: unset;
+    z-index: -1000;
   }
   &__button {
     text-align: center;
@@ -8,7 +17,7 @@
     height: 7rem;
 
     // @include respond(big-desktop) {
-    //   height: 4.5rem;
+    //   visibility:  hidden;
     // }
     // @include respond(tab-port) {
     //   height: 4.5rem;
@@ -32,23 +41,29 @@
     cursor: pointer;
   }
   &__background {
-    height: 4.5rem;
-    width: 100%;
+    height: 5.5rem;
+    width: 80rem;
+    // width: 100%;
     // border-radius: 50%;
     position: fixed;
-    top: 0;
-    left: 0;
+    top: -15%;
+    left: 50%;
+    transform: translate(-50%, 0);
     background-image: radial-gradient($color-primary, $color-primary-light);
     z-index: 10;
-    transition: transform 0.8s cubic-bezier(0.52, 0.16, 0.24, 1); // OK
+    transition: transform 0.66s cubic-bezier(0.52, 0.26, 0.38, 1); // OK
+    // visibility: hidden;
     // transition: transform 1s cubic-bezier(0.32, 0.08, 0.24, 1); // OK
     // transition: transform 1s 0.2s cubic-bezier(0.52, 0.16, 0.24, 1), height 0.56s cubic-bezier(0.52, 0.16, 0.24, 1);
     // transform: scale(80);
-    // @include respond(small-phone) {
-    //     height: 9rem;
-    //     width: 9rem;
+    // @include respond(tab-land) {
+    //   visibility: visible;
+    //   // height: 9rem;
+    //   // width: 9rem;
     // }
   }
+
+  // Do not erase this color is for cards header section: #bb8f8f
 
   &__shopping-cart {
     position: fixed;
@@ -65,11 +80,12 @@
     //     // right: 3rem;
     // }
   }
+  // Navigation for Small Viewports
   &__nav {
     height: 100vh;
     position: fixed;
     overflow: hidden;
-    top: -10%;
+    top: -25%;
     right: 50%;
     z-index: 11;
 
@@ -77,9 +93,12 @@
     width: 0;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.56s cubic-bezier(0.68, -0.55, 0.256, 1.55);
+    transition: all 0.56s cubic-bezier(0.68, -0.6, 0.256, 1.55);
+    // transition-delay: 0.5s;
   }
-
+  &__nav.hide-navigation-small {
+    display: none;
+  }
   &__list {
     width: 45rem;
     position: absolute;
@@ -130,6 +149,57 @@
       color: $color-primary;
       transform: translateX(1rem);
     }
+  }
+
+  // Navigation for Medium and Large viewports
+  &__nav-not-small.show-nav-list {
+    position: fixed;
+    height: 7rem;
+    width: 100%;
+    background-color: $color-primary-dark;
+    // opacity: 0.5;
+    // filter: blur(1px);
+    // opacity: 0.5;
+    z-index: 2;
+    ul {
+      // min-width: 80%;
+      display: flex;
+      list-style: none;
+      flex-flow: row nowrap;
+      justify-content: center;
+      // height: 7rem;
+      // position: sticky;
+      li {
+        // text-align: right;
+        height: 7rem;
+
+        // width: 30rem;
+        // border: 1px dotted blueviolet;
+        display: flex;
+        // flex-flow: column nowrap;
+        // justify-content: center;
+        // align-items: ;
+        a {
+          opacity: 1;
+          padding-top: 1.5rem;
+          font-size: 2.5rem;
+          width: 35rem;
+          text-align: center;
+          text-transform: uppercase;
+          text-decoration: none;
+          color: white;
+          // color: $color-primary-dark;
+          vertical-align: bottom;
+        }
+        a:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  &__nav-not-small.hide-nav-list {
+    display: none;
   }
   // FUNCTIONALITY
   &__checked ~ &__background {
@@ -199,15 +269,25 @@
   &__button:hover &__icon::after {
     top: 1rem;
   }
-  &__checked + &__button &__icon {
+  &__button.navigation__checked &__icon {
     background-color: transparent;
   }
-  &__checked + &__button &__icon:before {
+  &__button.navigation__checked &__icon:before {
     transform: rotate(135deg);
     top: 0.2rem;
   }
-  &__checked + &__button &__icon:after {
+  &__button.navigation__checked &__icon:after {
     top: 0.2rem;
     transform: rotate(-135deg);
+  }
+
+  @include respond(phone) {
+    font-size: 55%;
+  }
+  @include respond(small-phone) {
+    font-size: 40%;
+  }
+  @include respond(mini-phone) {
+    font-size: 35%;
   }
 }

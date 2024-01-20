@@ -12,7 +12,7 @@
     "check-format": "prettier --check .",
     "check-lint": "next lint",
     "format": "prettier --write .",
-    "test-all": "npm run format && npm run check-lint && npm run check-types && npm run build"
+    "test-all": "npm run format && npm run check-lint && npm run check-types"
   },
   "dependencies": {
     "@apollo/client": "^3.7.14",

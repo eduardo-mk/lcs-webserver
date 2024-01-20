@@ -1,7 +1,8 @@
 .header {
-  padding-top: 21rem;
+  padding-top: 40rem;
   padding-bottom: 12.5rem;
-  height: 100vh;
+  height: 110vh;
+  // margin-top: 7rem;
   background-image: linear-gradient(
       to bottom,
       rgba($color-primary-dark, 0.5),
@@ -9,17 +10,24 @@
     ),
     url(../../public/images/inicio.jpg);
   // background-blend-mode: lighten;
-  background-position: right;
+  background-position: 0rem 7rem;
   background-size: cover;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  @media all and (orientation: landscape) {
-    height: 110vw;
+  // @media all and (orientation: landscape) {
+  //   height: 110vw;
+  // }
+  @include respond(big-desktop) {
+    // background-position: right;
+    // margin-top: 0rem;
+    height: 100vh;
+    padding-top: 10rem;
+    // height: 14vw;
   }
   @include respond(tab-land) {
     background-position: center;
-    padding-top: 8rem;
+    padding-top: 12rem;
     font-size: 50%;
     background-image: linear-gradient(
       to left bottom,
@@ -32,6 +40,14 @@
     padding-top: 2rem;
     width: 80%;
     height: 55rem;
+    // @include respond(tab-port) {
+    //   height: 45vh;
+    //   // margin-top: 0rem;
+    // }
+    // @include respond(small-phone) {
+    //   height: 55rem;
+    //   // margin-top: 0rem;
+    // }
   }
   &__logo-box {
     display: flex;
@@ -41,17 +57,35 @@
     & .header__iso {
       visibility: hidden;
       @include respond(tab-land) {
+        height: 70rem;
         visibility: visible;
+      }
+      @include respond(small-phone) {
+        height: 55rem;
       }
     }
 
     & .header__iso-text {
+      // margin-top: 5rem;
+      margin-top: 30rem;
+      margin-bottom: 5rem;
       height: 20vh;
       width: 90%;
       max-width: 60rem;
-      @media all and (orientation: landscape) {
-        height: 20vw;
+      @include respond(tab-land) {
+        margin-top: 0rem;
+        height: 25vw;
       }
+      @include respond(small-phone) {
+        height: 20rem;
+      }
+      // @include respond(small-phone) {
+      //   margin-top: 0rem;
+      //   height: 30vw;
+      // }
+      // @media all and (orientation: landscape) {
+      //   height: 20vw;
+      // }
     }
 
     &__cta-button {

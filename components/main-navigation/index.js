@@ -1,8 +1,44 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+const debounce = (func, delay) => {
+  let debounceTimer;
+  return function () {
+    const context = this;
+    const args = arguments;
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => func.apply(context, args), delay);
+  };
+};
 
 function Navigation() {
   const [dropDownOpen, setDropDown] = useState(false);
+  const [showNavLinksOnTop, setShowNavLinksOnTop] = useState(undefined);
+
+  function checkViewportSize(event) {
+    const { innerWidth: width } = window;
+    console.log(width);
+    if (width > 1200) {
+      setShowNavLinksOnTop(true);
+      // setDropDown(false);
+    } else {
+      setShowNavLinksOnTop(false);
+      setDropDown(false);
+    }
+  }
+
+  // const debounceFn = debounce(checkViewportSize, 30)
+
+  useEffect(() => {
+    window.addEventListener('resize', checkViewportSize);
+    return () => {
+      window.removeEventListener('resize', checkViewportSize);
+    };
+  }, []);
+
+  useEffect(() => {
+    checkViewportSize();
+  }, []);
 
   function handleKeyPress(e) {
     if (e.key === 'Enter') {
@@ -13,34 +49,34 @@ function Navigation() {
 
   function clickNavBar(e) {
     e.preventDefault();
-    setDropDown(!dropDownOpen);
+    if (!showNavLinksOnTop) setDropDown(!dropDownOpen);
   }
+
+  const hideNavigationBarForMediumAndLargeScreens =
+    showNavLinksOnTop === true || showNavLinksOnTop === undefined
+      ? ' hide-navigation-small'
+      : '';
+  const openDropDownMenu = dropDownOpen ? ' navigation__checked' : '';
 
   return (
     <>
       <div className="navigation" onClick={clickNavBar}>
-        <input
-          type="checkbox"
-          className={`navigation__checkbox ${dropDownOpen ? 'navigation__checked' : ''
-            }`}
-          id="navi-toggle"
-        ></input>
-
-        <label htmlFor="navi-toggle" className="navigation__button">
-          <span
-            tabIndex={0}
-            onKeyDown={handleKeyPress}
-            className="navigation__icon"
-          >
-            &nbsp;
-          </span>
-        </label>
-
         <div
-          className={`navigation__background ${dropDownOpen ? 'navigation__checked' : ''
-            }`}
+          className={`navigation__small${openDropDownMenu}${hideNavigationBarForMediumAndLargeScreens}`}
         >
-          &nbsp;
+          <div className={`navigation__button ${openDropDownMenu}`}>
+            <span
+              tabIndex={0}
+              onKeyDown={handleKeyPress}
+              className="navigation__icon"
+            >
+              &nbsp;
+            </span>
+          </div>
+
+          <div className={`navigation__background ${openDropDownMenu}`}>
+            &nbsp;
+          </div>
         </div>
 
         {/* <div
@@ -51,8 +87,7 @@ function Navigation() {
         </div> */}
 
         <nav
-          className={`navigation__nav ${dropDownOpen ? 'navigation__checked' : ''
-            }`}
+          className={`navigation__nav ${openDropDownMenu}${hideNavigationBarForMediumAndLargeScreens}`}
         >
           <ul className="navigation__list">
             <li className="navigation__item">
@@ -79,6 +114,24 @@ function Navigation() {
               <Link href="/about" className="navigation__link">
                 Acerca de mi
               </Link>
+            </li>
+          </ul>
+        </nav>
+        <nav
+          className={`navigation__nav-not-small ${showNavLinksOnTop ? 'show-nav-list' : 'hide-nav-list'}`}
+        >
+          <ul className="`navigation__nav-not-small__list">
+            <li className="`navigation__nav-not-small__item">
+              <Link href="/">Inicio</Link>
+            </li>
+            <li className="`navigation__nav-not-small__item">
+              <Link href="/booking/plans">Citas en Línea</Link>
+            </li>
+            <li className="`navigation__nav-not-small__item">
+              <Link href="/plans">Servicios</Link>
+            </li>
+            <li className="`navigation__nav-not-small__item">
+              <Link href="/about">Acerca de mi</Link>
             </li>
           </ul>
         </nav>

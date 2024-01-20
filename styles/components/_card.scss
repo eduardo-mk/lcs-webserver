@@ -20,16 +20,17 @@
   width: 58rem;
   background-color: $color-white;
   color: white;
-  background-color: $color-white;
   font-size: 2rem;
   transition: all 0.8s ease;
   padding-bottom: $padding-small;
-  // border-radius: 2rem;
+  // position: relative;
+  border-radius: 1rem;
 
   &__product-head {
-    // border-radius: 2rem 2rem 0 0;
+    border-radius: 1rem 1rem 0 0;
     height: 30rem;
     background-color: $color-black;
+    // background-image: linear-gradient(to top, $color-white, $color-secondary-dark, $color-secondary-dark);
     // background-color: #3a2c3b; // Candidate
     position: relative;
   }
