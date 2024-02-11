@@ -2,54 +2,31 @@
   padding-top: 40rem;
   padding-bottom: 12.5rem;
   height: 180rem;
-  // margin-top: 7rem;
   background-image: linear-gradient(to bottom, rgba($color-primary-dark, 0.5), rgba($color-primary-light, 1)),
     url(../../public/images/inicio.jpg);
-  // background-blend-mode: lighten;
-
   background-position: 0rem 7rem;
-  // background-position: right;
   background-size: cover;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  // @media all and (orientation: landscape) {
-  //   height: 110vw;
-  // }
   @include respond(big-desktop) {
     background-position: right;
-    // margin-top: 0rem;
     height: 150rem;
     padding-top: 10rem;
-    // height: 14vw;
   }
   @include respond(tab-land) {
-    // background-position: right;
-    // height: 100vh;
     padding-top: 12rem;
     font-size: 50%;
     background-image: linear-gradient(to left bottom, rgba($color-secondary-light, 1), rgba($color-primary, 1));
   }
   @include respond(small-phone) {
     height: 100vh;
-    // background-position: left;
-    // padding-top: 12rem;
-    // font-size: 50%;
-    // background-image: linear-gradient(to left bottom, rgba($color-secondary-light, 1), rgba($color-primary, 1));
   }
 
   &__image {
     padding-top: 2rem;
     width: 80%;
     height: 55rem;
-    // @include respond(tab-port) {
-    //   height: 45vh;
-    //   // margin-top: 0rem;
-    // }
-    // @include respond(small-phone) {
-    //   height: 55rem;
-    //   // margin-top: 0rem;
-    // }
   }
   &__logo-box {
     display: flex;
@@ -69,7 +46,6 @@
     }
 
     & .header__iso-text {
-      // margin-top: 5rem;
       margin-top: 30rem;
       margin-bottom: 5rem;
       height: 20vh;
@@ -82,13 +58,6 @@
       @include respond(small-phone) {
         height: 20rem;
       }
-      // @include respond(small-phone) {
-      //   margin-top: 0rem;
-      //   height: 30vw;
-      // }
-      // @media all and (orientation: landscape) {
-      //   height: 20vw;
-      // }
     }
 
     &__cta-button {

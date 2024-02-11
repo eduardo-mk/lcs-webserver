@@ -2,6 +2,7 @@ import { MouseEventHandler } from 'react';
 import * as GraphQL from '../../graphql/codegen_auto_generated';
 import { formatCurrency } from '../../misc';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export function detailGenerator(details: string[]) {
   if (!Array.isArray(details)) return null;
@@ -22,8 +23,8 @@ function Plan({ info, clickHandler, selectedPlan }: PlanArgs) {
         </h2>
         <div className="small-card__service-logo">
           <Image
-            src={`/images/badge_${id}.svg`}
-            alt="Stripe Logo"
+            src={`/images/consulta_logo_${id}.png`}
+            alt="logo"
             width={80}
             height={80}
           />
@@ -31,10 +32,10 @@ function Plan({ info, clickHandler, selectedPlan }: PlanArgs) {
       </div>
       <div className="small-card__description">{description}</div>
 
-      <div className="small-card__details">
+      {/* <div className="small-card__details">
         <h4>¿Qué incluye?</h4>
         <ul className="small-card__list">{detailGenerator(details)}</ul>
-      </div>
+      </div> */}
 
       <div className="small-card__container">
         <div className="small-card__cta">

@@ -58,6 +58,7 @@ function Plans() {
   }
 
   if (Array.isArray(plans)) {
+    console.log(plans);
     return (
       <BookingFlow>
         <section className="small-cards">
