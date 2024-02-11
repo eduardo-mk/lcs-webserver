@@ -8,7 +8,7 @@ const HOST_URL = isProdEnv
   : process.env.DEV_HOST_URL;
 const GRAPHQL_API_URL = isProdEnv
   ? `${process.env.BACKEND_URL}/graphql`
-  : `http://${ipv4Addresses[1]}:4000/graphql`;
+  : `http://${ipv4Addresses[0]}:4000/graphql`;
 const BACKEND_URL = isProdEnv ? process.env.BACKEND_URL : 'localhost';
 // const extraOptions = isProdEnv ? { output: 'standalone' } : {};
 module.exports = {

@@ -17,17 +17,25 @@
   //   height: 110vw;
   // }
   @include respond(big-desktop) {
-    // background-position: right;
+    background-position: right;
     // margin-top: 0rem;
-    height: 140vh;
+    height: 150rem;
     padding-top: 10rem;
     // height: 14vw;
   }
   @include respond(tab-land) {
-    background-position: left;
+    // background-position: right;
+    // height: 100vh;
     padding-top: 12rem;
     font-size: 50%;
     background-image: linear-gradient(to left bottom, rgba($color-secondary-light, 1), rgba($color-primary, 1));
+  }
+  @include respond(small-phone) {
+    height: 100vh;
+    // background-position: left;
+    // padding-top: 12rem;
+    // font-size: 50%;
+    // background-image: linear-gradient(to left bottom, rgba($color-secondary-light, 1), rgba($color-primary, 1));
   }
 
   &__image {
@@ -48,6 +56,7 @@
     align-items: center;
     width: 100%;
     flex-flow: column;
+    height: 100%;
     & .header__iso {
       visibility: hidden;
       @include respond(tab-land) {
