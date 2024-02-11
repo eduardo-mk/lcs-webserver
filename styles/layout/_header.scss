@@ -1,7 +1,7 @@
 .header {
   padding-top: 40rem;
   padding-bottom: 12.5rem;
-  height: 110vh;
+  height: 180rem;
   // margin-top: 7rem;
   background-image: linear-gradient(to bottom, rgba($color-primary-dark, 0.5), rgba($color-primary-light, 1)),
     url(../../public/images/inicio.jpg);
@@ -17,14 +17,14 @@
   //   height: 110vw;
   // }
   @include respond(big-desktop) {
-    background-position: right;
+    // background-position: right;
     // margin-top: 0rem;
-    height: 120vh;
+    height: 140vh;
     padding-top: 10rem;
     // height: 14vw;
   }
   @include respond(tab-land) {
-    // background-position: center;
+    background-position: left;
     padding-top: 12rem;
     font-size: 50%;
     background-image: linear-gradient(to left bottom, rgba($color-secondary-light, 1), rgba($color-primary, 1));
@@ -51,7 +51,7 @@
     & .header__iso {
       visibility: hidden;
       @include respond(tab-land) {
-        height: 70rem;
+        height: 60rem;
         visibility: visible;
       }
       @include respond(small-phone) {
