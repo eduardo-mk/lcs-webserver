@@ -6,10 +6,10 @@ import homepageEmbarazo from '../public/images/embarazo-h-gs.jpg';
 import homepagePostparto from '../public/images/postparto-1.jpg';
 import homepageLactancia from '../public/images/lactancia-h-gs.jpg';
 
-import embarazoCardLogo from '../public/images/service-logo-embarazada.svg';
-import postpartoCardLogo from '../public/images/service-logo-postparto.svg';
-import lactanciaCardLogo from '../public/images/service-logo-lactancia.svg';
-import alimentacionComplementariaCardLogo from '../public/images/service-logo-alimentacion.svg';
+import embarazoCardLogo from '../public/images/consulta-nutricion-embarazo_v2.png';
+import postpartoCardLogo from '../public/images/consulta-nutricion-postparto_v2.png';
+import lactanciaCardLogo from '../public/images/consulta-lactancia_v2.png';
+import alimentacionComplementariaCardLogo from '../public/images/consulta-alimentacion-complementaria_v2.png';
 import homepageAboutMe from '../public/about-me.jpg';
 
 import unisonLogo from '../public/logo/unison.jpg';

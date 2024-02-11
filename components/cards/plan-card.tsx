@@ -6,6 +6,7 @@ import Image, { StaticImageData } from 'next/image';
 import { mainPage } from '../../content';
 
 export const ServiceCard: React.FC<ServiceCardArgs> = ({
+  id,
   introPhrase,
   inspirationalDescription,
   descriptionList,
@@ -24,7 +25,7 @@ export const ServiceCard: React.FC<ServiceCardArgs> = ({
         <div className="card__inspirational-description">
           <span>{inspirationalDescription}</span>
         </div>
-        <div className="card__logo">
+        <div className={`card__logo ${id}`}>
           <Image src={picturePath} alt={pictureAlt} fill={true} />
         </div>
       </section>
@@ -34,7 +35,7 @@ export const ServiceCard: React.FC<ServiceCardArgs> = ({
       </div>
       <div className="card__cta"></div>
       <div className="card__cta-btn">
-        <Link href="/booking/plans" className="btn btn--blue btn--animated">
+        <Link href="/booking/plans" className="btn btn--white btn--animated">
           {' '}
           {mainPage['online-booking-cta']}
         </Link>

@@ -19,7 +19,7 @@
   margin-bottom: 7rem;
   width: 58rem;
   background-color: $color-white;
-  color: white;
+  color: $color-black;
   font-size: 2rem;
   transition: all 0.8s ease;
   padding-bottom: $padding-small;
@@ -29,7 +29,10 @@
   &__product-head {
     border-radius: 1rem 1rem 0 0;
     height: 30rem;
-    background-color: $color-black;
+    // background-color: $color-black;
+    // background-color: $color-brown;
+    background-color: $color-lilic-light;
+    // 6f4747
     // background-image: linear-gradient(to top, $color-white, $color-secondary-dark, $color-secondary-dark);
     // background-color: #3a2c3b; // Candidate
     position: relative;
@@ -40,7 +43,7 @@
     font-weight: 300;
     text-align: left;
     align-self: center;
-    color: $color-white;
+    color: $color-black;
     width: 100%;
     right: 0rem;
     & span {
@@ -68,9 +71,25 @@
     }
   }
   &__logo {
-    width: 18rem;
-    height: 18rem;
-    background-color: $color-primary;
+    width: 20rem;
+    height: 20rem;
+    // background-color: $color-primary;
+    &.nutricion-embarazo {
+      background-color: $color-logo-nutricion-embarazo;
+      background-color: $color-lilic-light;
+    }
+    &.nutricion-postparto {
+      background-color: $color-logo-nutricion-postparto;
+      background-color: $color-lilic-light;
+    }
+    &.lactancia-materna {
+      background-color: $color-logo-nutricion-lactancia;
+      background-color: $color-lilic-light;
+    }
+    &.alimentacion-complementaria {
+      background-color: $color-logo-nutricion-bebes;
+      background-color: $color-lilic-light;
+    }
     position: relative;
     border-radius: 50%;
     position: absolute;
@@ -82,8 +101,10 @@
     img {
       position: absolute;
       width: 12rem;
+      padding: 2rem;
       display: block;
       margin: 0 auto;
+      // opacity: 0.5;
     }
   }
   &__details {

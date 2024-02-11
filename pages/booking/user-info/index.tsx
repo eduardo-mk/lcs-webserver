@@ -127,8 +127,8 @@ function UserInfo({ userIsBooking }) {
                 src={dogPensative}
                 alt="Person on a tour"
                 style={{
-                  width: '100%',
-                  height: 'auto',
+                  width: 'auto',
+                  height: '45rem',
                 }}
                 sizes="100vw"
                 // height={200}

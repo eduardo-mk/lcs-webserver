@@ -131,7 +131,7 @@ function Navigation() {
               <Link href="/plans">Servicios</Link>
             </li>
             <li className="`navigation__nav-not-small__item">
-              <Link href="/about">Acerca de mi</Link>
+              <Link href="/about">Conóceme</Link>
             </li>
           </ul>
         </nav>
