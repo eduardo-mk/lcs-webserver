@@ -8,6 +8,7 @@ import BookingFlow from '../../../compositions/booking';
 import { useRouter } from 'next/router';
 import { reviewApplicationContent, translate_24_to_12 } from '../../../content';
 import SimpleTable from '../../../components/simple-table';
+import { useScrollToTheTopOfThePage } from '../../../misc/useScrollTop';
 const NEXT_PAGE = '/booking/payment';
 
 function LastCheck() {
@@ -19,7 +20,7 @@ function LastCheck() {
   useEffect(() => {
     dispatch({ type: 'current_step_inside_form/update', payload: 3 });
   }, [dispatch]);
-
+  useScrollToTheTopOfThePage();
   const { date, time } = dayAndTime;
   let dayFormated = '';
   let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;

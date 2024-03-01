@@ -1,7 +1,11 @@
 .last-check {
   &__page {
     height: $default-screen-section-height;
+    @include respond(phone) {
+      height: fit-content;
+    }
   }
+
   display: flex;
   flex-flow: column nowrap;
   color: $color-primary-dark;

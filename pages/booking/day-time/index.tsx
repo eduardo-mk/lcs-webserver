@@ -80,22 +80,24 @@ function DayAndTime() {
           timeAvailable={daysAvailable.days}
           onSelectionHandler={dateHandler}
         />
-        {showTimePicker && !hoursAvailable.loading ? (
-          <>
-            <TimeSessionPicker
-              title={''}
-              onSelectionHandler={timeHandler}
-              hours={hoursAvailable.hours}
-            />
-            <Button
-              className="btn--classic"
-              type="button"
-              onClick={handlerForDayAndTimeSelection}
-            >
-              Seleccionar
-            </Button>
-          </>
-        ) : null}
+        <section className="day-time__time-wrapper">
+          {showTimePicker && !hoursAvailable.loading ? (
+            <>
+              <TimeSessionPicker
+                title={''}
+                onSelectionHandler={timeHandler}
+                hours={hoursAvailable.hours}
+              />
+              <Button
+                className="btn--classic"
+                type="button"
+                onClick={handlerForDayAndTimeSelection}
+              >
+                Seleccionar
+              </Button>
+            </>
+          ) : null}
+        </section>
       </section>
     </BookingFlow>
   );

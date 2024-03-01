@@ -22,6 +22,7 @@ import { ScheduleAppointmentArgs } from '../../../graphql/codegen_auto_generated
 import usePageIdleTimeout from '../../../misc/usePageIdleTiemout';
 import Image from 'next/image';
 import SimpleTable from '../../../components/simple-table';
+import { useScrollToTheTopOfThePage } from '../../../misc/useScrollTop';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -157,24 +158,22 @@ function Payment() {
   }
 
   return (
-    <div className="payment__page">
-      <section className="payment">
-        <section className="payment_card">
-          <PaymentElement onChange={changeHandler} />
-        </section>
-        {elementsReady ? (
-          <Button
-            className={payButtonDisabled ? 'disabled' : ''}
-            onClick={handleSubmit}
-          >
-            Pagar
-          </Button>
-        ) : null}
-        <section className="payment__card-error">
-          <span className="payment__message">{errorMsg}</span>
-        </section>
+    <section className="payment__card-wrapper">
+      {/* <section className="payment__card"> */}
+      <PaymentElement onChange={changeHandler} />
+      {/* </section> */}
+      {elementsReady ? (
+        <Button
+          className={payButtonDisabled ? 'disabled' : ''}
+          onClick={handleSubmit}
+        >
+          Pagar
+        </Button>
+      ) : null}
+      <section className="payment__card-error">
+        <span className="payment__message">{errorMsg}</span>
       </section>
-    </div>
+    </section>
   );
 }
 
@@ -188,7 +187,7 @@ function PaymentWithStripe() {
     timeout: 180000,
     onTimeout: () => router.push('/payment/fail'),
   });
-
+  useScrollToTheTopOfThePage();
   useEffect(() => {
     // Create 39 as soon as the screen loads
     fetch('/api/stripe/create-payment-intent', {

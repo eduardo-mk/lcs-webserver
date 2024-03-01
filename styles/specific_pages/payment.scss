@@ -1,10 +1,14 @@
 .payment {
   &__page {
+    width: 100%;
     height: $default-screen-section-height;
+    @include respond(phone) {
+      height: fit-content;
+    }
   }
   &__plan {
     &-summary {
-      width: 80rem;
+      width: 100%;
       margin: 0 auto;
       color: $color-primary-dark;
       // margin-bottom: 3rem;
@@ -71,8 +75,12 @@
   }
 
   &__card {
+    &-wrapper {
+      display: flex;
+      flex-flow: column nowrap;
+    }
     margin-top: 2rem;
-    width: 80rem;
+    width: 100%;
     padding: 2rem;
     // background-color: $color-primary-dark;
     // background-color: $color-blue;
@@ -80,7 +88,7 @@
     // border: 1px dotted blue;
     // padding: 0rem 2.5rem 2.5rem 2.5rem;
     margin: 2rem auto;
-    height: 50rem;
+    height: 75rem;
     &-title {
       color: $color-primary-dark;
     }

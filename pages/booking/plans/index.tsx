@@ -44,7 +44,7 @@ function Plans() {
           backgroundColor: 'black',
         }}
       >
-        {JSON.stringify(error)}
+        {JSON.stringify({ plans, error, loading })}
       </div>
     );
   }
@@ -58,7 +58,6 @@ function Plans() {
   }
 
   if (Array.isArray(plans)) {
-    console.log(plans);
     return (
       <BookingFlow>
         <section className="small-cards">
