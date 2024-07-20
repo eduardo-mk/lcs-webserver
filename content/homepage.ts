@@ -93,7 +93,7 @@ export const homepageDataList = [
   },
   {
     id: 'alimentacion-complementaria',
-    introPhrase: 'Alimentación para bebés',
+    introPhrase: 'Bebés y alimentación',
     targetIntro: 'Para:',
     target: 'Introducción de alimentos al o la bebé',
     inspirationalDescription: `Alimenta su curiosidad con colores, texturas y amor en cada bocado`,

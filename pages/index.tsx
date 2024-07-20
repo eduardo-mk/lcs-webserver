@@ -57,7 +57,10 @@ export default function Home({ clickAmount, increment }) {
       </header>
       <section className="homepage__services">
         <section className="homepage__services-wrapper">
-          <h1 className="homepage__services-title">¿En qué puedo ayudarte?</h1>
+          <h1 className="homepage__services-title">
+            Servicios <strong>100% personalizados</strong> para todas las etapas
+            del embarazo
+          </h1>
           <ServiceCards list={homepageDataList} />
           {/* <HomepageHeroCards list={homepageDataList} /> */}
         </section>

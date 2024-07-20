@@ -61,7 +61,9 @@ function Plans() {
     return (
       <BookingFlow>
         <section className="small-cards">
-          <h1 className="section-booking__header">Selecciona un Plan</h1>
+          <h1 className="section-booking__header">
+            Selecciona un plan nutricional
+          </h1>
           {plans.map((info) => {
             return (
               <Plan

@@ -6,15 +6,12 @@
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
-  // border: 1px dotted blueviolet;
   max-width: 125rem;
-  // margin-bottom: 1rem;
   padding-top: 4rem;
   background-color: $color-secondary-light;
 }
 
 .card {
-  // max-width: 57rem;
   margin: 1rem;
   margin-bottom: 7rem;
   width: 58rem;
@@ -23,23 +20,29 @@
   font-size: 2rem;
   transition: all 0.8s ease;
   padding-bottom: $padding-small;
-  // position: relative;
   border-radius: 1rem;
 
   &__product-head {
     border-radius: 1rem 1rem 0 0;
     height: 30rem;
-    // background-color: $color-black;
-    // background-color: $color-brown;
     background-color: $color-lilic-light;
-    // 6f4747
-    // background-image: linear-gradient(to top, $color-white, $color-secondary-dark, $color-secondary-dark);
-    // background-color: #3a2c3b; // Candidate
     position: relative;
+    &.nutricion-embarazo {
+      background-color: $color-logo-nutricion-embarazo;
+    }
+    &.nutricion-postparto {
+      background-color: $color-logo-nutricion-postparto;
+    }
+    &.lactancia-materna {
+      background-color: $color-logo-nutricion-lactancia;
+    }
+    &.alimentacion-complementaria {
+      background-color: $color-logo-nutricion-bebes;
+    }
   }
 
   &__heading {
-    font-size: 4.5rem;
+    font-size: 4rem;
     font-weight: 300;
     text-align: left;
     align-self: center;
@@ -76,19 +79,15 @@
     // background-color: $color-primary;
     &.nutricion-embarazo {
       background-color: $color-logo-nutricion-embarazo;
-      background-color: $color-lilic-light;
     }
     &.nutricion-postparto {
       background-color: $color-logo-nutricion-postparto;
-      background-color: $color-lilic-light;
     }
     &.lactancia-materna {
       background-color: $color-logo-nutricion-lactancia;
-      background-color: $color-lilic-light;
     }
     &.alimentacion-complementaria {
       background-color: $color-logo-nutricion-bebes;
-      background-color: $color-lilic-light;
     }
     position: relative;
     border-radius: 50%;
@@ -97,14 +96,12 @@
     right: 50%;
     -ms-transform: translate(-50%, 50%);
     transform: translate(50%, 50%);
-    // border: 0.2rem solid $color-black;
     img {
       position: absolute;
       width: 12rem;
       padding: 2rem;
       display: block;
       margin: 0 auto;
-      // opacity: 0.5;
     }
   }
   &__details {

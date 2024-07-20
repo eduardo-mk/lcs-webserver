@@ -13,11 +13,17 @@
       color: $color-grey-light-4;
       // opacity: ;
       width: 100%;
-      line-height: 7rem;
+      line-height: 4rem;
       text-align: center;
-      font-size: 6rem;
+      font-size: 3.5rem;
       margin-top: 5rem;
       margin-bottom: 3rem;
+      padding: 2rem;
+      // border: 1px dotted red;
+      & strong {
+        font-weight: bold;
+        font-size: 4rem;
+      }
     }
     &-wrapper {
       background-color: $color-secondary-light;

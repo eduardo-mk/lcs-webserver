@@ -83,3 +83,20 @@ export const formatCurrency = (
 
   return formattedCurrency;
 };
+
+export const generateCssIdentifier = (str: string): string => {
+  // Define a mapping for lowercase Spanish accented vowels
+  const accentMap: { [key: string]: string } = {
+    'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u'
+  };
+  // Convert to lowercase first
+  const lowercased = str.toLowerCase();
+  // Replace Spanish accented vowels
+  const withoutAccents = lowercased.replace(/[áéíóú]/g, match => accentMap[match]);
+  // Replace spaces and special characters with hyphens
+  const kebabCase = withoutAccents.replace(/[^a-z0-9]+/g, "-");
+  // Remove leading and trailing hyphens
+  const trimmed = kebabCase.replace(/^-+|-+$/g, "");
+  // Prefix with 'plan-' to ensure it starts with a letter (CSS requirement)
+  return trimmed;
+}

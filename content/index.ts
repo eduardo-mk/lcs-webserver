@@ -1,7 +1,7 @@
 export const mainPage = {
   'heading-primary-main': 'Veronica',
   'heading-primary-sub': 'Nutrición y Lactancia',
-  'online-booking-cta': 'Programa tu cita',
+  'online-booking-cta': 'Programa tu Cita',
   'heading-secondary': 'Planes mas populares',
 };
 

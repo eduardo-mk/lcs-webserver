@@ -16,7 +16,7 @@ export const ServiceCard: React.FC<ServiceCardArgs> = ({
 }) => {
   return (
     <div className="card">
-      <section className="card__product-head">
+      <section className={`card__product-head ${id}`}>
         <div className="card__heading">
           <span className={`card__heading-span card__heading-span`}>
             {introPhrase}

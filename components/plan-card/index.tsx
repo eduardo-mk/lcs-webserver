@@ -1,6 +1,6 @@
 import { MouseEventHandler } from 'react';
 import * as GraphQL from '../../graphql/codegen_auto_generated';
-import { formatCurrency } from '../../misc';
+import { formatCurrency, generateCssIdentifier } from '../../misc';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -16,10 +16,12 @@ function Plan({ info, clickHandler, selectedPlan }: PlanArgs) {
 
   const selectedPlanClass = selectedPlan === id ? 'small-card__selected' : '';
   return (
-    <div className={`small-card ${selectedPlanClass}`}>
+    <div
+      className={`small-card ${selectedPlanClass} ${generateCssIdentifier(name)}`}
+    >
       <div className="small-card__container small-card__container--top">
         <h2 className="small-card__heading">
-          <span className="small-card__heading-span">{name}</span>
+          <span className="small-card__heading-span">{name.toUpperCase()}</span>
         </h2>
         <div className="small-card__service-logo">
           <Image
@@ -47,8 +49,13 @@ function Plan({ info, clickHandler, selectedPlan }: PlanArgs) {
           </div>
         </div>
         <div className="small-card__btn">
-          <button onClick={clickHandler} data-id={id} data-name-of-plan={name}>
-            Seleccionar
+          <button
+            onClick={clickHandler}
+            data-id={id}
+            data-name-of-plan={name}
+            className={`${selectedPlanClass}`}
+          >
+            {selectedPlanClass === '' ? 'Agregar' : 'Agregado'}
           </button>
         </div>
       </div>
