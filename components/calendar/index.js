@@ -9,14 +9,14 @@ const maxDateMockProp = new Date(Date.now() + _1_day * 30);
 function CalendarSection({ timeAvailable, onSelectionHandler }) {
   const [value, setDate] = useState(undefined);
   const [availableDays, setAvailableDays] = useState(() =>
-    timeAvailable.map((day) => new Date(day).getDate())
+    timeAvailable?.map((day) => new Date(day).getDate())
   );
 
   function daySelectionHandler(nextValue) {
     setDate(nextValue);
   }
   function tileClassName({ date, view }) {
-    if (view === 'month') {
+    if (view === 'month' && availableDays) {
       return !availableDays.includes(date.getDate());
     }
   }

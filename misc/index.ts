@@ -1,5 +1,5 @@
 import { Dispatch } from 'react';
-import { UserData } from '../interfaces/payment';
+import { UserData } from '../reducers/booking/reducer';
 
 export const formatDate = (date: Date) => {
   let year = date.getFullYear();
@@ -29,17 +29,18 @@ export const validateEmail = (email: string): boolean => {
   return /\S+@\S+\.\S+/.test(email);
 };
 
-export const validateEntireForm = (
-  userData: UserData,
-  dispatch: Dispatch<any>
-) => {
+export const validateBasicDataForm = (userData: UserData) => {
   const firstNameIsValid = validateFirstName(userData.firstName.length);
-  const lastNameIsValid = validateLastName(userData.lastName.length);
+  const lastNameIsValid = validateLastName(userData.lastname.length);
   const emailIsValid = validateEmail(userData.email);
   const userDataIsValid = firstNameIsValid && lastNameIsValid && emailIsValid;
 
-  dispatch({ type: 'user_data/validation', payload: userDataIsValid });
   return userDataIsValid;
+};
+
+export const validateConfirmationCodeForm = (userData: UserData) => {
+  const confirmationCodeIsValid = userData.email_confirmation_code.length === 4;
+  return confirmationCodeIsValid;
 };
 
 export const formatCurrency = (
@@ -87,16 +88,23 @@ export const formatCurrency = (
 export const generateCssIdentifier = (str: string): string => {
   // Define a mapping for lowercase Spanish accented vowels
   const accentMap: { [key: string]: string } = {
-    'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u'
+    á: 'a',
+    é: 'e',
+    í: 'i',
+    ó: 'o',
+    ú: 'u',
   };
   // Convert to lowercase first
   const lowercased = str.toLowerCase();
   // Replace Spanish accented vowels
-  const withoutAccents = lowercased.replace(/[áéíóú]/g, match => accentMap[match]);
+  const withoutAccents = lowercased.replace(
+    /[áéíóú]/g,
+    (match) => accentMap[match]
+  );
   // Replace spaces and special characters with hyphens
-  const kebabCase = withoutAccents.replace(/[^a-z0-9]+/g, "-");
+  const kebabCase = withoutAccents.replace(/[^a-z0-9]+/g, '-');
   // Remove leading and trailing hyphens
-  const trimmed = kebabCase.replace(/^-+|-+$/g, "");
+  const trimmed = kebabCase.replace(/^-+|-+$/g, '');
   // Prefix with 'plan-' to ensure it starts with a letter (CSS requirement)
   return trimmed;
-}
+};

@@ -9,7 +9,7 @@ import {
 } from '../../../reducers/booking/context';
 import { useScrollToTheTopOfThePage } from '../../../misc/useScrollTop';
 
-const NEXT_PAGE = '/booking/user-info';
+const NEXT_PAGE = '/booking/day-time';
 
 function Plans() {
   useScrollToTheTopOfThePage();
@@ -20,7 +20,16 @@ function Plans() {
   const { plans, error, loading } = usePlans(4, 0);
 
   useEffect(() => {
-    dispatch({ type: 'current_step_inside_form/update', payload: 0 });
+    if (loading) dispatch({ type: 'api/loading', payload: true });
+    else {
+      setTimeout(() => {
+        dispatch({ type: 'api/loading', payload: false });
+      }, 800);
+    }
+  }, [loading, dispatch]);
+
+  useEffect(() => {
+    dispatch({ type: 'current_step_inside_form/update', payload: 1 });
   }, [dispatch]);
 
   function selectionHandler(event: MouseEvent) {
@@ -49,22 +58,14 @@ function Plans() {
     );
   }
 
-  if (loading) {
-    return (
-      <div className="loader__wrapper">
-        <div className="loader">Loading...</div>
-      </div>
-    );
-  }
-
-  if (Array.isArray(plans)) {
-    return (
-      <BookingFlow>
-        <section className="small-cards">
-          <h1 className="section-booking__header">
-            Selecciona un plan nutricional
-          </h1>
-          {plans.map((info) => {
+  return (
+    <BookingFlow loading={loading}>
+      <section className="small-cards">
+        <h1 className="section-booking__header">
+          Selecciona un plan nutricional
+        </h1>
+        {Array.isArray(plans) &&
+          plans.map((info) => {
             return (
               <Plan
                 key={info.id}
@@ -74,10 +75,9 @@ function Plans() {
               />
             );
           })}
-        </section>
-      </BookingFlow>
-    );
-  }
+      </section>
+    </BookingFlow>
+  );
 }
 
 export default Plans;

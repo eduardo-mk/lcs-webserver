@@ -1,15 +1,24 @@
+import { Agent } from 'https'
+import fetch from 'node-fetch'
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-let paymentUrl = `http://localhost:${process.env.BACKEND_LOCAL_PORT}/api/v1/payments/intent`;
-if (process.env.NODE_ENV === 'production') {
-  paymentUrl = `${process.env.BACKEND_URL}/api/v1/payments/intent`;
-}
+// let paymentUrl = `http://localhost:${process.env.BACKEND_LOCAL_PORT}/api/v1/payments/intent`;
+let paymentUrl = process.env.STRIPE_URL;
+// if (process.env.NODE_ENV === 'production') {
+//   paymentUrl = `${process.env.BACKEND_URL}/api/v1/payments/intent`;
+// }
+
+const agent = new Agent({
+    rejectUnauthorized: false, // Disable SSL certificate verification
+  });
 
 export default async function handler(req, res) {
   try {
+    console.log('Creating a payment intent', paymentUrl)
     const backendResponse = await fetch(paymentUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(req.body),
+      agent
     });
 
     if (backendResponse.status >= 100 && backendResponse.status < 300) {
@@ -19,9 +28,11 @@ export default async function handler(req, res) {
     } else {
       console.log('NextJS_API : Stripe call failed');
       console.error(backendResponse.status);
-      // res.status(backendResponse.status).json({
-      //   error: 'Payment intent failed',
-      // });
+      console.error(backendResponse)
+      res.status(backendResponse.status).json({
+        error: 'Payment intent failed',
+      });
+      return
     }
 
     const data = await backendResponse.json();

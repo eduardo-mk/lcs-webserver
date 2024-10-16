@@ -2,13 +2,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
 import { mainPage } from '../content';
-import { HomepageHeroCards } from '../components/hero-card';
 import { homepageDataList, credentialsData } from '../content/homepage';
 import { Credentials } from '../components/credentials';
 import { useEffect } from 'react';
 import { useDispatchContext } from '../reducers/booking/context';
-import PopularPlansSection from '../compositions/popular-plans';
 import { ServiceCards } from '../components/cards/plan-card';
+
 export default function Home({ clickAmount, increment }) {
   const dispatch = useDispatchContext();
   useEffect(() => {
@@ -20,6 +19,7 @@ export default function Home({ clickAmount, increment }) {
   return (
     <div className="homepage">
       <Head>
+        {/* <script src="https://accounts.google.com/gsi/client" async></script> */}
         <meta charSet="UTF-8" />
         <meta
           name="viewport"
@@ -49,7 +49,10 @@ export default function Home({ clickAmount, increment }) {
           />
         </div>
         <div className="header__cta-button">
-          <Link href="/booking/plans" className="btn btn--white btn--animated">
+          <Link
+            href="/booking/user-info"
+            className="btn btn--white btn--animated"
+          >
             {' '}
             {mainPage['online-booking-cta']}
           </Link>

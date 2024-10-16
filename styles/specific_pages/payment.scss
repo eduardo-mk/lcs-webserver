@@ -6,6 +6,12 @@
       height: fit-content;
     }
   }
+  button {
+    margin-top: 5rem;
+    width: 35rem;
+    align-self: center;
+    font-size: $medium-font-size;
+  }
   &__plan {
     &-summary {
       width: 100%;

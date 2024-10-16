@@ -14,7 +14,7 @@ import {
 } from '@stripe/stripe-js';
 import BookingFlow from '../../../compositions/booking';
 import { useStateContext } from '../../../reducers/booking/context';
-import Button from '../../../components/button';
+import Button from '../../../components/button-white';
 import { useMutation } from '@apollo/client';
 import { SCHEDULE_APPOINTMENT } from '../../../graphql/queries';
 import { formatDate } from '../../../misc';
@@ -62,7 +62,8 @@ function Payment() {
       service_id: planSelection.id,
       time_of_appt: dayAndTime.time,
       day_of_appt: formatDate(dayAndTime.date),
-      duration_in_min: planSelection.duration_in_min,
+      duration_in_min: planSelection.duration_minutes,
+      // duration_in_min: planSelection.duration_minutes,
       location: 'Online appointment',
       payment_intent_id: result.paymentIntent.id,
     };
@@ -164,10 +165,10 @@ function Payment() {
       {/* </section> */}
       {elementsReady ? (
         <Button
-          className={payButtonDisabled ? 'disabled' : ''}
+          className={`btn--white ${payButtonDisabled ? ' disabled' : ''}`}
           onClick={handleSubmit}
         >
-          Pagar
+          PAGAR
         </Button>
       ) : null}
       <section className="payment__card-error">

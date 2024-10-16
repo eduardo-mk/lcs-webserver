@@ -2,7 +2,7 @@ import {
   useDispatchContext,
   useStateContext,
 } from '../../../reducers/booking/context';
-import Button from '../../../components/button';
+import Button from '../../../components/button-white';
 import { useEffect } from 'react';
 import BookingFlow from '../../../compositions/booking';
 import { useRouter } from 'next/router';
@@ -37,7 +37,7 @@ function LastCheck() {
   const firstName =
     userData.firstName.charAt(0).toUpperCase() + userData.firstName.slice(1);
   const lastName =
-    userData.lastName.charAt(0).toUpperCase() + userData.lastName.slice(1);
+    userData.lastname.charAt(0).toUpperCase() + userData.lastname.slice(1);
 
   function confirmationHandler() {
     dispatch({ type: 'user/confirmation', payload: true });
@@ -62,7 +62,9 @@ function LastCheck() {
               { title: 'Precio', value: `${planSelection.price}.00 mxn` },
             ]}
           />
-          <Button onClick={confirmationHandler}>Confirmar</Button>
+          <Button className="btn--white" onClick={confirmationHandler}>
+            CONFIRMAR
+          </Button>
         </section>
       </div>
     </BookingFlow>

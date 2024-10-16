@@ -1,6 +1,6 @@
-.user-data {
+.user-info {
   &__page {
-    height: $default-screen-section-height;
+    height: 130vp;
   }
   height: 100%;
   font-size: 5rem;
@@ -13,25 +13,54 @@
     text-align: center;
     font-size: 6rem;
   }
-
-  &__btn-invalid-msg {
+  &__input-error-msg {
     font-size: $medium-font-size;
-    margin-top: 3rem;
+    // margin-top: 3rem;
     color: rgb(182, 66, 66);
-    align-self: center;
+    // align-self: center;
+    border: 1px dotted pink;
   }
-  p {
-    margin-top: 3rem;
-    font-size: $medium-font-size;
-  }
+
   .input-classic {
     color: #ffffff;
     color: $color-primary-dark;
-    // color: $color-secondary-dark;
+  }
 
-    // label {
-    //   // font-size: $big-font-size-2;
-    // }
+  &__auth-providers {
+    margin-top: 2rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    button {
+      margin: 1rem 0;
+      width: 35rem;
+    }
+  }
+  &__session-data {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-top: 5rem;
+
+    p:nth-child(3) {
+      margin: 4rem 0;
+    }
+
+    button {
+      align-self: center;
+      width: 35rem;
+      height: 6rem;
+      border-radius: 0.5rem;
+      margin: 1rem 0;
+      text-align: center;
+      font-size: $medium-font-size;
+    }
+    table {
+      margin-top: 3rem;
+      .info-table__row td.info-table__data {
+        font-size: 2rem;
+      }
+    }
   }
   &__error {
     margin-top: 5rem;

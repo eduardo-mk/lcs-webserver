@@ -17,7 +17,7 @@ const ipv4Addresses = Object.keys(networkInterfaces).reduce((result, iface) => {
 
 // If you want to return the first IPv4 address found, you can do:
 if (ipv4Addresses.length > 0) {
-  console.log('IPv4 Address:', ipv4Addresses[0]);
+  console.log('IPv4 Address:', ipv4Addresses);
 } else {
   console.error('No IPv4 address found.');
 }

@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
-import Button from '../../../components/button';
+import Button from '../../../components/button-white';
 import Calendar from '../../../components/calendar';
 import TimeSessionPicker from '../../../components/time-session-picker';
 import {
@@ -62,13 +62,13 @@ function DayAndTime() {
   }
 
   if (daysAvailable.error) return <h1>Error while trying to load days</h1>;
-  if (daysAvailable.loading) {
-    return (
-      // <BookingFlow>
-      <div className="loader">Loading...</div>
-      // </BookingFlow>
-    );
-  }
+  // if (daysAvailable.loading) {
+  //   return (
+  //     // <BookingFlow>
+  //     <div className="loader">Loading...</div>
+  //     // </BookingFlow>
+  //   );
+  // }
 
   return (
     <BookingFlow>
@@ -89,11 +89,11 @@ function DayAndTime() {
                 hours={hoursAvailable.hours}
               />
               <Button
-                className="btn--classic"
+                className="btn--white"
                 type="button"
                 onClick={handlerForDayAndTimeSelection}
               >
-                Seleccionar
+                SELECCIONAR
               </Button>
             </>
           ) : null}

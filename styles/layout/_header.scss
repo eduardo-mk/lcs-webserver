@@ -2,17 +2,16 @@
   padding-top: 40rem;
   padding-bottom: 12.5rem;
   height: 180rem;
-  background-image: linear-gradient(
-      to bottom,
-      rgba($color-primary-dark, 0.5),
-      rgba($color-primary-light, 1)
-    ),
+  background-image: linear-gradient(to bottom, rgba($color-primary-dark, 0.5), rgba($color-primary-light, 1)),
     url(../../public/images/inicio.jpg);
   background-position: 0rem 7rem;
   background-size: cover;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  a.btn.btn--white {
+    font-size: $medium-font-size;
+  }
   @include respond(big-desktop) {
     background-position: right;
     height: 150rem;
@@ -21,11 +20,7 @@
   @include respond(tab-land) {
     padding-top: 12rem;
     font-size: 50%;
-    background-image: linear-gradient(
-      to left bottom,
-      rgba($color-secondary-light, 1),
-      rgba($color-primary, 1)
-    );
+    background-image: linear-gradient(to left bottom, rgba($color-secondary-light, 1), rgba($color-primary, 1));
   }
   @include respond(small-phone) {
     height: 100vh;

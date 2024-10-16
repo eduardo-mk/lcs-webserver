@@ -6,6 +6,8 @@ import {
   SCHEDULE_APPOINTMENT,
 } from './queries';
 import * as GraphQL from './codegen_auto_generated';
+import { useEffect } from 'react';
+import { useDispatchContext } from '../reducers/booking/context';
 // import { ScheduleAppointmentArgs, Service } from './codegen_auto_generated';
 
 interface UsePlanResult {
@@ -30,6 +32,7 @@ export function usePlans(limit: number, offset: number): UsePlanResult {
   });
 
   const { data, loading, error } = result;
+
   return {
     plans: data?.plans?.items,
     loading,
