@@ -43,6 +43,8 @@
   }
 
   &--white {
+    border-radius: 0.5rem;
+    height: 6rem;
     background-color: $color-white;
     border: 1px solid $color-grey-dark-2;
     color: $color-grey-dark;
@@ -50,7 +52,7 @@
       background-color: $color-white;
     }
     &:visited {
-      border-radius: 0px;
+      border-radius: 0.5px;
     }
   }
 

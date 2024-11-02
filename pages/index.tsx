@@ -2,20 +2,27 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
 import { mainPage } from '../content';
-import { HomepageHeroCards } from '../components/hero-card';
 import { homepageDataList, credentialsData } from '../content/homepage';
 import { Credentials } from '../components/credentials';
 import { useEffect } from 'react';
-import { useDispatchContext } from '../reducers/booking/context';
-import PopularPlansSection from '../compositions/popular-plans';
+import {
+  useDispatchContext,
+  useStateContext,
+} from '../reducers/booking/context';
 import { ServiceCards } from '../components/cards/plan-card';
+import HeroSection from '../compositions/home-page-hero';
+import HeroCards from '../components/hero-card-tw';
+import Incentives from '../components/incentives';
+
 export default function Home({ clickAmount, increment }) {
-  const dispatch = useDispatchContext();
-  useEffect(() => {
-    dispatch({
-      type: 'reset',
-    });
-  }, [dispatch]);
+  // const dispatch = useDispatchContext();
+  // const { userDataIsValid, planSelectionIsValid, dayAndTimeIsValid, confirmData } = useStateContext()
+  // useEffect(() => {
+  //   if(!(userDataIsValid && planSelectionIsValid && dayAndTimeIsValid && confirmData))
+  //   dispatch({
+  //     type: 'reset',
+  //   });
+  // }, [dispatch]);
 
   return (
     <div className="homepage">
@@ -28,47 +35,9 @@ export default function Home({ clickAmount, increment }) {
         <link rel="icon" type="image/png" href="/favicon.png" />
         <title>Veronica Nutrición y Lactancia</title>
       </Head>
-      {/* <MainNavigation /> */}
-      <header className="header">
-        <div className="header__logo-box">
-          <Image
-            className="header__image header__iso"
-            src="/logo/veronica-isotipo-v4.svg"
-            alt="logo"
-            width={200}
-            height={100}
-            priority={true}
-          />
-          <Image
-            className="header__image header__iso-text"
-            src="/logo/veronica-letras-iso-crop.svg"
-            alt="logo"
-            width={200}
-            height={100}
-            priority={true}
-          />
-        </div>
-        <div className="header__cta-button">
-          <Link href="/booking/plans" className="btn btn--white btn--animated">
-            {' '}
-            {mainPage['online-booking-cta']}
-          </Link>
-        </div>
-      </header>
-      <section className="homepage__services">
-        <section className="homepage__services-wrapper">
-          <h1 className="homepage__services-title">
-            Servicios <strong>100% personalizados</strong> para todas las etapas
-            del embarazo
-          </h1>
-          <ServiceCards list={homepageDataList} />
-          {/* <HomepageHeroCards list={homepageDataList} /> */}
-        </section>
-        <section className="homepage__credencials">
-          <h1 className="homepage__services-title">¡Bienvenida mamá!</h1>
-          <Credentials {...credentialsData} />
-        </section>
-      </section>
+      <HeroSection />
+      <Incentives />
+      <HeroCards />
     </div>
   );
 }

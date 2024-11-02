@@ -8,7 +8,7 @@ const httpLink = createHttpLink({
   headers: {},
 });
 
-export const apolloClient = new ApolloClient({
+const apolloClient = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache(),
   credentials: 'include',
@@ -24,3 +24,5 @@ export const apolloClient = new ApolloClient({
     },
   },
 });
+
+export { apolloClient }

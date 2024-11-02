@@ -1,0 +1,29 @@
+.user-info {
+  &__section {
+    display: flex;
+    flex-flow: column nowrap;
+    button {
+      margin-bottom: 5rem;
+    }
+  }
+
+  &__section.disabled {
+    cursor: not-allowed;
+    // background-color: $color-grey-light-3;
+    color: $color-grey-dark-2;
+  }
+  &__input-error {
+    margin-top: 1rem;
+    height: 7.5rem;
+    // border: 1px dotted black;
+  }
+  &__step {
+    font-size: 3rem;
+    // text-align: center;
+  }
+  &__form-code-validation {
+    & > .code-title {
+      margin-top: 5rem;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 .classic {
   margin-top: 5rem;
-  height: 8rem;
+  min-height: 8rem;
   width: 25rem;
   align-self: center;
   font-size: 3rem;
@@ -12,18 +12,18 @@
 }
 
 .disabled {
-  // & {
-  //     border: 1px solid #0066cc;
-  //     background-color: #535353;
-  //     color: #ffffff;
-  //     padding: 5px 10px;
-  // }
+  & {
+    border: 1px solid #0066cc;
+    background-color: #535353;
+    color: #ffffff;
+    padding: 5px 10px;
+  }
 
   // &:hover {
-  //     border: 1px solid #0099cc;
-  //     background-color: #00aacc;
-  //     color: #ffffff;
-  //     padding: 5px 10px;
+  //   border: 1px solid #0099cc;
+  //   background-color: #00aacc;
+  //   color: #ffffff;
+  //   padding: 5px 10px;
   // }
 
   & {

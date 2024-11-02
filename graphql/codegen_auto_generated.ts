@@ -131,6 +131,7 @@ export interface Service {
 
 export interface StandardResponse {
   __typename?: 'StandardResponse';
+  error?: Maybe<Scalars['Boolean']>;
   msg: Scalars['String'];
   status: Scalars['String'];
 }
@@ -329,6 +330,7 @@ export type ServiceResolvers<ContextType = any, ParentType extends ResolversPare
 };
 
 export type StandardResponseResolvers<ContextType = any, ParentType extends ResolversParentTypes['StandardResponse'] = ResolversParentTypes['StandardResponse']> = {
+  error?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   msg?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   status?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;

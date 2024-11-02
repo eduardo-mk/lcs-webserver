@@ -14,22 +14,28 @@ export const initialBookingState: BookingState = {
     description: '',
     currency: '',
     duration_hours: '',
-    duration_minutes: '',
+    duration_in_min: '',
   },
   planSelectionIsValid: false,
   userData: {
     firstName: '',
     lastName: '',
     email: '',
+    password: '',
     userRegistrationId: '',
+    email_confirmation_code: '',
+    email_verified: false,
   },
   userDataIsValid: undefined,
+  emailConfirmationIsValid: undefined,
   dayAndTime: {
+    date: new Date(),
     day: '',
     time: '',
     timeZone: '',
   },
-  userRegistrationServiceApiOk: undefined,
+  apiLoading: undefined,
+  apiError: undefined,
   dayAndTimeIsValid: false,
   confirmData: false,
   inBookingFlow: false,
@@ -37,13 +43,18 @@ export const initialBookingState: BookingState = {
 
 export const bookingReducer = (state: BookingState, action: ActionGeneric) => {
   switch (action.type) {
-    case 'reset': {
+    case 'api/loading':
+      return { ...state, apiLoading: action.payload };
+
+    case 'api/error':
+      return { ...state, apiError: action.payload };
+
+    case 'reset':
       return { ...state, ...initialBookingState };
-    }
-    case 'page_flow/booking': {
-      console.log('Page flow in booking?', Boolean(action.payload));
+
+    case 'page_flow/booking':
       return { ...state, inBookingFlow: Boolean(action.payload) };
-    }
+
     case 'stripe/metadata':
       return { ...state, clientSecret: action.payload };
 
@@ -57,15 +68,13 @@ export const bookingReducer = (state: BookingState, action: ActionGeneric) => {
       return { ...state, planSelectionIsValid: action.payload };
 
     case 'user_data/update':
-      return {
-        ...state,
-        userData: { ...state.userData, ...action.payload },
-      };
+      return { ...state, userData: { ...state.userData, ...action.payload } };
+
     case 'user_data/validation':
       return { ...state, userDataIsValid: action.payload };
 
-    case 'user_data/registration-service-ok':
-      return { ...state, userRegistrationServiceApiOk: action.payload };
+    case 'user_data/email-confirmation':
+      return { ...state, emailConfirmationIsValid: action.payload };
 
     case 'day_and_time/update':
       return { ...state, dayAndTime: action.payload };
@@ -81,7 +90,7 @@ export const bookingReducer = (state: BookingState, action: ActionGeneric) => {
   }
 };
 
-interface PlanSelection {
+export interface PlanSelection {
   id: string;
   name: string;
   price: number;
@@ -89,30 +98,36 @@ interface PlanSelection {
   description: string;
   currency: string;
   duration_hours: string;
-  duration_minutes: string;
+  duration_in_min: string;
 }
 
-interface UserData {
+export interface UserData {
   firstName: string;
   lastName: string;
   email: string;
+  password: string;
   userRegistrationId: string;
+  email_confirmation_code: string;
+  email_verified: boolean;
 }
 
-interface DayAndTime {
+export interface DayAndTime {
+  date: Date;
   day: string;
   time: string;
   timeZone: string;
 }
 
-interface BookingState {
+export interface BookingState {
   clientSecret: null | string;
   currentStep: number;
   planSelection: PlanSelection;
   planSelectionIsValid: boolean;
   userData: UserData;
   userDataIsValid: boolean;
-  userRegistrationServiceApiOk: boolean;
+  emailConfirmationIsValid: boolean;
+  apiLoading: boolean;
+  apiError: boolean;
   dayAndTime: DayAndTime;
   dayAndTimeIsValid: boolean;
   confirmData: boolean;

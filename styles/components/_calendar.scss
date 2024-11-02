@@ -1,97 +1,129 @@
+$blue-selected: rgb(107, 227, 217);
+$blue-hover: rgb(95, 201, 192);
+$blue-tw: rgb(240 253 250);
+$gray-text-disabled: rgb(162, 162, 162);
+$black-text-enabled: rgb(10, 10, 10);
 .calendar {
   // margin-top: 11rem;
   // background-color: rgba($color-blue, 1);
   border-radius: 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-items: center;
+  align-items: center;
   // background-color: $color-secondary-dark;
-  height: 56rem;
-  background-color: $color-primary-dark;
+  // height: 56rem;
+  // height: fit-content;
   & .react-calendar {
-    background-color: transparent;
+    background-color: rgb(240 253 250);
+    // background-color: transparent;
     margin-top: 2rem;
-    width: 100%;
-    height: 100%;
-    color: $color-black;
-
+    // width: 100%;
+    // height: 100%;
+    color: $black-text-enabled;
+    border-radius: 0.5rem;
+    border-color: rgba(74, 213, 213, 0.175);
     &__navigation {
-      height: 9rem;
-      &__label__labelText {
-        font-size: $big-font-size-2;
-        color: $color-white;
+      // height: 9rem;
+      &__label {
+        &__labelText {
+          font-size: 1rem;
+          color: $black-text-enabled;
+        }
+        &:enabled:hover {
+          background-color: $blue-selected;
+        }
       }
       &__arrow {
         align-content: center;
-        font-size: 5rem;
-        color: white;
+        font-size: 1rem;
+        color: $black-text-enabled;
+
+        &.react-calendar__navigation__next-button:hover {
+          background-color: $blue-selected;
+        }
       }
       & button:enabled:focus {
-        background-color: rgba($color-primary-dark, 0.85);
+        background-color: $blue-selected;
       }
+      // rgb(13, 148, 136)
+      // rgb(20, 184, 166)
       &__prev2-button:disabled,
       &__prev-button:disabled {
         // color: $color-blue-2;
-        color: #87614f;
+        color: $gray-text-disabled;
       }
       &__next2-button:disabled,
       &__next-button:disabled {
-        color: #87614f;
+        color: $gray-text-disabled;
       }
     }
 
     &__month-view {
       &__weekdays {
-        font-size: 2.5rem;
-        color: white;
+        font-size: 0.8rem;
+        color: $black-text-enabled;
 
         &__weekday abbr {
           text-decoration: none;
         }
       }
       &__days {
-        height: 35rem;
+        // height: 35rem;
 
         button {
-          font-size: 3rem;
+          font-size: 1rem;
           abbr {
             // color: $color-black;
-            color: #87614f;
+            color: rgb(162, 162, 162);
           }
         }
       }
       &:active:enabled:hover {
-        background-color: $color-secondary-dark;
+        background-color: rgb(13, 148, 136);
       }
       .react-calendar {
         &__tile {
           &--now {
-            background-color: transparent;
             abbr {
-              font-size: 4rem;
+              font-size: 1rem;
               font-weight: bolder;
             }
           }
           &--active,
           &--active:enabled:hover,
           &--active:enabled:focus {
-            background-color: $color-primary-dark;
+            background-color: $blue-selected;
           }
         }
       }
       button:not(:disabled),
       button:not(:disabled) abbr {
-        color: rgb(255, 255, 255);
+        color: rgb(28, 28, 28);
         font-weight: 600;
       }
     }
 
+    &__year-view__months {
+      .react-calendar {
+        &__tile--now {
+          background-color: $blue-selected; // Normal
+          &:hover {
+            background-color: $blue-hover; // Hover
+          }
+        }
+      }
+    }
     button:disabled,
     button:disabled abbr {
       background-color: transparent;
     }
   }
   .react-calendar__tile {
+    // background-color: $blue-selected;
     &:enabled:hover,
     &:focus {
-      background-color: transparent;
+      // background-color: $blue-hover;
     }
   }
 }

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { BookingState } from '../../interfaces/payment';
+import { BookingState } from './reducer';
 
 export const DispatchContext = React.createContext(null);
 export const StateContext = React.createContext(null);

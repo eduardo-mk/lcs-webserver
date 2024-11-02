@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { navigationItems } from '../../content';
 
 const debounce = (func, delay) => {
   let debounceTimer;
@@ -34,7 +35,7 @@ function Navigation() {
     return () => {
       window.removeEventListener('resize', debounceFn);
     };
-  }, []);
+  }, [debounceFn]);
 
   useEffect(() => {
     checkViewportSize();
@@ -84,6 +85,7 @@ function Navigation() {
             }`}
         >
           <i className="navigation__shopping-cart--icon feature-box__icon icon-ecommerce-cart-content"></i>
+          <i className="navigation__shopping-cart--icon feature-box__icon icon-ecommerce-cart-check"></i>
         </div> */}
 
         <nav
@@ -91,28 +93,43 @@ function Navigation() {
         >
           <ul className="navigation__list">
             <li className="navigation__item">
-              <Link href="/" className="navigation__link">
-                Inicio
+              <Link
+                href={navigationItems.home.href}
+                className="navigation__link"
+              >
+                {navigationItems.home.label}
               </Link>
             </li>
             <li className="navigation__item">
-              <Link href="/booking/plans" className="navigation__link">
-                Citas en Línea
+              <Link
+                href={navigationItems.onlineAppointments.href}
+                className="navigation__link"
+              >
+                {navigationItems.onlineAppointments.label}
               </Link>
             </li>
             <li className="navigation__item">
-              <Link href="/plans" className="navigation__link">
-                Servicios
+              <Link
+                href={navigationItems.services.href}
+                className="navigation__link"
+              >
+                {navigationItems.services.label}
               </Link>
             </li>
-            {/* <li className="navigation__item">
-              <Link href="/stories" className="navigation__link">
-                Historias
-              </Link>
-            </li> */}
             <li className="navigation__item">
-              <Link href="/about" className="navigation__link">
-                Acerca de mi
+              <Link
+                href={navigationItems.about.href}
+                className="navigation__link"
+              >
+                {navigationItems.about.label}
+              </Link>
+            </li>
+            <li className="navigation__item">
+              <Link
+                href={navigationItems.login.href}
+                className="navigation__link"
+              >
+                {navigationItems.login.label}
               </Link>
             </li>
           </ul>
@@ -120,18 +137,46 @@ function Navigation() {
         <nav
           className={`navigation__nav-not-small ${showNavLinksOnTop ? 'show-nav-list' : 'hide-nav-list'}`}
         >
-          <ul className="`navigation__nav-not-small__list">
-            <li className="`navigation__nav-not-small__item">
-              <Link href="/">Inicio</Link>
+          <ul className="navigation__nav-not-small__list">
+            <li className="navigation__item">
+              <Link
+                href={navigationItems.home.href}
+                className="navigation__nav-not-small__item"
+              >
+                {navigationItems.home.label}
+              </Link>
             </li>
-            <li className="`navigation__nav-not-small__item">
-              <Link href="/booking/plans">Citas en Línea</Link>
+            <li className="navigation__item">
+              <Link
+                href={navigationItems.onlineAppointments.href}
+                className="navigation__nav-not-small__item"
+              >
+                {navigationItems.onlineAppointments.label}
+              </Link>
             </li>
-            <li className="`navigation__nav-not-small__item">
-              <Link href="/plans">Servicios</Link>
+            <li className="navigation__item">
+              <Link
+                href={navigationItems.services.href}
+                className="navigation__nav-not-small__item"
+              >
+                {navigationItems.services.label}
+              </Link>
             </li>
-            <li className="`navigation__nav-not-small__item">
-              <Link href="/about">Conóceme</Link>
+            <li className="navigation__item">
+              <Link
+                href={navigationItems.about.href}
+                className="navigation__nav-not-small__item"
+              >
+                {navigationItems.about.label}
+              </Link>
+            </li>
+            <li className="navigation__item">
+              <Link
+                href={navigationItems.login.href}
+                className="navigation__nav-not-small__item"
+              >
+                {navigationItems.login.label}
+              </Link>
             </li>
           </ul>
         </nav>

@@ -35,4 +35,5 @@ export interface BookingState {
   dayAndTimeIsValid: boolean;
   confirmData: boolean;
   userRegistrationServiceApiOk: boolean;
+  emailRegistrationServiceApiOk: boolean;
 }

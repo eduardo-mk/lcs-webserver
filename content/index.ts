@@ -10,6 +10,15 @@ export const userInfoAssociatedContent = {
     'Algun dato es incorrecto ¿Podrías revisar si la información es correcta?',
   'user-info-can-not-be-registered': `Lo sentimos, por el momento no podemos continuar con el proceso de registro, el servicio estará dispoinble pronto`,
   'user-info-footer-disclaimer': `La informacion sera utilizada para mandarle un cuestionario de salud.\nLe recomendamos contestar dicho cuestionario antes de la consulta para\naprovechar mejor el tiempo.`,
+  'contact-info-disclusure-1': 'La informacion sera utilizada para mandarle un cuestionario de salud.',
+  'contact-info-header-simple': 'Registro simple',
+  'contact-info-instruction': `Necesitaremos un correo electrónico y tu nombre, para completar este paso es necesario iniciar una session.`,
+  'step-1': 'Registro',
+  'step-2': 'Confirmación',
+  'step-2-explanation':
+    'Una vez completado el registro solo confirme con el código enviado a su correo.',
+  'registration-done-button': 'Registrado',
+  'registration-button': 'Registrar',
 };
 
 export const reviewApplicationContent = {
@@ -55,3 +64,13 @@ export const translate_24_to_12 = {
   '23:00:00': '11:00 pm',
   '24:00:00': '12:00 am',
 };
+
+export const booking_progress_bar_steps = [
+  { id: '01', name: 'Información de contacto', href:'/booking/user-info', status: 'upcoming' },
+  { id: '02', name: 'Elige una consulta', href:'/booking/plans', status: 'upcoming' },
+  { id: '03', name: 'Elige un día y una hora', href:'/booking/day-time', status: 'upcoming' },
+  { id: '04', name: 'Confirma que todo sea correcto', href:'/booking/review', status: 'upcoming' },
+  { id: '05', name: 'Efectuar pago', href:'/booking/payment', status: 'upcoming' },
+];
+
+export { navigationItems } from './nav-bar';
