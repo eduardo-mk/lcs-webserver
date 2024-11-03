@@ -1,6 +1,6 @@
 const path = require('path');
 const { ipv4Addresses } = require('./_deploy/get-localhost-ip');
-const { ngrokPublicUrl } = require('./_deploy/get-ngrok-public-url');
+// const { ngrokPublicUrl } = require('./_deploy/get-ngrok-public-url');
 require('dotenv').config({ path: path.resolve(__dirname, '.env.local') });
 
 const isProdEnv = process.env.NODE_ENV === 'production';
