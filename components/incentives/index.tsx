@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import veroAmamantando from '../../public/images/lactancia-v-n.jpg';
+import veroAmamantando from '../../public/images/lactancia_v_color.jpg';
+
 const incentives = [
   {
     name: 'Consulta en línea',

@@ -29,7 +29,7 @@ module.exports = {
     NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY:
       process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
     HOST_URL,
-    NEXTAUTH_URL: ngrokPublicUrl,
+    // NEXTAUTH_URL: ngrokPublicUrl,
     GRAPHQL_API_URL,
     BACKEND_URL,
     STRIPE_URL,
