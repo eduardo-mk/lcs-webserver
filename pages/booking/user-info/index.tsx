@@ -27,7 +27,7 @@ function UserInfo({ userIsBooking }) {
   const userDataConfirmation = async () => {
     const userData = {
       firstName: session.user.firstName,
-      lastName: session.user.lastName,
+      lastname: session.user.lastName,
       email: session.user.email,
       password: '',
       userRegistrationId: '',
