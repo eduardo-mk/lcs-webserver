@@ -16,10 +16,8 @@ export default function AboutMePage() {
           <div className="lg:pr-4">
             <Image
               className="w-auto"
-              src="/images/about me.jpg"
+              src={aboutMe}
               alt="logo"
-              width={1500}
-              height={1500}
               priority={true}
             />
             <div
@@ -108,14 +106,27 @@ export default function AboutMePage() {
               </div>
             </div>
             <dl className="mt-10 grid grid-cols-3 place-items-center gap-8 border-t border-neutral-800/10 pt-10 sm:grid-cols-4">
-              <Image src={iblceLogo} alt="IBLCE logo" width={90} height={90} />
+              <Image
+                src={iblceLogo}
+                alt="IBLCE logo"
+                width={90}
+                height={90}
+                priority={true}
+              />
               <Image
                 src={unisonLogo}
                 alt="UNISON logo"
                 width={80}
                 height={80}
+                priority={true}
               />
-              <Image src={uesLogo} alt="UES logo" width={150} height={150} />
+              <Image
+                src={uesLogo}
+                alt="UES logo"
+                width={150}
+                height={150}
+                priority={true}
+              />
             </dl>
           </div>
         </div>

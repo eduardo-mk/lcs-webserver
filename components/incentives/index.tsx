@@ -1,5 +1,5 @@
 import Image from 'next/image';
-
+import veroAmamantando from '../../public/images/lactancia-v-n.jpg';
 const incentives = [
   {
     name: 'Consulta en línea',
@@ -65,17 +65,10 @@ export default function Incentives() {
             <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg bg-neutral-100">
               <Image
                 className="h-auto w-auto text-neutral-100"
-                src="/images/lactancia-v-n.jpg"
-                alt="logo"
-                width={600}
-                height={100}
+                src={veroAmamantando}
+                alt="Mujer dando de mamar"
                 priority={true}
               />
-              {/* <img
-                alt=""
-                src="https://tailwindui.com/plus/img/ecommerce-images/incentives-07-hero.jpg"
-                className="object-cover object-center"
-              /> */}
             </div>
           </div>
           <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3">
