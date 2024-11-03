@@ -11,16 +11,16 @@ const HOST_URL = isProdEnv
   : process.env.DEV_HOST_URL;
 const GRAPHQL_API_URL = isProdEnv
   ? `${process.env.BACKEND_URL}/graphql`
-  : `https://${LOCAL_IP_ADDRESS}:${BACKEND_LOCAL_PORT}/graphql`;
+  : `http://${LOCAL_IP_ADDRESS}:${BACKEND_LOCAL_PORT}/graphql`;
 const BACKEND_URL = isProdEnv
   ? process.env.BACKEND_URL
-  : `https://${LOCAL_IP_ADDRESS}:${BACKEND_LOCAL_PORT}`;
+  : `http://${LOCAL_IP_ADDRESS}:${BACKEND_LOCAL_PORT}`;
 const STRIPE_URL = isProdEnv ?
   `${BACKEND_URL}/api/v1/payments/intent` :
-  `https://${LOCAL_IP_ADDRESS}:${BACKEND_LOCAL_PORT}/api/v1/payments/intent`;
+  `http://${LOCAL_IP_ADDRESS}:${BACKEND_LOCAL_PORT}/api/v1/payments/intent`;
 // const extraOptions = isProdEnv ? { output: 'standalone' } : {};
 module.exports = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   // outputFileTracing: false,
   sassOptions: {
     includedPaths: [path.join(__dirname, 'styles')],

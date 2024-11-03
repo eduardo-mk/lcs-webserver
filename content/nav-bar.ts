@@ -10,12 +10,12 @@ export const navigationItems: { [key: string]: NavItem } = {
   },
   onlineAppointments: {
     href: '/booking/user-info',
-    label: 'Citas en Línea',
+    label: 'Citas',
   },
-  services: {
-    href: '/plans',
-    label: 'Servicios',
-  },
+  // services: {
+  //   href: '/plans',
+  //   label: 'Servicios',
+  // },
   about: {
     href: '/about',
     label: 'Conóceme',

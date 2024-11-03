@@ -14,7 +14,7 @@ export const initialBookingState: BookingState = {
     description: '',
     currency: '',
     duration_hours: '',
-    duration_minutes: '',
+    duration_in_min: '',
   },
   planSelectionIsValid: false,
   userData: {
@@ -24,6 +24,7 @@ export const initialBookingState: BookingState = {
     password: '',
     userRegistrationId: '',
     email_confirmation_code: '',
+    email_verified: false,
   },
   userDataIsValid: undefined,
   emailConfirmationIsValid: undefined,
@@ -97,7 +98,7 @@ export interface PlanSelection {
   description: string;
   currency: string;
   duration_hours: string;
-  duration_minutes: string;
+  duration_in_min: string;
 }
 
 export interface UserData {
@@ -107,6 +108,7 @@ export interface UserData {
   password: string;
   userRegistrationId: string;
   email_confirmation_code: string;
+  email_verified: boolean;
 }
 
 export interface DayAndTime {

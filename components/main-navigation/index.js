@@ -119,7 +119,7 @@ function Navigation() {
             <li className="navigation__item">
               <Link
                 href={navigationItems.about.href}
-                className="navigation__link text-3xl"
+                className="navigation__link"
               >
                 {navigationItems.about.label}
               </Link>
@@ -165,7 +165,7 @@ function Navigation() {
             <li className="navigation__item">
               <Link
                 href={navigationItems.about.href}
-                className="navigation__nav-not-small__item text-3xl"
+                className="navigation__nav-not-small__item"
               >
                 {navigationItems.about.label}
               </Link>

@@ -1,8 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Vero varela nutricion
 
-## Getting Started
+## Webserver
 
-First, run the development server:
+Note: To spin up the local server you need to install also the related backend services and install Postgres otherwise this project will not work.
 
 ```bash
 npm run dev

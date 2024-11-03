@@ -7,9 +7,9 @@ let paymentUrl = process.env.STRIPE_URL;
 //   paymentUrl = `${process.env.BACKEND_URL}/api/v1/payments/intent`;
 // }
 
-const agent = new Agent({
-    rejectUnauthorized: false, // Disable SSL certificate verification
-  });
+// const agent = new Agent({
+//     rejectUnauthorized: false, // Disable SSL certificate verification
+//   });
 
 export default async function handler(req, res) {
   try {
@@ -18,7 +18,7 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(req.body),
-      agent
+      // agent
     });
 
     if (backendResponse.status >= 100 && backendResponse.status < 300) {

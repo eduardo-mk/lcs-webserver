@@ -12,15 +12,17 @@ import {
 } from '../../../graphql/hooks';
 import BookingFlow from '../../../compositions/booking';
 import { useRouter } from 'next/router';
+import useFormGoNextStep from '../../../misc/useFormGoNextStep';
 
 const _1_day = 3600 * 1000 * 24;
 const NEXT_PAGE = '/booking/review';
 
 function DayAndTime() {
   const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  const state = useStateContext();
+  const { planSelectionIsValid, userDataIsValid } = useStateContext();
   const dispatch = useDispatchContext();
   const router = useRouter();
+  const goNextStep = useFormGoNextStep();
 
   const [date, setDate] = useState(new Date(Date.now() + _1_day));
   const [time, setTime] = useState(null);
@@ -29,9 +31,14 @@ function DayAndTime() {
   const daysAvailable = useCalendarAvailableDays();
   const hoursAvailable = useCalendarAvailableHours(date, timeZone);
 
+  // Set progress bar step
   useEffect(() => {
     dispatch({ type: 'current_step_inside_form/update', payload: 2 });
   }, [dispatch]);
+
+  useEffect(() => {
+    if (!(planSelectionIsValid && userDataIsValid)) router.push('/');
+  }, [planSelectionIsValid]);
 
   function dateHandler(date: Date) {
     setDate(date);
@@ -57,8 +64,9 @@ function DayAndTime() {
       },
     });
     dispatch({ type: 'day_and_time/validation', payload: true });
-    dispatch({ type: 'current_step_inside_form/update', payload: 3 });
-    router.push(NEXT_PAGE);
+    // dispatch({ type: 'current_step_inside_form/update', payload: 3 });
+    // router.push(NEXT_PAGE);
+    goNextStep(NEXT_PAGE);
   }
 
   if (daysAvailable.error) return <h1>Error while trying to load days</h1>;
@@ -73,14 +81,11 @@ function DayAndTime() {
   return (
     <BookingFlow>
       <section className="day-time__page">
-        <h1 className="section-booking__header">
-          Elige el día y después la hora
-        </h1>
         <Calendar
           timeAvailable={daysAvailable.days}
           onSelectionHandler={dateHandler}
         />
-        <section className="day-time__time-wrapper">
+        <section className="flex flex-col items-center justify-center day-time__time-wrapper ">
           {showTimePicker && !hoursAvailable.loading ? (
             <>
               <TimeSessionPicker
@@ -88,13 +93,17 @@ function DayAndTime() {
                 onSelectionHandler={timeHandler}
                 hours={hoursAvailable.hours}
               />
-              <Button
-                className="btn--white"
+              <button
+                className="self-center block w-28 mt-8 h-10 rounded-md bg-teal-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 "
                 type="button"
                 onClick={handlerForDayAndTimeSelection}
               >
+                Seleccionar
+              </button>
+              {/* <Button
+              >
                 SELECCIONAR
-              </Button>
+              </Button> */}
             </>
           ) : null}
         </section>

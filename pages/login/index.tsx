@@ -79,6 +79,7 @@ import ButtonAuthGoogle from '../../components/button_auth_google/button_auth_go
 import { redirect, RedirectType } from 'next/navigation';
 import { useRouter } from 'next/router';
 import Button from '../../components/button-white';
+import Image from 'next/image';
 
 export default function Login({
   providers,
@@ -101,21 +102,89 @@ export default function Login({
   };
 
   return (
-    <section className="login__section">
-      {JSON.stringify(session)}
-      {session ? (
-        <ButtonAuthGoogle
-          onClickCallback={signingOut}
-          message={'Cerrar sesión con Google'}
-        />
-      ) : (
-        <ButtonAuthGoogle
-          message={'Acceso con Google'}
-          onClickCallback={signingIn}
-        />
-      )}
-    </section>
+    <>
+      <div className="overflow-hidden bg-white shadow">
+        <div className="min-h-screen flex items-center mt-52 flex-col">
+          <div
+            aria-hidden="true"
+            className="absolute left-1/2 top-1/2 -ml-16 -translate-x-1/2 -translate-y-1/2 transform-gpu blur-3xl"
+          >
+            <div
+              style={{
+                clipPath:
+                  'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+              }}
+              className="aspect-[1097/845] w-[30rem] sm:w-[30rem] md:w-[50rem] lg:w-[68.5625rem] bg-gradient-to-tr from-[#bd5353] to-[#f0a4b1] opacity-40"
+            />
+            <div
+              style={{
+                clipPath:
+                  'polygon(13% 22%, 67% 21%, 11% 65%, 67% 69%, 36% 63%, 31% 31%, 21% 93%, 92% 47%, 34% 6%, 0% 35%, 87% 91%)',
+              }}
+              className="aspect-[1097/845] w-[30rem] sm:w-[30rem] md:w-[50rem] lg:w-[68.5625rem] bg-gradient-to-br from-[#66bd53] to-[#a4f0a6] opacity-40"
+            />
+          </div>
+          <div className="p-8 max-w-md">
+            <div className="flex flex-row align-middle justify-center space-x-3">
+              <h2 className="text-2xl font-bold text-center mb-6">
+                Iniciar sesión
+              </h2>
+              <Image
+                className="h-[3rem] w-auto text-neutral-100 pb-4"
+                src="/logo/veronica-isotipo.svg"
+                alt="logo"
+                width={50}
+                height={50}
+                priority={true}
+              />
+            </div>
+
+            <div className="flex flex-col space-y-4">
+              {/* {JSON.stringify(session)} */}
+              {session ? (
+                <ButtonAuthGoogle
+                  onClickCallback={signingOut}
+                  message={'Cerrar sesión con Google'}
+                />
+              ) : (
+                <ButtonAuthGoogle
+                  message={'Acceso con Google'}
+                  onClickCallback={signingIn}
+                />
+              )}
+            </div>
+            <p className="pt-4 text-sm">
+              Necesitamos un correo electronico válido y tu nombre, solo
+              usaremos esa información para mandarte un formulario de salud
+              previo a la cita y los comprobantes de pago. No lo usaremos para
+              enviar publicidad, visita nuestras políticas de privacidad.
+            </p>
+          </div>
+        </div>
+
+        <div className="px-4 py-4 sm:px-6">
+          {/* Content goes here */}
+          {/* We use less vertical padding on card footers at all sizes than on headers or body sections */}
+        </div>
+      </div>
+    </>
   );
+  // return (
+  //   <section className="login__section">
+  //     {JSON.stringify(session)}
+  //     {session ? (
+  //       <ButtonAuthGoogle
+  //         onClickCallback={signingOut}
+  //         message={'Cerrar sesión con Google'}
+  //       />
+  //     ) : (
+  //       <ButtonAuthGoogle
+  //         message={'Acceso con Google'}
+  //         onClickCallback={signingIn}
+  //       />
+  //     )}
+  //   </section>
+  // );
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {

@@ -12,7 +12,7 @@ export const userInfoAssociatedContent = {
   'user-info-footer-disclaimer': `La informacion sera utilizada para mandarle un cuestionario de salud.\nLe recomendamos contestar dicho cuestionario antes de la consulta para\naprovechar mejor el tiempo.`,
   'contact-info-disclusure-1': 'La informacion sera utilizada para mandarle un cuestionario de salud.',
   'contact-info-header-simple': 'Registro simple',
-  'contact-info-instruction': `Necesitaremos un correo electronico y tu nombre para hacer una cita en línea.`,
+  'contact-info-instruction': `Necesitaremos un correo electrónico y tu nombre, para completar este paso es necesario iniciar una session.`,
   'step-1': 'Registro',
   'step-2': 'Confirmación',
   'step-2-explanation':
@@ -66,11 +66,11 @@ export const translate_24_to_12 = {
 };
 
 export const booking_progress_bar_steps = [
-  { title: 'Contacto' },
-  { title: 'Planes' },
-  { title: 'Fecha' },
-  { title: 'Confirma' },
-  { title: 'Pago' },
+  { id: '01', name: 'Información de contacto', href:'/booking/user-info', status: 'upcoming' },
+  { id: '02', name: 'Elige una consulta', href:'/booking/plans', status: 'upcoming' },
+  { id: '03', name: 'Elige un día y una hora', href:'/booking/day-time', status: 'upcoming' },
+  { id: '04', name: 'Confirma que todo sea correcto', href:'/booking/review', status: 'upcoming' },
+  { id: '05', name: 'Efectuar pago', href:'/booking/payment', status: 'upcoming' },
 ];
 
 export { navigationItems } from './nav-bar';

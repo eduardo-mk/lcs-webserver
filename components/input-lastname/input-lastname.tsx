@@ -20,7 +20,7 @@ function LastNameInput({ disabled }: LastNameInputProps) {
     setLastnameIsValid(validateLastName(event.target.value.length));
     dispatch({
       type: 'user_data/update',
-      payload: { lastname: event.target.value },
+      payload: { lastName: event.target.value },
     });
   }
 
@@ -34,7 +34,7 @@ function LastNameInput({ disabled }: LastNameInputProps) {
       onChange={lastNameHandler}
       onBlur={onBlurLastnameChecks}
       isValid={lastnameIsValid}
-      value={userData.lastname}
+      value={userData.lastName}
       type="text"
       label="Apellido"
       name="Last-name"

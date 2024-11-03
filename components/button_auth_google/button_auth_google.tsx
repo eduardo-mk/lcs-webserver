@@ -1,4 +1,5 @@
-const ButtonAuthGoogle = ({ message, onClickCallback }) => {
+const ButtonAuthGoogle = (props) => {
+  const { message, onClickCallback } = props;
   return (
     <button className="gsi-material-button btn--auth" onClick={onClickCallback}>
       <div className="gsi-material-button-state"></div>

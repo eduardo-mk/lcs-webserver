@@ -36,6 +36,8 @@ export const SCHEDULE_APPOINTMENT = gql`
   mutation ScheduleAppointment($data: ScheduleAppointmentArgs!) {
     scheduleAppointment(data: $data) {
       msg
+      status
+      error
     }
   }
 `;
