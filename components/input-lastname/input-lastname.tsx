@@ -34,7 +34,7 @@ function LastNameInput({ disabled }: LastNameInputProps) {
       onChange={lastNameHandler}
       onBlur={onBlurLastnameChecks}
       isValid={lastnameIsValid}
-      value={userData.lastName}
+      value={userData.lastname}
       type="text"
       label="Apellido"
       name="Last-name"
