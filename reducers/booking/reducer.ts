@@ -15,6 +15,7 @@ export const initialBookingState: BookingState = {
     currency: '',
     duration_hours: '',
     duration_in_min: '',
+    duration_minutes: '',
   },
   planSelectionIsValid: false,
   userData: {
@@ -99,6 +100,7 @@ export interface PlanSelection {
   currency: string;
   duration_hours: string;
   duration_in_min: string;
+  duration_minutes: string;
 }
 
 export interface UserData {
