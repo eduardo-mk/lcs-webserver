@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import veroAmamantando from '../../public/images/lactancia_v_color.jpg';
+import veroAmamantando from '../../public/images/lactancia_vertical.jpg';
 
 const incentives = [
   {
@@ -68,7 +68,7 @@ export default function Incentives() {
                 className="h-auto w-auto text-neutral-100"
                 src={veroAmamantando}
                 alt="Mujer dando de mamar"
-                priority={true}
+                priority
               />
             </div>
           </div>
