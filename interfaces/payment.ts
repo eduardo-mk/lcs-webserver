@@ -8,7 +8,7 @@ export interface PlanSelection {
   description: string;
   currency: string;
   duration_hours: string;
-  duration_minutes: string;
+  duration_in_min: string;
 }
 
 export interface UserData {

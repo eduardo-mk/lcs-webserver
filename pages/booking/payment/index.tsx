@@ -71,7 +71,7 @@ function Payment() {
       service_id: planSelection.id,
       time_of_appt: dayAndTime.time,
       day_of_appt: formatDate(dayAndTime.date),
-      duration_in_min: planSelection.duration_minutes,
+      duration_in_min: planSelection.duration_in_min,
       // duration_in_min: planSelection.duration_minutes,
       location: 'Online appointment',
       payment_intent_id: result.paymentIntent.id,
