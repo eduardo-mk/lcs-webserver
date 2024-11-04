@@ -143,10 +143,7 @@ function Payment() {
             id: result.paymentIntent.id,
           },
         });
-
-        dispatch({
-          type: 'reset',
-        });
+        dispatch({ type: 'reset' });
       } else {
         // await router.replace({
         //   pathname: `/payment/fail`,

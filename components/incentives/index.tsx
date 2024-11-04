@@ -47,7 +47,7 @@ export default function Incentives() {
         <div className="mx-auto max-w-2xl px-4 lg:max-w-none">
           <div className="grid grid-cols-1 items-center gap-x-16 gap-y-10 lg:grid-cols-2">
             <div>
-              <h2 className="text-4xl font-bold tracking-tight text-neutral-800">
+              <h2 className="text-4xl font-bold text-center md:text-left tracking-tight text-neutral-800">
                 Estoy aquí para ayudarte en tus etapas de embarazo.
               </h2>
               <p className="mt-4 text-neutral-600">

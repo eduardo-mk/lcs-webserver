@@ -9,8 +9,7 @@ type BookingFlowProps = {
   loading?: boolean;
 };
 
-function BookingFlow({ children }: BookingFlowProps) {
-  const loading = false;
+function BookingFlow({ loading, children }: BookingFlowProps) {
   const [showSpinner, setshowSpinner] = useState(false);
   const [showProgressBar, setShowProgressBar] = useState(true);
   const router = useRouter();
