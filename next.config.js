@@ -5,6 +5,7 @@ require('dotenv').config({ path: path.resolve(__dirname, '.env.local') });
 
 const isProdEnv = process.env.NODE_ENV === 'production';
 const BACKEND_LOCAL_PORT = '4000';
+const FRONTEND_PORT = isProdEnv ? process.env.PORT : '3000'
 const LOCAL_IP_ADDRESS = ipv4Addresses[1]
 const HOST_URL = isProdEnv
   ? process.env.PROD_HOST_URL
@@ -35,7 +36,7 @@ module.exports = {
     GRAPHQL_API_URL,
     BACKEND_URL,
     STRIPE_URL,
-    PORT: '3000',
+    PORT: FRONTEND_PORT,
     BACKEND_LOCAL_PORT,
   },
   images: {
