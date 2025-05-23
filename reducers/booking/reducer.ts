@@ -1,5 +1,5 @@
-interface ActionGeneric {
-  payload: any;
+export interface ActionGeneric {
+  payload?: any;
   type: string;
 }
 
@@ -124,10 +124,10 @@ export interface BookingState {
   planSelection: PlanSelection;
   planSelectionIsValid: boolean;
   userData: UserData;
-  userDataIsValid: boolean;
-  emailConfirmationIsValid: boolean;
-  apiLoading: boolean;
-  apiError: boolean;
+  userDataIsValid: boolean | undefined;
+  emailConfirmationIsValid: boolean | undefined;
+  apiLoading: boolean | undefined;
+  apiError: boolean | undefined;
   dayAndTime: DayAndTime;
   dayAndTimeIsValid: boolean;
   confirmData: boolean;

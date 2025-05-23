@@ -32,7 +32,7 @@ const STRIPE_OPTS: StripeConstructorOptions = {
   apiVersion: '2020-08-27',
 };
 const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? '',
   STRIPE_OPTS
 );
 
@@ -41,7 +41,7 @@ function Payment() {
   const dispatch = useDispatchContext();
   const [mutateFunction, mutationState] = useMutation(SCHEDULE_APPOINTMENT);
   const [payButtonDisabled, setPayButtonDisabled] = useState(true);
-  const [errorMsg, setErrorMessages] = useState(null);
+  const [errorMsg, setErrorMessages] = useState<string | null>(null);
   const redirectToErrorPage = useRedirectIfPageIs(
     '/booking/payment',
     '/payment/fail'
@@ -74,7 +74,7 @@ function Payment() {
       duration_in_min: planSelection.duration_in_min,
       // duration_in_min: planSelection.duration_minutes,
       location: 'Online appointment',
-      payment_intent_id: result.paymentIntent.id,
+      payment_intent_id: result?.paymentIntent?.id ?? '',
     };
 
     try {
@@ -117,9 +117,10 @@ function Payment() {
     if (payButtonDisabled === true) return;
     setPayButtonDisabled(true);
 
-    let result: PaymentIntentResult;
     try {
-      result = await stripe.confirmPayment({
+      if (stripe === null || elements === null) return;
+
+      let result: PaymentIntentResult = await stripe.confirmPayment({
         //`Elements` instance that was used to create the Payment Element
         elements,
         redirect: 'if_required',
@@ -127,55 +128,55 @@ function Payment() {
         //   return_url: `${process.env.HOST_URL}/payment/success`,
         // },
       });
+
+      if (result?.paymentIntent?.status === 'succeeded') {
+        const { error, successful, response } = await onPayHandler(result);
+        console.log('Payment Intent Handler reponse');
+        console.log({ error, successful, response });
+        if (error === null && successful === true) {
+          await router.replace({
+            pathname: `/payment/success`,
+            query: {
+              id: result.paymentIntent.id,
+            },
+          });
+          dispatch({ type: 'reset' });
+        } else {
+          // await router.replace({
+          //   pathname: `/payment/fail`,
+          //   query: {
+          //     id: result.paymentIntent.id,
+          //     message: JSON.stringify(response),
+          //   },
+          // });
+          await redirectToErrorPage();
+        }
+      }
+
+      if (result?.error) {
+        // console.error('[Error Stripe] payments');
+        // console.error(result);
+        switch (result.error.type) {
+          case 'validation_error':
+            setErrorMessages(result.error.message ?? '');
+            break;
+          case 'invalid_request_error':
+            await redirectToErrorPage();
+            // await router.replace({
+            //   pathname: '/payment/fail',
+            //   query: {
+            //     payment_intent_id: result.error.payment_intent.id,
+            //     message: result.error.message,
+            //   },
+            // });
+            break;
+          default:
+            break;
+        }
+      }
     } catch (e) {
       await redirectToErrorPage();
       // await router.replace('/payment/fail');
-    }
-
-    if (result?.paymentIntent?.status === 'succeeded') {
-      const { error, successful, response } = await onPayHandler(result);
-      console.log('Payment Intent Handler reponse');
-      console.log({ error, successful, response });
-      if (error === null && successful === true) {
-        await router.replace({
-          pathname: `/payment/success`,
-          query: {
-            id: result.paymentIntent.id,
-          },
-        });
-        dispatch({ type: 'reset' });
-      } else {
-        // await router.replace({
-        //   pathname: `/payment/fail`,
-        //   query: {
-        //     id: result.paymentIntent.id,
-        //     message: JSON.stringify(response),
-        //   },
-        // });
-        await redirectToErrorPage();
-      }
-    }
-
-    if (result?.error) {
-      // console.error('[Error Stripe] payments');
-      // console.error(result);
-      switch (result.error.type) {
-        case 'validation_error':
-          setErrorMessages(result.error.message);
-          break;
-        case 'invalid_request_error':
-          await redirectToErrorPage();
-          // await router.replace({
-          //   pathname: '/payment/fail',
-          //   query: {
-          //     payment_intent_id: result.error.payment_intent.id,
-          //     message: result.error.message,
-          //   },
-          // });
-          break;
-        default:
-          break;
-      }
     }
   };
 

@@ -20,6 +20,8 @@ const STRIPE_URL = isProdEnv ?
   `http://${LOCAL_IP_ADDRESS}:${BACKEND_LOCAL_PORT}/api/v1/payments/intent`;
 // const extraOptions = isProdEnv ? { output: 'standalone' } : {};
 module.exports = {
+  output: 'standalone',
+  trailingSlash: true,
   reactStrictMode: false,
   // outputFileTracing: false,
   sassOptions: {

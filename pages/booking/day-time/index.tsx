@@ -25,7 +25,7 @@ function DayAndTime() {
   const goNextStep = useFormGoNextStep();
 
   const [date, setDate] = useState(new Date(Date.now() + _1_day));
-  const [time, setTime] = useState(null);
+  const [time, setTime] = useState<null | string>(null);
   const [showTimePicker, setShowTimePicker] = useState(false);
 
   const daysAvailable = useCalendarAvailableDays();
@@ -33,12 +33,14 @@ function DayAndTime() {
 
   // Set progress bar step
   useEffect(() => {
-    dispatch({ type: 'current_step_inside_form/update', payload: 2 });
+    if (dispatch !== null) {
+      dispatch({ type: 'current_step_inside_form/update', payload: 2 });
+    }
   }, [dispatch]);
 
   useEffect(() => {
     if (!(planSelectionIsValid && userDataIsValid)) router.push('/');
-  }, [planSelectionIsValid]);
+  }, [planSelectionIsValid, userDataIsValid, router]);
 
   function dateHandler(date: Date) {
     setDate(date);

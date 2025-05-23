@@ -1,12 +1,25 @@
-import React, { useContext } from 'react';
-import { BookingState } from './reducer';
+import React, { useContext } from 'react'
+import { BookingState, ActionGeneric } from './reducer'
 
-export const DispatchContext = React.createContext(null);
-export const StateContext = React.createContext(null);
+type BookingDispatch = React.Dispatch<ActionGeneric>
 
+
+export const DispatchContext = React.createContext<BookingDispatch | null>(null)
+export const StateContext = React.createContext<BookingState | null>(null)
+
+// Custom hooks with proper typing and null checks
 export const useStateContext = () => {
-  return useContext<BookingState>(StateContext);
-};
+  const context = useContext(StateContext)
+  if (context === null) {
+    throw new Error('useStateContext must be used within a StateContext.Provider')
+  }
+  return context
+}
+
 export const useDispatchContext = () => {
-  return useContext(DispatchContext);
-};
+  const context = useContext(DispatchContext)
+  if (context === null) {
+    throw new Error('useDispatchContext must be used within a DispatchContext.Provider')
+  }
+  return context
+}
