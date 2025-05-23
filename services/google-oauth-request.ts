@@ -1,10 +1,10 @@
 import { Dispatch } from 'react';
-import { googleOAuthRequestUrl } from './urls';
+import { loginGoogleOAuthRequestUrl } from './urls';
 import { serverDataHandler } from './api';
 
 export async function googleOauthRequestUrl(dispatch: Dispatch<any>) {
   dispatch({ type: 'api/loading', payload: true });
-  fetch(googleOAuthRequestUrl, {
+  fetch(loginGoogleOAuthRequestUrl, {
     method: 'POST',
     mode: 'cors',
     cache: 'no-cache',
